@@ -1,0 +1,959 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+<title>Qualità dei metadati — rilevazione settimanale</title>
+<meta name="description" content="Andamento settimanale del punteggio MQA di data.europa.eu per gli enti che pubblicano su dati.gov.it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Token di Cruscotto Italia (AgID/cruscotto-italia, frontend/css/tokens.css),
+     che a loro volta seguono le linee guida Design Italia. Stessi valori, cosi'
+     le due interfacce si leggono come una cosa sola.
+     Due scostamenti voluti, per WCAG 2.1 AA: i bordi dei controlli usano --mute
+     e non --border (#E3E7EB e' a 1,24:1, sotto il 3:1 richiesto dal criterio
+     1.4.11), e "Sufficient" usa un arancio leggermente piu' scuro del --warning
+     istituzionale, che su fondo alternato si ferma a 4,40:1. */
+  --carta:#ffffff; --carta-alta:#f5f6f7; --inchiostro:#17324d; --tenue:#455a72;
+  --primario:#0066cc; --primario-scuro:#004c99; --primario-tenue:#e6f1fb;
+  --riga:#e3e7eb; --riga-forte:#455a72;
+  --su:#008055; --giu:#cc334d; --fermo:#455a72;
+  --eccellente:#008055; --buono:#31694a; --sufficiente:#8a5300; --scarso:#cc334d;
+  --mono:"SF Mono",Monaco,"Cascadia Code","Roboto Mono",Consolas,monospace;
+  --condensato:"Titillium Web",system-ui,sans-serif;
+  --testo:"Titillium Web",system-ui,sans-serif;
+}
+/* ---------- dentro un riquadro (?embed=1 o iframe) ----------
+   Con 1.610 righe il documento sarebbe alto oltre centomila pixel: delimitiamo
+   la tabella e fissiamo l'intestazione, cosi' l'altezza complessiva torna
+   trattabile e puo' essere comunicata all'ospite. Il limite e' in pixel e non in
+   vh: dentro un riquadro che si adatta al contenuto, un'altezza in vh crescerebbe
+   insieme al riquadro senza fermarsi. */
+[data-incorporato] .tabella{max-height:620px;overflow:auto}
+[data-incorporato] thead th{
+  position:sticky;top:0;z-index:2;background:var(--carta);
+  box-shadow:inset 0 -1px 0 var(--riga-forte)
+}
+
+input[type=search],select,.scarica button,.giudizio,.vai-mappe{border-radius:4px}
+a{color:var(--primario);text-underline-offset:2px}
+a:hover{color:var(--primario-scuro)}
+footer a{color:inherit}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--carta);color:var(--inchiostro);
+  font-family:var(--testo);font-size:15px;line-height:1.5;
+}
+.involucro{max-width:1160px;margin:0 auto;padding:0 20px 80px}
+
+/* salta al contenuto: visibile solo quando riceve il fuoco */
+.salta{
+  position:absolute;left:-9999px;top:0;z-index:10;
+  font-family:var(--mono);font-size:12px;background:var(--inchiostro);color:#fff;
+  padding:11px 16px;text-decoration:none
+}
+.salta:focus{left:0}
+
+/* la tabella dati puo' eccedere in larghezza: la regione e' raggiungibile da
+   tastiera per poterla scorrere senza mouse */
+.tabella{overflow-x:auto}
+.tabella:focus-visible{outline:2px solid var(--inchiostro);outline-offset:2px}
+
+/* ---------- testata ---------- */
+header{padding:44px 0 28px;border-bottom:2px solid var(--inchiostro)}
+.occhiello{
+  font-family:var(--mono);font-size:11px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--tenue);margin:0 0 10px
+}
+h1{
+  font-family:var(--condensato);font-weight:700;font-size:clamp(28px,4vw,52px);
+  line-height:1.15;letter-spacing:-.015em;margin:0;max-width:18ch;
+  color:var(--inchiostro)
+}
+h1 em{font-style:normal;color:var(--primario)}
+.sottotitolo{margin:14px 0 0;max-width:56ch;color:#3d4d57}
+.misure{
+  display:flex;flex-wrap:wrap;align-items:center;gap:34px;margin-top:30px;
+  padding-top:22px;border-top:1px solid var(--riga)
+}
+.misura .valore{
+  font-family:var(--mono);font-size:26px;font-weight:600;
+  font-variant-numeric:tabular-nums;line-height:1
+}
+.misura .etichetta{
+  font-family:var(--mono);font-size:11px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--tenue);margin-top:7px
+}
+
+/* ---------- collegamento alle mappe ---------- */
+.vai-mappe{
+  display:inline-flex;align-items:baseline;gap:11px;margin-left:auto;
+  padding:9px 18px;background:#fff;border:1px solid var(--primario);
+  border-radius:22px;color:var(--primario);text-decoration:none;
+  transition:background .15s,color .15s
+}
+.vai-mappe .voce{font-family:var(--condensato);font-size:16px;font-weight:600;letter-spacing:.005em}
+.vai-mappe .glossa{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--tenue)}
+.vai-mappe .freccia{font-family:var(--mono);font-size:14px;line-height:1;margin-left:2px}
+.vai-mappe:hover,.vai-mappe:focus-visible{background:var(--primario);color:#fff}
+.vai-mappe:hover .glossa,.vai-mappe:focus-visible .glossa{color:#d4e3f5}
+.vai-mappe:focus-visible{outline:2px solid var(--primario);outline-offset:2px}
+@media (max-width:520px){
+  .vai-mappe{flex-wrap:wrap;gap:4px 10px}
+}
+/* sotto i 780px il collegamento va a capo: senza il margine automatico resta
+   attaccato ai numeri invece di staccarsene */
+@media (max-width:780px){
+  .misure{gap:22px 30px}
+  .vai-mappe{margin-left:0;margin-top:4px}
+}
+
+/* ---------- controlli ---------- */
+.controlli{
+  display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+  margin:34px 0 0;padding-bottom:14px;border-bottom:1px solid var(--riga)
+}
+input[type=search],select{
+  font-family:var(--testo);font-size:14px;color:var(--inchiostro);
+  background:#fff;border:1px solid var(--riga-forte);border-radius:0;
+  padding:9px 12px;min-height:40px
+}
+input[type=search]{flex:1 1 250px}
+input[type=search]:focus-visible,select:focus-visible{
+  outline:2px solid var(--inchiostro);outline-offset:1px
+}
+.conteggio{font-family:var(--mono);font-size:12px;color:var(--tenue);margin-left:auto}
+
+/* ---------- tabella ---------- */
+table{width:100%;border-collapse:collapse;margin-top:2px}
+thead th{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--tenue);font-weight:500;text-align:left;padding:14px 10px 10px;
+  border-bottom:1px solid var(--riga-forte);white-space:nowrap
+}
+th.num,td.num{text-align:right;font-variant-numeric:tabular-nums}
+tbody td{padding:11px 10px;border-bottom:1px solid var(--riga);vertical-align:middle}
+tr.ente{cursor:pointer}
+/* aria-expanded non e' consentito su <tr> in una tabella normale: il comando
+   di apertura e' un pulsante dentro la prima cella, che porta anche il nome
+   accessibile della riga. */
+.apri{
+  display:block;width:100%;text-align:left;background:none;border:0;padding:0;
+  font:inherit;color:inherit;cursor:pointer
+}
+.apri:focus-visible{outline:2px solid var(--inchiostro);outline-offset:2px}
+tr.ente:hover td{background:var(--carta-alta)}
+.nome{display:block;font-family:var(--condensato);font-size:16.5px;font-weight:500;
+  letter-spacing:.005em}
+.slug{display:block;font-family:var(--mono);font-size:10.5px;color:var(--tenue);margin-top:2px}
+.punteggio{font-family:var(--mono);font-size:16px;font-weight:600;font-variant-numeric:tabular-nums}
+.conta{font-family:var(--mono);font-size:13.5px;color:#46565f;font-variant-numeric:tabular-nums}
+.delta{font-family:var(--mono);font-size:13.5px;font-weight:500;font-variant-numeric:tabular-nums;white-space:nowrap}
+.delta.su{color:var(--su)}
+.delta.giu{color:var(--giu)}
+.delta.fermo{color:var(--fermo)}
+.giudizio{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;
+  padding:3px 8px;border:1px solid currentColor;white-space:nowrap
+}
+.giudizio.Excellent{color:var(--eccellente)}
+.giudizio.Good{color:var(--buono)}
+.giudizio.Sufficient{color:var(--sufficiente)}
+.giudizio.Bad{color:var(--scarso)}
+
+/* ---------- tracciato: l'elemento firma ---------- */
+.tracciato{width:132px;height:34px;display:block}
+.tracciato .riferimento{stroke:var(--riga-forte);stroke-width:1;stroke-dasharray:2 3}
+.tracciato .percorso{fill:none;stroke:var(--inchiostro);stroke-width:1.6;
+  stroke-linejoin:round;stroke-linecap:round}
+.tracciato .capo{fill:var(--inchiostro)}
+.unica{font-family:var(--mono);font-size:10.5px;color:var(--tenue)}
+
+/* ---------- dettaglio ---------- */
+tr.dettaglio td{background:var(--carta-alta);padding:20px 10px 26px}
+.dettaglio-corpo{display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start}
+.dettaglio-corpo svg{width:min(100%,540px);height:150px;overflow:visible}
+.rilevazioni{font-family:var(--mono);font-size:12.5px;border-collapse:collapse}
+.rilevazioni th{text-align:left;color:var(--tenue);font-weight:500;padding:0 18px 6px 0}
+.rilevazioni td{padding:3px 18px 3px 0;border:0;font-variant-numeric:tabular-nums}
+.dimensioni h3{font-family:var(--condensato);font-size:14px;font-weight:600;margin:0 0 10px}
+.dimensioni h3 a{color:inherit;text-decoration:underline;text-decoration-color:var(--riga-forte)}
+.dimensioni h3 a:hover{color:var(--primario);text-decoration-color:currentColor}
+.dim-riga{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.dim-nome{font-family:var(--mono);font-size:11px;color:var(--tenue);width:118px}
+.dim-barra{width:150px;height:9px;background:#dde4e8;display:inline-block}
+.dim-barra i{display:block;height:100%;background:var(--inchiostro)}
+.dim-barra i.bassa{background:var(--giu)}
+.dim-val{font-family:var(--mono);font-size:12px;font-variant-numeric:tabular-nums}
+.dim-max{color:var(--tenue)}
+/* il comando sta accanto all'eventuale nota su IPA o sulle denominazioni, e
+   comunque prima della serie storica: in coda alla tabella restava fuori schermo
+   per gli enti con molte rilevazioni */
+.scarica{margin:0}
+.rilevazioni{flex-basis:100%}
+.scarica button{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--inchiostro);background:#fff;border:1px solid var(--riga-forte);
+  padding:9px 14px;cursor:pointer;min-height:38px
+}
+.scarica button:hover:not(:disabled){background:var(--carta);border-color:var(--inchiostro)}
+.scarica button:disabled{color:var(--tenue);cursor:default}
+.scarica button:focus-visible{outline:2px solid var(--inchiostro);outline-offset:1px}
+.scarica .esito{font-family:var(--mono);font-size:11.5px;color:var(--tenue);margin-top:7px}
+.scarica .esito.male{color:var(--giu)}
+.federato{font-family:var(--testo);font-size:12.5px;color:#3d4d57;background:#eaeff1;
+  border-left:2px solid var(--su);padding:8px 11px;margin:0;max-width:46ch}
+.ufficiale{font-size:12.5px;color:#3d4d57;background:#eaeff1;border-left:2px solid var(--riga-forte);
+  padding:8px 11px;margin:0 0 14px;max-width:46ch}
+.cerca-ipa{display:block;margin-top:6px}
+.avviso{font-size:12.5px;color:#7a5c1e;background:#f6efdd;border-left:2px solid #9a7328;
+  padding:8px 11px;margin:0 0 14px;max-width:46ch}
+/* L'elenco parte accorciato: con 1.610 righe il resto della pagina — le note in
+   fondo, che spiegano come leggere i numeri — resterebbe irraggiungibile senza
+   una lunga scorsa. */
+.tutti{margin:16px 0 0}
+.tutti button{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--inchiostro);background:#fff;border:1px solid var(--riga-forte);
+  border-radius:4px;padding:10px 15px;cursor:pointer;min-height:40px
+}
+.tutti button:hover{background:var(--carta-alta);border-color:var(--inchiostro)}
+.tutti button:focus-visible{outline:2px solid var(--inchiostro);outline-offset:1px}
+.assente{padding:40px 0;color:var(--tenue);font-family:var(--mono);font-size:13px}
+.asse{font-family:var(--mono);font-size:10px;fill:var(--tenue)}
+.linea-asse{stroke:var(--riga);stroke-width:1}
+.serie{fill:none;stroke:var(--inchiostro);stroke-width:1.5}
+.punto{fill:var(--inchiostro)}
+.tocco{fill:transparent}
+.tocco:hover{fill:var(--inchiostro);fill-opacity:.08}
+.valore-punto{
+  flex-basis:100%;order:-1;min-height:20px;margin:-6px 0 2px;
+  font-family:var(--mono);font-size:12px;color:var(--inchiostro)
+}
+.valore-punto .scarto{font-weight:600}
+.valore-punto .scarto.su{color:var(--su)}
+.valore-punto .scarto.giu{color:var(--giu)}
+.valore-punto .scarto.fermo{color:var(--fermo);font-weight:400}
+
+/* Le note sono diventate parecchie: a piena larghezza le righe supererebbero i
+   140 caratteri e diventerebbero faticose da leggere. Su schermo largo si
+   dispongono quindi su due colonne, che tengono la riga sotto i 70 caratteri e
+   allineano il blocco alla tabella; sotto i 900px tornano in colonna unica. */
+footer{
+  margin-top:52px;padding-top:20px;border-top:1px solid var(--riga);
+  font-size:13px;color:var(--tenue)
+}
+footer a{color:inherit}
+footer p{margin:0 0 14px;break-inside:avoid}
+@media (min-width:900px){
+  footer{column-count:2;column-gap:52px}
+  footer p{max-width:none}
+}
+footer p{max-width:78ch}
+
+@media (max-width:780px){
+  .nascondi-stretto{display:none}
+  .misure{gap:24px}
+  header{padding-top:30px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+.valore-punto{min-height:1.45em}
+.valore-punto.riposo{color:var(--tenue)}
+.valore-punto.riposo strong{font-weight:500}
+.scatto-giu{display:block;margin-top:3px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.02em;color:var(--giu);white-space:nowrap}
+</style>
+</head>
+<body>
+<a class="salta" href="#contenuto">Salta al contenuto</a>
+<div class="involucro">
+
+<header>
+  <p class="occhiello">Rilevazione giornaliera · <span id="catalogo">—</span></p>
+  <h1>Qualità dei metadati, <em>ente per ente</em></h1>
+  <p class="sottotitolo">
+    <a href="https://data.europa.eu/mqa/methodology?locale=it">Punteggio MQA</a>
+    assegnato da data.europa.eu ai dataset pubblicati su dati.gov.it,
+    aggregato per ente titolare del catalogo di origine. Ogni mattina una nuova misura.
+  </p>
+  <div class="misure">
+    <div class="misura"><div class="valore" id="m-enti">—</div><div class="etichetta" id="e-enti">Enti</div></div>
+    <div class="misura"><div class="valore" id="m-dataset">—</div><div class="etichetta">Dataset misurati</div></div>
+    <div class="misura"><div class="valore" id="m-data">—</div><div class="etichetta">Ultima rilevazione</div></div>
+    <a class="vai-mappe" href="mappe.html">
+      <span class="voce">Guarda le mappe</span>
+      <span class="glossa">Comuni e cataloghi regionali</span>
+      <span class="freccia" aria-hidden="true">&rarr;</span>
+    </a>
+  </div>
+</header>
+
+<main id="contenuto">
+
+<div class="controlli">
+  <select id="livello" aria-label="Livello di aggregazione">
+    <option value="holder">Titolari</option>
+    <option value="organization">Organizzazioni</option>
+  </select>
+  <input type="search" id="cerca" placeholder="Cerca" aria-label="Cerca">
+  <select id="ordina" aria-label="Ordinamento">
+    <option value="media-desc">Punteggio, dal più alto</option>
+    <option value="media-asc">Punteggio, dal più basso</option>
+    <option value="delta-asc">Chi scende di più (7 giorni)</option>
+    <option value="delta-desc">Chi sale di più (7 giorni)</option>
+    <option value="delta1-asc">Chi è sceso nell’ultima rilevazione</option>
+    <option value="delta1-desc">Chi è salito nell’ultima rilevazione</option>
+    <option value="n-desc">Numero di dataset</option>
+    <option value="nome-asc">Nome</option>
+  </select>
+  <select id="filtro" aria-label="Filtro per giudizio">
+    <option value="">Tutti i giudizi</option>
+    <option value="Excellent">Excellent</option>
+    <option value="Good">Good</option>
+    <option value="Sufficient">Sufficient</option>
+    <option value="Bad">Bad</option>
+  </select>
+  <span class="conteggio" id="conteggio"></span>
+</div>
+
+<div class="tabella" tabindex="0" role="region" aria-label="Punteggi per ente">
+<table>
+  <thead>
+    <tr>
+      <th scope="col" id="col-ente">Ente</th>
+      <th scope="col" class="num">Dataset</th>
+      <th scope="col" class="num">Punteggio</th>
+      <th scope="col" class="num">7 giorni</th>
+      <th scope="col" class="nascondi-stretto">Andamento</th>
+      <th scope="col" class="nascondi-stretto">Giudizio</th>
+    </tr>
+  </thead>
+  <tbody id="corpo"></tbody>
+</table>
+</div>
+
+<p class="tutti"><button type="button" id="mostra-tutti" aria-expanded="false"
+  aria-controls="corpo" hidden></button></p>
+
+</main>
+
+<footer>
+  <p>Ogni ente dispone di un indirizzo diretto: al presente indirizzo si aggiunge
+  <code>?titolare=c_f563</code> oppure <code>?organizzazione=comune-di-torino</code>.
+  È accettato anche il nome per esteso. All’apertura di una riga l’indirizzo si
+  aggiorna automaticamente, ed è quindi copiabile dalla barra del browser.</p>
+
+  <p>La rilevazione è giornaliera, poiché data.europa.eu ricalcola i punteggi con
+  frequenza quasi quotidiana. La colonna <em>7 giorni</em> riporta la variazione
+  rispetto alla misura di una settimana prima e non a quella del giorno precedente:
+  una variazione giornaliera è spesso dovuta a fattori transitori, come
+  l’indisponibilità temporanea di un server, che riduce l’accessibilità per poi
+  ripristinarla il giorno successivo.</p>
+
+  <p>Nel grafico del dettaglio, passando sopra un punto ne compaiono data,
+  punteggio, variazione rispetto alla rilevazione precedente e numero di dataset.
+  La scala verticale si adatta all’escursione della singola serie, non all’intero
+  intervallo 0–405: variazioni di pochi punti sarebbero altrimenti impercettibili.</p>
+
+  <p>Il tracciato riportato in tabella rappresenta l’andamento delle rilevazioni con
+  scala adattata al singolo ente: la linea tratteggiata corrisponde alla prima misura
+  disponibile, i valori al di sopra indicano un miglioramento e quelli al di sotto un
+  peggioramento. I valori assoluti sono riportati nel dettaglio della riga.</p>
+
+  <p>L’andamento complessivo del catalogo, con una serie storica più estesa, è
+  disponibile nel <a href="https://www.dati.gov.it/Monitoraggio/monitoraggio-dinamico">monitoraggio
+  dinamico di dati.gov.it</a>. La presente pagina ha per oggetto la qualità dei
+  metadati del singolo ente.</p>
+
+  <p><strong>Dati territoriali (RNDT).</strong> Il catalogo <code>dati-gov-it</code>
+  su data.europa.eu non comprende i dataset del <abbr title="Repertorio Nazionale dei
+  Dati Territoriali">RNDT</abbr> (<a href="https://geodati.gov.it">geodati.gov.it</a>),
+  che al portale europeo sono conferiti tramite un catalogo distinto, non oggetto del
+  presente monitoraggio. Gli enti la cui produzione è prevalentemente di natura
+  territoriale risultano pertanto con un numero ridotto di dataset, o non risultano
+  affatto.</p>
+
+  <p id="nota-fonte">Fonte: data.europa.eu (Metadata Quality Assessment), scala 0–405.
+  Giudizi: Excellent ≥ 351, Good ≥ 221, Sufficient ≥ 121, Bad inferiore a 121. La
+  composizione del punteggio, controllo per controllo, è descritta nella
+  <a href="https://data.europa.eu/mqa/methodology?locale=it">metodologia MQA</a>. Il
+  punteggio attribuito a un ente è la media dei punteggi dei suoi dataset, mentre il
+  portale europeo calcola il punteggio di un dataset «rappresentativo»: i due valori
+  non coincidono.</p>
+
+  <p><strong>Titolari</strong>: <code>dct:rightsHolder</code>, l’ente cui i dati
+  appartengono. È l’unico livello che riconosce gli enti che pubblicano tramite il
+  catalogo di un altro soggetto — per esempio un Comune ospitato dal portale
+  regionale — e l’unico per cui sono disponibili le cinque dimensioni. Il dato
+  proviene dall’endpoint SPARQL e non dall’API di ricerca.</p>
+
+  <p><strong>Federazione nel catalogo regionale.</strong> Quando i dataset di un
+  ente arrivano dal catalogo della propria Regione, il dettaglio lo segnala: l’ente
+  vi è federato. L’indicazione compare solo in questo caso. La sua assenza significa
+  che i dataset arrivano dal catalogo dell’ente stesso, il che per un Comune può
+  essere un’informazione e per un ente nazionale è la norma: la lettura è lasciata
+  a chi consulta.</p>
+
+  <p><strong>Organizzazioni</strong>: il soggetto che ospita il catalogo di origine,
+  identificato dall’UUID in <code>dcat:contactPoint</code>. Un Comune che pubblica sul
+  portale regionale compare a questo livello sotto la Regione e, come titolare, sotto
+  la propria denominazione.</p>
+
+  <p>data.europa.eu aggrega invece per <code>dct:publisher</code>, che in un catalogo
+  federato contiene uffici e redazioni: è la ragione per cui i valori qui riportati
+  non coincidono con quelli del portale europeo. Il livello resta calcolato in
+  <code>mqa/storico.csv</code>, al di fuori della presente pagina.</p>
+
+  <p>Dati e codice: <a href="https://github.com/piersoft/mqa-monitor">github.com/piersoft/mqa-monitor</a>.</p>
+</footer>
+
+</div>
+
+<script>
+const MAX = 405;
+let DATI = null, DATE = [], LIV = 'holder';
+const blocco = () => DATI.livelli[LIV];
+
+const nf1 = new Intl.NumberFormat('it-IT', {minimumFractionDigits:1, maximumFractionDigits:1});
+const nf0 = new Intl.NumberFormat('it-IT');
+
+function dataBreve(iso){
+  const [a,m,g] = iso.split('-');
+  return g + '/' + m;
+}
+
+/* Tracciato: la forma del movimento dell'ente, con la linea tratteggiata
+   fissata sulla prima misura disponibile. Sopra la linea ha guadagnato,
+   sotto ha perso. Il valore assoluto sta gia' nella colonna Punteggio. */
+function tracciato(serie){
+  const L = 132, A = 34, pad = 5;
+  if (serie.length < 2) return '<span class="unica">prima misura</span>';
+  const n = DATE.length;
+  const x = i => n < 2 ? L/2 : pad + (L - pad*2) * (i / (n - 1));
+  const vals = serie.map(p => p[1]);
+  let lo = Math.min(...vals), hi = Math.max(...vals);
+  if (hi - lo < 4){ const c = (hi+lo)/2; lo = c - 2; hi = c + 2; }
+  const m = (hi - lo) * 0.22;
+  lo -= m; hi += m;
+  const y = v => A - pad - (A - pad*2) * ((v - lo) / (hi - lo));
+  const base = y(vals[0]);
+  let s = `<svg class="tracciato" viewBox="0 0 ${L} ${A}" role="img" aria-label="Andamento delle rilevazioni">`;
+  s += `<line class="riferimento" x1="0" y1="${base}" x2="${L}" y2="${base}"/>`;
+  s += `<polyline class="percorso" points="${serie.map(p=>`${x(p[0])},${y(p[1])}`).join(' ')}"/>`;
+  const u = serie[serie.length-1];
+  s += `<circle class="capo" cx="${x(u[0])}" cy="${y(u[1])}" r="2.6"/>`;
+  return s + '</svg>';
+}
+
+function segnoDelta(d){
+  if (d === null || d === undefined) return '<span class="delta fermo">—</span>';
+  if (Math.abs(d) < 0.05) return '<span class="delta fermo">invariato</span>';
+  const cls = d > 0 ? 'su' : 'giu';
+  const seg = d > 0 ? '▲' : '▼';
+  return `<span class="delta ${cls}">${seg} ${nf1.format(Math.abs(d))}</span>`;
+}
+
+/* Un calo nell'ultima misura puo' restare invisibile dietro un delta
+   settimanale positivo: qui viene segnalato sotto il numero a sette giorni.
+   Solo le discese: serve da avviso, non da seconda metrica. */
+function scattoGiu(e){
+  const v = e.delta1;
+  if (v === null || v === undefined || v > -1) return '';
+  return `<span class="scatto-giu" title="Scostamento rispetto alla rilevazione precedente"
+    >\u25bc ${nf1.format(Math.abs(v))} sull\u2019ultima</span>`;
+}
+
+function graficoGrande(serie, L, A){
+  L = L || 540; A = A || 150;
+  const sx = 40, dx = 12, su = 12, giu = 26;
+  if (!serie.length) return '';
+  const n = DATE.length;
+  const x = i => n < 2 ? sx + (L-sx-dx)/2 : sx + (L-sx-dx) * (i/(n-1));
+  const vals = serie.map(p => p[1]);
+  let lo = Math.min(...vals), hi = Math.max(...vals);
+  /* La finestra verticale segue l'escursione della serie invece di essere
+     fissa: con una banda di venti punti buona parte dei movimenti restava
+     schiacciata. Il minimo di due punti per lato serve alle serie piatte, che
+     altrimenti dividerebbero per zero. */
+  const mezza = Math.max((hi - lo) * 0.75, 2);
+  const c = (hi + lo) / 2;
+  lo = Math.max(0, c - mezza); hi = Math.min(MAX, c + mezza);
+  const y = v => A - giu - (A-su-giu) * ((v - lo) / (hi - lo || 1));
+  let s = `<svg viewBox="0 0 ${L} ${A}" role="img" aria-label="Serie storica del punteggio">`;
+  [lo, (lo+hi)/2, hi].forEach(v => {
+    s += `<line class="linea-asse" x1="${sx}" y1="${y(v)}" x2="${L-dx}" y2="${y(v)}"/>`;
+    s += `<text class="asse" x="${sx-8}" y="${y(v)+3.5}" text-anchor="end">${nf0.format(Math.round(v))}</text>`;
+  });
+  s += `<polyline class="serie" points="${serie.map(p=>`${x(p[0])},${y(p[1])}`).join(' ')}"/>`;
+  serie.forEach((p, k) => {
+    s += `<circle class="punto" cx="${x(p[0])}" cy="${y(p[1])}" r="2.5"/>`;
+    s += `<text class="asse" x="${x(p[0])}" y="${A-8}" text-anchor="middle">${dataBreve(DATE[p[0]])}</text>`;
+    /* cerchio invisibile piu' largo del punto: serve solo a raccogliere il
+       passaggio del puntatore, che su un raggio di 2,5 px sarebbe una caccia */
+    const prec = k > 0 ? serie[k-1][1] : null;
+    const d = prec === null ? '' : (p[1] - prec).toFixed(1).replace('.', ',');
+    s += `<circle class="tocco" cx="${x(p[0])}" cy="${y(p[1])}" r="14"
+      data-data="${DATE[p[0]]}" data-val="${nf1.format(p[1])}"
+      data-n="${nf0.format(p[2])}" data-delta="${d}"/>`;
+  });
+  return s + '</svg>';
+}
+
+function riga(e, i){
+  return `<tr class="ente" data-i="${i}">
+    <td><button type="button" class="apri" aria-expanded="false" aria-controls="dett-${i}">
+      <span class="nome">${e.nome}</span><span class="slug">${e.slug || e.id}</span>
+    </button></td>
+    <td class="num conta">${nf0.format(e.n)}</td>
+    <td class="num punteggio">${nf1.format(e.media)}</td>
+    <td class="num">${segnoDelta(e.delta)}${scattoGiu(e)}</td>
+    <td class="nascondi-stretto">${tracciato(e.serie)}</td>
+    <td class="nascondi-stretto"><span class="giudizio ${e.rating}">${e.rating}</span></td>
+  </tr>`;
+}
+
+/* la metodologia con cui data.europa.eu attribuisce i punteggi */
+const METODOLOGIA = 'https://data.europa.eu/mqa/methodology?locale=it';
+
+/* Si dichiara solo la presenza in un catalogo regionale, mai l'assenza: la
+   prima e' un'osservazione, la seconda sarebbe una deduzione che per molti enti
+   non reggerebbe. */
+function catalogoRegionale(e){
+  return e.reg
+    ? `<p class="federato">I dataset arrivano dal catalogo regionale
+       <strong>${e.reg}</strong>: l’ente vi è federato.</p>`
+    : '';
+}
+
+const MAX_DIM = {findability:100, accessibility:100, interoperability:110,
+                 reusability:75, contextuality:20};
+const ETICH_DIM = {findability:'Reperibilità', accessibility:'Accessibilità',
+                   interoperability:'Interoperabilità', reusability:'Riusabilità',
+                   contextuality:'Contesto'};
+
+function dimensioni(d){
+  if (!d) return '';
+  const barre = Object.keys(MAX_DIM).filter(k => d[k] !== undefined).map(k => {
+    const pct = Math.round(d[k] / MAX_DIM[k] * 100);
+    const scarso = pct < 60;
+    return `<div class="dim-riga">
+      <span class="dim-nome">${ETICH_DIM[k]}</span>
+      <span class="dim-barra"><i style="width:${pct}%" class="${scarso?'bassa':''}"></i></span>
+      <span class="dim-val">${nf1.format(d[k])}<span class="dim-max">/${MAX_DIM[k]}</span></span>
+    </div>`;
+  }).join('');
+  return `<div class="dimensioni"><h3><a href="${METODOLOGIA}">Dimensioni MQA</a></h3>${barre}</div>`;
+}
+
+/* Una riga di valori che segue il puntatore sul grafico: senza, per leggere un
+   punto bisognava contare le tacche o scendere alla tabella. */
+function agganciaGrafico(riga){
+  const svg = riga.querySelector('svg');
+  if (!svg) return;
+  const eti = document.createElement('div');
+  eti.className = 'valore-punto';
+  riga.querySelector('.dettaglio-corpo').appendChild(eti);
+  const tocchi = svg.querySelectorAll('.tocco');
+  const ultimo = tocchi[tocchi.length - 1];
+
+  /* L'etichetta non viene mai nascosta: a riposo mostra l'ultima
+     rilevazione. Nascondendola il grafico risaliva, il punto usciva da
+     sotto il puntatore e partiva un rimbalzo fra hover e layout. */
+  const scrivi = (t, riposo) => {
+    const d = t.dataset;
+    const v = d.delta === '' ? null : parseFloat(d.delta.replace(',', '.'));
+    const segno = v === null ? ''
+      : v === 0 ? ' <span class="scarto fermo">invariato</span>'
+      : ` <span class="scarto ${v > 0 ? 'su' : 'giu'}">${v > 0 ? '+' : ''}${d.delta}</span>`;
+    eti.className = riposo ? 'valore-punto riposo' : 'valore-punto';
+    eti.innerHTML = `<strong>${d.data}</strong> · ${d.val}${segno} · ${d.n} dataset`;
+  };
+  const aRiposo = () => {
+    if (ultimo) scrivi(ultimo, true);
+    else { eti.className = 'valore-punto riposo'; eti.innerHTML = '&nbsp;'; }
+  };
+  svg.addEventListener('mouseover', ev => {
+    const t = ev.target.closest('.tocco');
+    if (t) scrivi(t, false);
+  });
+  svg.addEventListener('mouseleave', aRiposo);
+  aRiposo();
+}
+
+function dettaglio(e, i){
+  const righe = e.serie.slice().reverse().map(p =>
+    `<tr><td>${DATE[p[0]]}</td><td>${nf1.format(p[1])}</td><td>${nf0.format(p[2])}</td></tr>`
+  ).join('');
+  return `<tr class="dettaglio" id="dett-${i}"><td colspan="6"><div class="dettaglio-corpo">
+    <div>${graficoGrande(e.serie)}</div>
+    ${dimensioni(e.dim)}
+    ${e.ipa_ko ? `<p class="avviso" data-ipa="${e.id}">Il codice
+      <code>${e.id}</code> non risulta nell’Indice delle Pubbliche
+      Amministrazioni. Nei metadati deve essere riportato il codice IPA dell’ente,
+      non la partita IVA né la denominazione. <span class="cerca-ipa">cerco il codice giusto…</span></p>` : ''}
+    ${e.ipa_nome && e.ipa_nome.toLowerCase() !== e.nome.toLowerCase() ? `<p class="ufficiale">
+      In IPA il codice risulta associato a <strong>${e.ipa_nome}</strong>${e.ipa_luogo ? ' — ' + e.ipa_luogo : ''}.</p>` : ''}
+    ${catalogoRegionale(e)}
+    ${e.n_nomi ? `<p class="avviso">Nei metadati l’ente compare con
+      <strong>${e.n_nomi} denominazioni diverse</strong>: viene utilizzata la più
+      frequente.</p>` : ''}
+    ${LIV === 'holder' ? `<div class="scarica">
+      <button type="button" data-scarica="${e.id}" data-nome="${e.nome.replace(/"/g,'&quot;')}">
+        ${e.n === 1 ? 'Scarica il dettaglio dell’unico dataset'
+                    : `Scarica il dettaglio dei ${nf0.format(e.n)} dataset`}</button>
+      <div class="esito" data-esito="${e.id}"></div>
+    </div>` : ''}
+    <table class="rilevazioni">
+      <tr><th>Rilevazione</th><th>Punteggio</th><th>Dataset</th></tr>${righe}
+    </table>
+  </div></td></tr>`;
+}
+
+const NOMI = {
+  holder:       {sing:'titolare', plur:'titolari', col:'Titolare', cerca:'Cerca un titolare'},
+  organization: {sing:'ente',     plur:'enti',     col:'Ente',     cerca:'Cerca un ente'},
+};
+
+function misure(){
+  const t = blocco().totali;
+  const n = NOMI[LIV];
+  document.getElementById('m-enti').textContent = nf0.format(t.enti);
+  document.getElementById('e-enti').textContent =
+    n.plur.charAt(0).toUpperCase() + n.plur.slice(1);
+  document.getElementById('m-dataset').textContent = nf0.format(t.dataset);
+  document.getElementById('col-ente').textContent = n.col;
+  document.getElementById('cerca').placeholder = n.cerca;
+  document.getElementById('m-data').textContent = t.data || DATI.aggiornato;
+}
+
+const PRIME = 10;
+let espanso = false;
+
+function disegna(){
+  const q = document.getElementById('cerca').value.trim().toLowerCase();
+  const ord = document.getElementById('ordina').value;
+  const filtro = document.getElementById('filtro').value;
+
+  let lista = blocco().enti.filter(e =>
+    (!filtro || e.rating === filtro) &&
+    (!q || e.nome.toLowerCase().includes(q) || (e.slug||'').includes(q))
+  );
+
+  const d = e => (e.delta === null || e.delta === undefined) ? 0 : e.delta;
+  /* Scostamento dalla rilevazione precedente: la settimana nasconde i cali
+     improvvisi quando la tendenza complessiva resta in salita. */
+  const d1 = e => (e.delta1 === null || e.delta1 === undefined) ? 0 : e.delta1;
+  const ordini = {
+    'media-desc': (a,b) => b.media - a.media,
+    'media-asc':  (a,b) => a.media - b.media,
+    'delta-asc':  (a,b) => d(a) - d(b),
+    'delta-desc': (a,b) => d(b) - d(a),
+    'delta1-asc':  (a,b) => d1(a) - d1(b),
+    'delta1-desc': (a,b) => d1(b) - d1(a),
+    'n-desc':     (a,b) => b.n - a.n,
+    'nome-asc':   (a,b) => a.nome.localeCompare(b.nome, 'it'),
+  };
+  lista.sort(ordini[ord]);
+
+  const corpo = document.getElementById('corpo');
+  const mostrate = espanso ? lista : lista.slice(0, PRIME);
+  corpo.innerHTML = lista.length
+    ? mostrate.map((e,i) => riga(e,i)).join('')
+    : '<tr><td colspan="6" class="assente">Nessun ente corrisponde alla ricerca.</td></tr>';
+  window.__lista = lista;
+
+  const b = document.getElementById('mostra-tutti');
+  b.hidden = lista.length <= PRIME;
+  if (!b.hidden){
+    const n = NOMI[LIV].plur;
+    b.textContent = espanso
+      ? `Mostra solo i primi ${PRIME}`
+      : `Mostra tutti i ${nf0.format(lista.length)} ${n}`;
+    b.setAttribute('aria-expanded', String(espanso));
+  }
+
+  document.getElementById('conteggio').textContent =
+    lista.length + ' ' + (lista.length === 1 ? NOMI[LIV].sing : NOMI[LIV].plur);
+}
+
+const PARAM = {holder:'titolare', organization:'organizzazione'};
+
+function aggiornaUrl(ente){
+  /* si tocca solo il parametro dell'ente: azzerare la query cancellerebbe
+     anche embed=1 e qualsiasi altro parametro passato dall'ospite */
+  const u = new URL(location.href);
+  Object.values(PARAM).forEach(k => u.searchParams.delete(k));
+  if (ente) u.searchParams.set(PARAM[LIV], ente.slug || ente.id);
+  history.replaceState(null, '', u);
+}
+
+/* Scarica il dettaglio dataset per dataset interrogando SPARQL dal browser.
+   L'endpoint espone access-control-allow-origin: *, quindi la chiamata diretta
+   e possibile. Due passi, perche in uno solo la query va oltre i 60 secondi del
+   gateway: prima gli URI dei dataset del titolare (immediato), poi le misure con
+   VALUES ?ds, che fissando i soggetti fa usare l'indice. I VALUES si spezzano in
+   blocchi: la mediana e 10 dataset per titolare, ma nove enti superano il migliaio. */
+/* IndicePA espone un datastore CKAN con CORS aperto: cercando il codice
+   sbagliato fra tutti i campi (partita IVA, codice fiscale, ISTAT) si risale
+   spesso all'ente e quindi al codice IPA corretto. Una chiamata sola, e solo
+   quando si apre la riga di un titolare il cui codice non e' valido: sono 411
+   su 1.610, quindi nella maggior parte dei casi non parte nulla. */
+const IPA_API = 'https://indicepa.gov.it/ipa-dati/api/3/action/datastore_search';
+const IPA_RES = 'd09adf99-dc10-4349-8c53-27b1e5aa97b6';
+
+async function suggerisciCodice(codice, dove){
+  try {
+    const u = `${IPA_API}?resource_id=${IPA_RES}&q=${encodeURIComponent(codice)}&limit=4`;
+    const r = await fetch(u);
+    if (!r.ok) throw new Error(r.status);
+    const rec = (await r.json()).result.records || [];
+    if (!rec.length){
+      dove.textContent = 'In IPA non risulta alcun ente con questo valore.';
+      return;
+    }
+    if (rec.length === 1){
+      const e = rec[0];
+      dove.innerHTML = `In IPA il valore corrisponde a
+        <strong>${e.Denominazione_ente}</strong>, codice IPA
+        <code>${e.Codice_IPA}</code>.`;
+      return;
+    }
+    dove.innerHTML = 'In IPA corrisponde a più enti: ' +
+      rec.map(e => `${e.Denominazione_ente} (<code>${e.Codice_IPA}</code>)`).join(', ') + '.';
+  } catch (err) {
+    dove.textContent = 'IndicePA non ha fornito risposta.';
+  }
+}
+
+const SPARQL = 'https://data.europa.eu/sparql';
+const BLOCCO = 300;
+const DIM_ORD = ['scoring','findability','accessibility','interoperability',
+                 'reusability','contextuality'];
+
+async function chiedi(query){
+  const r = await fetch(SPARQL, {
+    method: 'POST',
+    headers: {'Content-Type':'application/x-www-form-urlencoded',
+              'Accept':'application/sparql-results+json'},
+    body: new URLSearchParams({query})
+  });
+  if (!r.ok) throw new Error('HTTP ' + r.status);
+  return (await r.json()).results.bindings;
+}
+
+async function dettaglioDataset(id, avanzamento){
+  const P = `PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX dqv: <http://www.w3.org/ns/dqv#>
+PREFIX voc: <https://piveau.eu/ns/voc#>`;
+
+  // Il confronto e' case-insensitive: nel triplestore il codice puo' avere
+  // maiuscole (p_TN, M_ef, PCM) mentre qui la chiave e' normalizzata a minuscolo.
+  // Cosi' si prendono anche le varianti dello stesso ente.
+  avanzamento('cerco i dataset…');
+  const lista = await chiedi(`${P}
+SELECT ?ds WHERE {
+  GRAPH ?ds { ?ds dct:rightsHolder ?h . ?h dct:identifier ?i
+              FILTER(LCASE(STR(?i)) = "${id.toLowerCase()}") }
+}`);
+  const uri = lista.map(b => b.ds.value);
+  if (!uri.length) return [];
+
+  const per = {};
+  for (let i = 0; i < uri.length; i += BLOCCO){
+    const blocco = uri.slice(i, i + BLOCCO);
+    avanzamento(`misure ${Math.min(i + BLOCCO, uri.length)}/${uri.length}…`);
+    const righe = await chiedi(`${P}
+SELECT ?ds ?metrica ?v WHERE {
+  VALUES ?ds { ${blocco.map(u => '<' + u + '>').join(' ')} }
+  GRAPH ?mg { ?ds dqv:hasQualityMeasurement ?m . ?m dqv:isMeasurementOf ?metrica ; dqv:value ?v }
+  FILTER(?metrica IN (voc:scoring, voc:findabilityScoring, voc:accessibilityScoring,
+                      voc:interoperabilityScoring, voc:reusabilityScoring,
+                      voc:contextualityScoring))
+}`);
+    for (const b of righe){
+      const d = per[b.ds.value] || (per[b.ds.value] = {});
+      const nome = b.metrica.value.split('#').pop()
+        .replace('Scoring','').replace(/^./, c => c.toLowerCase());
+      d[nome === '' ? 'scoring' : nome] = Number(b.v.value);
+    }
+  }
+  return uri.filter(u => per[u]).map(u => ({uri: u, ...per[u]}));
+}
+
+/* L'URI nel triplestore porta un suffisso di versione (~~1) che la pagina web di
+   EDP non riconosce: con quello l'API risponde 404. Va tolto, e va usato l'URL
+   della pagina invece dell'URI semantico. */
+function idDataset(uri){
+  return uri.split('/').pop().replace(/~~\d+$/, '');
+}
+
+function scaricaCsv(nomeFile, righe){
+  const testa = ['dataset_id','url','punteggio','reperibilita','accessibilita',
+                 'interoperabilita','riusabilita','contesto'];
+  const corpo = righe.map(r => {
+    const id = idDataset(r.uri);
+    return [id, `https://data.europa.eu/data/datasets/${encodeURIComponent(id)}?locale=it`,
+            ...DIM_ORD.map(k => r[k] === undefined ? '' : r[k])];
+  });
+  const csv = [testa, ...corpo]
+    .map(r => r.map(c => /[",;\n]/.test(String(c)) ? '"' + String(c).replace(/"/g,'""') + '"' : c).join(','))
+    .join('\n');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob(['\ufeff' + csv], {type:'text/csv;charset=utf-8'}));
+  a.download = nomeFile;
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+async function avviaScarico(bottone){
+  const id = bottone.dataset.scarica;
+  const nome = bottone.dataset.nome;
+  const esito = document.querySelector(`[data-esito="${id}"]`);
+  const etichetta = bottone.textContent;
+  bottone.disabled = true;
+  esito.className = 'esito';
+  try {
+    const righe = await dettaglioDataset(id, m => { esito.textContent = m; });
+    if (!righe.length){ esito.textContent = 'nessun dataset con misure'; return; }
+    righe.sort((a,b) => (a.scoring ?? 0) - (b.scoring ?? 0));
+    const slug = nome.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+    scaricaCsv(`mqa_${slug || id}_${DATI.aggiornato}.csv`, righe);
+    esito.textContent = righe.length === 1
+      ? 'un dataset'
+      : `${righe.length} dataset, dal peggiore al migliore`;
+  } catch (err) {
+    esito.className = 'esito male';
+    esito.textContent = "l'endpoint SPARQL non ha risposto, riprova fra qualche minuto";
+  } finally {
+    bottone.disabled = false;
+    bottone.textContent = etichetta;
+  }
+}
+
+function apriChiudi(tr){
+  const bottone = tr.querySelector('.apri');
+  const succ = tr.nextElementSibling;
+  if (succ && succ.classList.contains('dettaglio')){
+    succ.remove();
+    if (bottone) bottone.setAttribute('aria-expanded','false');
+    aggiornaUrl(null);
+    return;
+  }
+  document.querySelectorAll('tr.dettaglio').forEach(r => r.remove());
+  document.querySelectorAll('.apri').forEach(b => b.setAttribute('aria-expanded','false'));
+  const ente = window.__lista[+tr.dataset.i];
+  tr.insertAdjacentHTML('afterend', dettaglio(ente, tr.dataset.i));
+  agganciaGrafico(tr.nextElementSibling);
+  if (bottone) bottone.setAttribute('aria-expanded','true');
+  aggiornaUrl(ente);
+  const span = document.querySelector(`[data-ipa="${ente.id}"] .cerca-ipa`);
+  if (span) suggerisciCodice(ente.id, span);
+}
+
+/* Link diretti a un ente: ?titolare=c_f563, ?titolare=Comune di Montemesola,
+   ?organizzazione=comune-di-torino. Pages serve solo file statici, ma la query
+   string arriva comunque al browser e la risolviamo qui. */
+function trovaEnte(livello, valore) {
+  const v = valore.trim().toLowerCase();
+  const enti = DATI.livelli[livello].enti;
+  return enti.find(e => (e.id || '').toLowerCase() === v)
+      || enti.find(e => (e.slug || '').toLowerCase() === v)
+      || enti.find(e => e.nome.toLowerCase() === v)
+      || enti.find(e => e.nome.toLowerCase().includes(v));
+}
+
+function apriDaUrl(){
+  const q = new URLSearchParams(location.search);
+  for (const [livello, chiave] of Object.entries(PARAM)){
+    const valore = q.get(chiave);
+    if (!valore || !DATI.livelli[livello]) continue;
+    const ente = trovaEnte(livello, valore);
+    if (!ente) continue;
+    LIV = livello;
+    espanso = true;   // l'ente cercato potrebbe stare oltre le prime righe
+    document.getElementById('livello').value = livello;
+    document.getElementById('cerca').value = ente.nome;
+    misure(); disegna();
+    /* Non la prima riga: quella dell'ente richiesto. Due titolari possono avere
+       la stessa denominazione (p_tn e p_tn82l3 sono entrambi "Provincia Autonoma
+       di Trento"), e la ricerca per nome li mostra entrambi. */
+    const pos = (window.__lista || []).findIndex(x => x.id === ente.id);
+    const tr = document.querySelector(`tbody tr.ente[data-i="${pos}"]`)
+            || document.querySelector('tbody tr.ente');
+    if (tr){
+      apriChiudi(tr);
+      tr.scrollIntoView({block:'center', behavior:'smooth'});
+    }
+    return;
+  }
+}
+
+/* dati.gov.it incornicia le dashboard con ?embed=1: seguiamo la convenzione
+   gia' in uso, oltre a riconoscere da soli di stare dentro un iframe */
+if (window.parent !== window ||
+    new URLSearchParams(location.search).get('embed') === '1'){
+  document.documentElement.dataset.incorporato = 'si';
+}
+
+/* L'ospite non puo' sapere quanto e' alta la pagina: gliela comunichiamo a ogni
+   cambio di contenuto, cosi' sostituisce le altezze fisse indovinate a mano. */
+var ultimaAltezza = 0;
+function annunciaAltezza(){
+  if (window.parent === window) return;
+  var h = Math.ceil(document.documentElement.getBoundingClientRect().height);
+  if (Math.abs(h - ultimaAltezza) < 8) return;   // evita rimbalzi
+  ultimaAltezza = h;
+  parent.postMessage({mqaMonitor: {altezza: h}}, '*');
+}
+if (window.parent !== window && 'ResizeObserver' in window){
+  new ResizeObserver(annunciaAltezza).observe(document.documentElement);
+}
+window.addEventListener('load', annunciaAltezza);
+
+fetch('data.json')
+  .then(r => r.json())
+  .then(d => {
+    DATI = d; DATE = d.date;
+    document.getElementById('catalogo').textContent = d.catalogo;
+    document.getElementById('m-data').textContent = d.aggiornato;
+    misure();
+    document.title = `Qualità dei metadati — ${d.catalogo} — ${d.aggiornato}`;
+    disegna();
+    apriDaUrl();
+  })
+  .catch(() => {
+    document.getElementById('corpo').innerHTML =
+      '<tr><td colspan="6" class="assente">Dati non disponibili. La pagina va servita via HTTP: da locale, <code>python3 -m http.server</code> dentro <code>docs/</code>.</td></tr>';
+  });
+
+['livello','cerca','ordina','filtro'].forEach(id =>
+  document.getElementById(id).addEventListener('input', () => {
+    if (id === 'livello'){
+      LIV = document.getElementById('livello').value;
+      misure();
+    }
+    disegna();
+  }));
+
+document.getElementById('mostra-tutti').addEventListener('click', () => {
+  espanso = !espanso;
+  disegna();
+  document.getElementById('mostra-tutti').focus();
+});
+
+document.getElementById('corpo').addEventListener('click', ev => {
+  const bottone = ev.target.closest('[data-scarica]');
+  if (bottone){ ev.stopPropagation(); avviaScarico(bottone); return; }
+  const tr = ev.target.closest('tr.ente');
+  if (tr) apriChiudi(tr);
+});
+</script>
+</body>
+</html>

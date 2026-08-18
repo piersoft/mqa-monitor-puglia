@@ -1,0 +1,776 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+<title>Mappe della qualità dei metadati — comuni e cataloghi regionali</title>
+<meta name="description" content="Distribuzione territoriale dei dataset e del punteggio MQA di data.europa.eu: titolari comunali e cataloghi regionali federati su dati.gov.it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+:root{
+  /* Grigi e colori di stato tarati per WCAG 2.1 AA: 4.5:1 sul testo, 3:1 sui
+     bordi dei controlli, rispetto a --carta, --carta-alta e al bianco. */
+  /* Token di Cruscotto Italia (AgID/cruscotto-italia), linee guida Design Italia.
+     I bordi dei controlli usano --mute e non --border: #E3E7EB si ferma a
+     1,24:1, sotto il 3:1 del criterio 1.4.11. */
+  --carta:#ffffff; --carta-alta:#f5f6f7; --inchiostro:#17324d; --tenue:#455a72;
+  --primario:#0066cc; --primario-scuro:#004c99;
+  --riga:#e3e7eb; --riga-forte:#455a72;
+  --eccellente:#008055; --buono:#31694a; --sufficiente:#8a5300; --scarso:#cc334d;
+  --assente:#c3ccd1;
+  --mono:"SF Mono",Monaco,"Cascadia Code","Roboto Mono",Consolas,monospace;
+  --condensato:"Titillium Web",system-ui,sans-serif;
+  --testo:"Titillium Web",system-ui,sans-serif;
+}
+select,.interruttore button,.legenda{border-radius:4px}
+a{color:var(--primario);text-underline-offset:2px}
+a:hover{color:var(--primario-scuro)}
+footer a{color:inherit}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--carta);color:var(--inchiostro);
+  font-family:var(--testo);font-size:15px;line-height:1.5}
+.salta{
+  position:absolute;left:-9999px;top:0;z-index:1200;
+  font-family:var(--mono);font-size:12px;background:var(--inchiostro);color:#fff;
+  padding:11px 16px;text-decoration:none
+}
+.salta:focus{left:0}
+.alternativa{font-size:13.5px;color:#3d4d57;margin:14px 0 0;max-width:78ch}
+footer{
+  margin-top:52px;padding-top:20px;border-top:1px solid var(--riga);
+  font-size:13px;color:var(--tenue)
+}
+footer a{color:inherit}
+footer p{margin:0 0 12px;max-width:78ch}
+.involucro{max-width:1160px;margin:0 auto;padding:0 20px 80px}
+a{color:inherit}
+
+header{padding:44px 0 28px;border-bottom:2px solid var(--inchiostro)}
+.occhiello{font-family:var(--mono);font-size:11px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--tenue);margin:0 0 10px}
+.occhiello a{text-decoration:none;border-bottom:1px solid var(--riga-forte)}
+h1{font-family:var(--condensato);font-weight:700;font-size:clamp(30px,5vw,52px);
+  line-height:1.02;letter-spacing:-.015em;margin:0;max-width:18ch}
+.sottotitolo{margin:14px 0 0;max-width:60ch;color:#3d4d57}
+.misure{display:flex;flex-wrap:wrap;gap:34px;margin-top:30px;
+  padding-top:22px;border-top:1px solid var(--riga)}
+.misura .valore{font-family:var(--mono);font-size:26px;font-weight:600;
+  font-variant-numeric:tabular-nums;line-height:1}
+.misura .etichetta{font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--tenue);margin-top:7px}
+
+.controlli{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;
+  margin:30px 0 0;padding-bottom:14px;border-bottom:1px solid var(--riga)}
+.campo{display:flex;align-items:center;gap:9px}
+.campo label{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--tenue)}
+select{font-family:var(--testo);font-size:14px;color:var(--inchiostro);
+  background:#fff;border:1px solid var(--riga-forte);border-radius:0;
+  padding:9px 12px;min-height:40px}
+select:focus-visible{outline:2px solid var(--inchiostro);outline-offset:1px}
+.interruttore{display:flex;border:1px solid var(--riga-forte);background:#fff}
+.interruttore button{font-family:var(--testo);font-size:13.5px;color:var(--tenue);
+  background:none;border:0;border-right:1px solid var(--riga);padding:10px 14px;
+  min-height:40px;cursor:pointer}
+.interruttore button:last-child{border-right:0}
+.interruttore button[aria-pressed="true"]{background:var(--inchiostro);color:#fff}
+.interruttore button:focus-visible{outline:2px solid var(--inchiostro);outline-offset:-2px}
+.conteggio{font-family:var(--mono);font-size:12px;color:var(--tenue);margin-left:auto;
+  font-variant-numeric:tabular-nums}
+
+.tavola{position:relative;margin-top:22px;border:1px solid var(--riga-forte);background:#fff}
+#mappa{height:min(84vh,860px);width:100%;background:var(--carta-alta)}
+.leaflet-container{font-family:var(--testo);background:var(--carta-alta)}
+/* i nomi stanno sopra un fondo variabile: l'alone bianco li tiene leggibili
+   sia sul verde pieno sia sul grigio delle regioni non federate */
+.nome-regione span{
+  display:inline-block;transform:translate(-50%,-50%);white-space:nowrap;
+  font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--inchiostro);
+  text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 5px #fff,0 0 5px #fff;
+  pointer-events:none
+}
+
+/* la scala di Leaflet sta in basso a sinistra: la legenda le lascia lo spazio
+   sotto invece di appoggiarcisi sopra */
+.legenda{position:absolute;left:14px;bottom:46px;z-index:500;
+  background:rgba(255,255,255,.95);border:1px solid var(--riga-forte);
+  padding:12px 14px;max-width:250px}
+.legenda h2{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--inchiostro);font-weight:600;margin:0 0 9px}
+.legenda h2 .filtrabile{
+  text-transform:none;letter-spacing:.02em;font-weight:400;color:var(--tenue)
+}
+.legenda h2 .filtrabile::before{content:"· "}
+.classi{list-style:none;margin:0;padding:0}
+.classi li{margin:0}
+.riga-classe{display:flex;align-items:center;gap:8px;width:100%;padding:5px 4px;
+  background:none;border:0;border-radius:0;text-align:left;cursor:pointer;
+  font:inherit;color:inherit}
+.riga-classe:hover:not([disabled]){background:var(--carta)}
+.riga-classe[disabled],.riga-taglia[disabled]{cursor:default}
+.riga-classe:focus-visible{outline:2px solid var(--inchiostro);outline-offset:-2px}
+.riga-classe[aria-pressed="false"] .voce-classe,
+.riga-classe[aria-pressed="false"] .quanti{color:#a9b5bc}
+.riga-classe.vuota{opacity:.45}
+.voce-classe{font-family:var(--testo);font-size:12.5px;line-height:1.25}
+.voce-classe em{display:block;font-family:var(--mono);font-size:9.5px;font-style:normal;
+  color:var(--tenue);letter-spacing:.05em;font-variant-numeric:tabular-nums}
+.quanti{margin-left:auto;font-family:var(--mono);font-size:11.5px;color:var(--tenue);
+  font-variant-numeric:tabular-nums}
+.azzera{display:block;width:100%;margin-top:9px;padding:7px 8px;cursor:pointer;
+  background:var(--inchiostro);color:#fff;border:0;border-radius:0;
+  font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase}
+.azzera:focus-visible{outline:2px solid var(--inchiostro);outline-offset:2px}
+.scaglioni{display:flex;justify-content:space-between;font-family:var(--mono);
+  font-size:10px;color:var(--tenue);margin-top:5px;font-variant-numeric:tabular-nums}
+.nota-legenda{font-family:var(--mono);font-size:10px;color:var(--tenue);
+  margin-top:10px;line-height:1.45;display:flex;align-items:center;gap:7px}
+.tassello{width:12px;height:12px;flex:0 0 12px;border:1px solid var(--riga-forte)}
+.titolo-taglie{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--inchiostro);font-weight:600;
+  margin:14px 0 8px;padding-top:11px;border-top:1px solid var(--riga)}
+.titolo-taglie .filtrabile{text-transform:none;letter-spacing:.02em;
+  font-weight:400;color:var(--tenue)}
+.titolo-taglie .filtrabile::before{content:"· "}
+.taglie{list-style:none;margin:0;padding:0}
+.riga-taglia{display:flex;align-items:center;gap:9px;width:100%;
+  background:none;border:0;padding:3px 2px;cursor:pointer;text-align:left;
+  font:inherit;color:inherit;min-height:34px}
+.riga-taglia .bolla{display:flex;align-items:center;justify-content:center;flex:none}
+.riga-taglia i{border:1.5px solid var(--tenue);background:rgba(69,90,114,.14);
+  border-radius:50%;display:block;flex:none}
+.riga-taglia .voce-classe{flex:1}
+.riga-taglia.spenta{opacity:.42}
+.riga-taglia.vuota{opacity:.42;cursor:default}
+.riga-taglia:hover:not(.vuota){background:var(--carta-alta)}
+.riga-taglia:focus-visible{outline:2px solid var(--inchiostro);outline-offset:1px}
+
+.leaflet-popup-content-wrapper{border-radius:0;box-shadow:0 2px 10px rgba(23,37,47,.22)}
+.leaflet-popup-content{margin:14px 16px;font-size:14px;line-height:1.5}
+.pop-nome{font-family:var(--condensato);font-size:19px;font-weight:600;
+  letter-spacing:.005em;line-height:1.15}
+.pop-sotto{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--tenue);margin-top:3px}
+.pop-cifre{display:flex;gap:26px;margin-top:13px;padding-top:11px;border-top:1px solid var(--riga)}
+.pop-cifre .valore{font-family:var(--mono);font-size:20px;font-weight:600;
+  font-variant-numeric:tabular-nums;line-height:1}
+.pop-cifre .etichetta{font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--tenue);margin-top:6px}
+.pop-piede{font-family:var(--mono);font-size:11px;color:var(--tenue);margin-top:12px;
+  padding-top:9px;border-top:1px solid var(--riga);word-break:break-all}
+.pop-piede a{color:#2f5d78}
+.pop-federato{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--eccellente);
+  border-top:1px solid var(--riga);margin:10px 0 0;padding-top:8px
+}
+.pop-vuoto{font-size:13.5px;color:#46565f;margin-top:12px;padding-top:11px;
+  border-top:1px solid var(--riga)}
+
+.metodo{margin-top:38px;padding-top:22px;border-top:1px solid var(--riga);
+  max-width:74ch;color:#3d4d57;font-size:14px}
+.metodo h2{font-family:var(--condensato);font-size:17px;font-weight:600;margin:0 0 10px}
+.metodo p{margin:0 0 11px}
+.metodo code{font-family:var(--mono);font-size:12.5px;background:var(--carta-alta);
+  padding:1px 4px;border:1px solid var(--riga)}
+
+@media (max-width:640px){
+  .misure{gap:24px}
+  #mappa{height:72vh}
+  .legenda{left:10px;bottom:38px;max-width:200px;padding:10px 11px}
+  .conteggio{margin-left:0;width:100%}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<a class="salta" href="#contenuto">Salta al contenuto</a>
+<div class="involucro">
+
+<header>
+  <p class="occhiello"><a href="./">Qualità dei metadati</a> — distribuzione territoriale</p>
+  <h1>Dove nascono i dati aperti italiani</h1>
+  <p class="sottotitolo">Ogni comune è posizionato sul proprio centroide: l'area del cerchio è proporzionale ai dataset pubblicati. Le regioni sono colorate solo se un catalogo regionale è effettivamente federato su dati.gov.it. Enti centrali, agenzie e partecipate sono esclusi.</p>
+  <div class="misure" id="misure"></div>
+</header>
+
+<main id="contenuto">
+
+<div class="controlli">
+  <div class="campo">
+    <label for="metrica">Colora per</label>
+    <select id="metrica">
+      <option value="mqa">Punteggio MQA</option>
+      <option value="n">Numero dataset</option>
+    </select>
+  </div>
+  <div class="campo">
+    <label for="strati">Mostra</label>
+    <div class="interruttore" id="strati" role="group" aria-label="Strati della mappa">
+      <button type="button" data-strato="comuni" aria-pressed="true">Comuni</button>
+      <button type="button" data-strato="regioni" aria-pressed="true">Regioni</button>
+    </div>
+  </div>
+  <p class="conteggio" id="conteggio"></p>
+</div>
+
+<div class="tavola">
+  <div id="mappa"></div>
+  <div class="legenda" id="legenda" hidden></div>
+</div>
+<p class="alternativa">La mappa è una lettura visiva degli stessi dati della
+  dashboard. Gli stessi numeri, ente per ente e con il dettaglio delle cinque
+  dimensioni, sono consultabili in forma di tabella nella
+  <a href="./">pagina principale</a>, ordinabili e cercabili da tastiera.</p>
+
+<section class="metodo">
+  <h2>Come si legge</h2>
+  <p><strong>Comuni.</strong> Il dato viene dal livello dei <em>titolari</em> (<code>dct:rightsHolder</code> più <code>dct:identifier</code>), l'unico che attribuisce ogni dataset all'ente che ne detiene la titolarità, anche quando il dataset è pubblicato dentro il catalogo di una regione. Il codice IPA è ricondotto al codice catastale e quindi al centroide comunale.
+  Come si compone il punteggio è spiegato nella
+  <a href="https://data.europa.eu/mqa/methodology?locale=it">metodologia MQA</a>
+  di data.europa.eu.</p>
+  <p><strong>Regioni.</strong> Il dato viene dal livello delle <em>organizzazioni</em>, ristretto ai cataloghi regionali censiti come sorgenti di harvest su dati.gov.it. Una regione in grigio non indica l’assenza di un portale regionale, ma il fatto che tale portale non risulta federato sul catalogo nazionale: i relativi dataset non sono conferiti a data.europa.eu e non dispongono di un punteggio MQA.</p>
+  <p><strong>Dati territoriali (RNDT).</strong> Il catalogo <code>dati-gov-it</code>
+  su data.europa.eu non comprende i dataset del <abbr title="Repertorio Nazionale dei
+  Dati Territoriali">RNDT</abbr> (<a href="https://geodati.gov.it">geodati.gov.it</a>),
+  che al portale europeo sono conferiti tramite un catalogo distinto, non oggetto del
+  presente monitoraggio. I comuni e le regioni la cui produzione è prevalentemente di
+  natura territoriale figurano pertanto con un cerchio di dimensioni ridotte, o non
+  figurano affatto: l’area del cerchio non misura l’attività complessiva dell’ente,
+  ma la sola parte rilevata su questo catalogo.</p>
+  <p><strong>I nomi delle regioni.</strong> Sono tratti dai confini Istat, che li
+  riportano in italiano: le etichette dei riquadri di sfondo sono in lingua inglese e
+  non è disponibile un parametro di lingua. Le etichette che risulterebbero
+  sovrapposte vengono omesse, con precedenza alle regioni di maggiore estensione;
+  ingrandendo la mappa ricompaiono.</p>
+<p><strong>Le due mappe non si sommano.</strong> Un dataset comunale pubblicato attraverso un catalogo regionale è contato una volta fra i comuni, per titolarità, e una volta fra le regioni, per federazione.</p>
+</section>
+
+</main>
+
+<footer>
+  <p>Fonte: data.europa.eu
+  (<a href="https://data.europa.eu/mqa/methodology?locale=it">Metadata Quality Assessment</a>)
+  per i punteggi, Istat (Basi territoriali) per i confini, IndicePA per l'anagrafica
+  degli enti.</p>
+  <p>Dati e codice: <a href="https://github.com/piersoft/mqa-monitor">github.com/piersoft/mqa-monitor</a>.</p>
+</footer>
+
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+(function(){
+"use strict";
+
+/* Classi MQA: le quattro fasce del cruscotto, senza sfumature.
+   Un colore vale una fascia, così il confronto fra enti e' immediato
+   e resta stabile nel tempo: un ente cambia colore solo quando cambia
+   davvero fascia, non a ogni decimo di punto. */
+var CLASSI_MQA = [
+  {min:351, nome:"Ottimo",      soglia:"351 – 405", colore:"#1e8a5f"},
+  {min:221, nome:"Buono",       soglia:"221 – 350", colore:"#93b83a"},
+  {min:121, nome:"Sufficiente", soglia:"121 – 220", colore:"#e08a1e"},
+  {min:0,   nome:"Scarso",      soglia:"0 – 120",   colore:"#8c2f1d"}
+];
+
+/* Classi per numero di dataset: ordini di grandezza, tinta diversa
+   così il cambio di metrica si riconosce subito. */
+var CLASSI_N = [
+  {min:1000, nome:"1.000 e oltre", colore:"#10374f"},
+  {min:100,  nome:"da 100 a 999",  colore:"#2d6585"},
+  {min:10,   nome:"da 10 a 99",    colore:"#6ca3c0"},
+  {min:1,    nome:"da 1 a 9",      colore:"#bcd6e3"}
+];
+
+function classe(elenco,v){
+  for(var i=0;i<elenco.length;i++) if(v>=elenco[i].min) return elenco[i];
+  return elenco[elenco.length-1];
+}
+function fascia(mqa){ return classe(CLASSI_MQA,mqa); }
+function num(v){ return v==null ? "—" : v.toLocaleString("it-IT"); }
+function dec(v){ return v==null ? "—" : v.toLocaleString("it-IT",{minimumFractionDigits:1,maximumFractionDigits:1}); }
+function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(c){
+  return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]; }); }
+
+var mappa = L.map("mappa",{
+  center:[42.1,12.6], zoom:6, minZoom:5, maxZoom:16,
+  scrollWheelZoom:false, preferCanvas:true
+});
+mappa.on("click", function(){ mappa.scrollWheelZoom.enable(); });
+mappa.on("mouseout", function(){ mappa.scrollWheelZoom.disable(); });
+L.control.scale({imperial:false}).addTo(mappa);
+/* I comandi di Leaflet nascono con etichette in inglese affidate al solo
+   title. L'etichetta del contenitore va messa comunque, anche se i comandi
+   non ci fossero; per i pulsanti si riprova qualche volta, perche' vengono
+   aggiunti al DOM in momenti diversi a seconda di come si conclude il
+   caricamento dei dati. */
+(function etichette(tentativi){
+  var c = document.getElementById("mappa");
+  if (c && !c.getAttribute("aria-label")) c.setAttribute("aria-label",
+    "Mappa dei comuni e dei cataloghi regionali. Gli stessi dati in forma di " +
+    "tabella sono nella pagina principale.");
+  var piu = document.querySelector(".leaflet-control-zoom-in");
+  var meno = document.querySelector(".leaflet-control-zoom-out");
+  if (piu){ piu.setAttribute("aria-label","Ingrandisci la mappa"); piu.title = "Ingrandisci"; }
+  if (meno){ meno.setAttribute("aria-label","Riduci la mappa"); meno.title = "Riduci"; }
+  if ((!piu || !meno) && (tentativi || 0) < 5){
+    setTimeout(function(){ etichette((tentativi || 0) + 1); }, 600);
+  }
+})();
+L.tileLayer("https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png",{
+  attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attributions">CARTO</a> — confini <a href="https://www.istat.it/notizia/confini-delle-unita-amministrative-a-fini-statistici-al-1-gennaio-2018-2/">Istat, Basi territoriali</a>',
+  subdomains:"abcd", maxZoom:18
+}).addTo(mappa);
+/* Un secondo livello di etichette qui non c'e': quelle di CARTO sono in inglese
+   ("Sardinia", "Sicily", "Tuscany") e i tile raster non hanno un parametro di
+   lingua. I nomi delle regioni li scriviamo noi piu' sotto, presi dai confini
+   Istat che li portano gia' in italiano. */
+
+var stato = {metrica:"mqa", comuni:true, regioni:true, escluse:{}};
+var dati=null, geoRegioni=null, stratoRegioni=null, stratoComuni=null;
+var maxDatasetComune=1, maxDatasetRegione=1;
+
+Promise.all([
+  fetch("maps_data.json").then(function(r){ return r.json(); }),
+  fetch("regioni_split.geojson").then(function(r){ return r.json(); })
+]).then(function(res){
+  dati=res[0]; geoRegioni=res[1];
+  maxDatasetComune = Math.max.apply(null, dati.comuni.map(function(c){ return c.n; }));
+  maxDatasetRegione = Math.max.apply(null, dati.regioni.map(function(r){ return r.n; }));
+  intestazione();
+  disegnaRegioni();
+  disegnaNomiRegioni();
+  disegnaComuni();
+  aggiorna();
+}).catch(function(e){
+  document.getElementById("mappa").innerHTML =
+    '<p style="padding:28px;font-size:14px">I dati delle mappe non sono disponibili. '+
+    'Esegui <code>build_maps.py</code> per generare <code>maps_data.json</code>.</p>';
+  console.error(e);
+});
+
+function intestazione(){
+  var t=dati.totali;
+  document.getElementById("misure").innerHTML=[
+    ["comuni",       t.comuni,            "Comuni mappati"],
+    ["dataset_com",  t.dataset_comuni,    "Dataset comunali"],
+    ["reg",          t.regioni_federate+"/"+t.regioni_totali, "Cataloghi regionali"],
+    ["dataset_reg",  t.dataset_regioni,   "Dataset regionali"]
+  ].map(function(m){
+    var v = typeof m[1]==="number" ? num(m[1]) : m[1];
+    return '<div class="misura"><p class="valore">'+v+'</p>'+
+           '<p class="etichetta">'+m[2]+'</p></div>';
+  }).join("");
+  document.getElementById("conteggio").textContent="Rilevazione del "+dati.aggiornato;
+}
+
+/* ---------- colori per metrica ---------- */
+function coloreRegione(r){
+  if(!r.catalogo) return "#c3ccd1";
+  return stato.metrica==="mqa" ? classe(CLASSI_MQA,r.mqa).colore
+                               : classe(CLASSI_N,r.n).colore;
+}
+function coloreComune(c){
+  return stato.metrica==="mqa" ? classe(CLASSI_MQA,c.mqa).colore
+                               : classe(CLASSI_N,c.n).colore;
+}
+/* Area proporzionale ai dataset: il raggio cresce come la radice quadrata. */
+function raggio(c){ return 2.6 + 20*Math.sqrt(c.n/maxDatasetComune); }
+
+/* ---------- strato regioni ---------- */
+function disegnaRegioni(){
+  var perTerr={};
+  dati.regioni.forEach(function(r){ perTerr[r.terr]=r; });
+  stratoRegioni = L.geoJSON(geoRegioni,{
+    style:function(f){
+      var r=perTerr[f.properties.terr];
+      return {color:"#8d9ba4",weight:.8,fillColor:r?coloreRegione(r):"#c3ccd1",
+              fillOpacity:r&&r.catalogo?.82:.5,opacity:1};
+    },
+    onEachFeature:function(f,strato){
+      var r=perTerr[f.properties.terr];
+      strato.bindPopup(popupRegione(f.properties.terr,r),{maxWidth:320});
+      strato.on("mouseover",function(){ strato.setStyle({weight:2.2,color:"#17252f"}); });
+      strato.on("mouseout",function(){ strato.setStyle({weight:.8,color:"#8d9ba4"}); });
+    }
+  });
+}
+/* Nomi delle regioni, scritti da noi perche' i tile di CARTO li portano in
+   inglese. Tre accorgimenti: il punto di ancoraggio e' il centroide dell'anello
+   piu' grande e non il centro del riquadro (che per Liguria e Puglia cadrebbe in
+   mare), i nomi ufficiali troppo lunghi hanno una forma breve, e le etichette
+   che si sovrappongono vengono nascoste dando la precedenza alle regioni piu'
+   estese. */
+var etichetteRegioni = null;
+
+var NOMI_BREVI = {
+  "Valle d'Aosta/Vallée d'Aoste": "Valle d'Aosta",
+  "Trentino-Alto Adige/Südtirol": "Trentino-Alto Adige",
+  "Friuli-Venezia Giulia": "Friuli-V. Giulia",
+  "Provincia Autonoma di Bolzano/Bozen": "P.A. Bolzano",
+  "Provincia Autonoma di Trento": "P.A. Trento",
+  "Emilia-Romagna": "Emilia-Romagna"
+};
+
+function anelloMaggiore(geom){
+  var anelli = geom.type === "Polygon" ? [geom.coordinates[0]]
+             : geom.coordinates.map(function(p){ return p[0]; });
+  var meglio = null, maxA = -1;
+  anelli.forEach(function(a){
+    var s = 0;
+    for (var i = 0, j = a.length - 1; i < a.length; j = i++){
+      s += a[j][0] * a[i][1] - a[i][0] * a[j][1];
+    }
+    var area = Math.abs(s / 2);
+    if (area > maxA){ maxA = area; meglio = a; }
+  });
+  return meglio;
+}
+
+function centroide(geom){
+  var a = anelloMaggiore(geom), x = 0, y = 0, s = 0;
+  for (var i = 0, j = a.length - 1; i < a.length; j = i++){
+    var f = a[j][0] * a[i][1] - a[i][0] * a[j][1];
+    s += f; x += (a[j][0] + a[i][0]) * f; y += (a[j][1] + a[i][1]) * f;
+  }
+  if (!s) return L.latLng(a[0][1], a[0][0]);
+  return L.latLng(y / (3 * s), x / (3 * s));
+}
+
+function areaRiquadro(f){
+  var b = L.geoJSON(f).getBounds();
+  return (b.getNorth() - b.getSouth()) * (b.getEast() - b.getWest());
+}
+
+function disegnaNomiRegioni(){
+  etichetteRegioni = L.layerGroup();
+  geoRegioni.features.slice()
+    .sort(function(a, b){ return areaRiquadro(b) - areaRiquadro(a); })
+    .forEach(function(f){
+      var nome = f.properties.terr;
+      L.marker(centroide(f.geometry), {
+        interactive:false, keyboard:false,
+        icon: L.divIcon({
+          className:"nome-regione",
+          html:'<span>' + esc(NOMI_BREVI[nome] || nome) + '</span>',
+          iconSize:[0,0]
+        })
+      }).addTo(etichetteRegioni);
+    });
+  aggiornaNomiRegioni();
+  mappa.on("zoomend moveend", aggiornaNomiRegioni);
+}
+
+/* nasconde le etichette che si accavallano: si scorre dalla regione piu' estesa
+   alla piu' piccola, tenendo solo quelle che non toccano una gia' tenuta */
+function sfoltisci(){
+  var tenuti = [];
+  etichetteRegioni.getLayers().forEach(function(m){
+    var el = m.getElement();
+    if (!el) return;
+    el.style.visibility = "visible";
+    var r = el.firstChild.getBoundingClientRect();
+    var scontro = tenuti.some(function(t){
+      return !(r.right < t.left - 4 || r.left > t.right + 4 ||
+               r.bottom < t.top - 2 || r.top > t.bottom + 2);
+    });
+    if (scontro) el.style.visibility = "hidden";
+    else tenuti.push(r);
+  });
+}
+
+function aggiornaNomiRegioni(){
+  if (!etichetteRegioni) return;
+  var mostra = stato.regioni;
+  if (mostra && !mappa.hasLayer(etichetteRegioni)) etichetteRegioni.addTo(mappa);
+  if (!mostra && mappa.hasLayer(etichetteRegioni)){
+    mappa.removeLayer(etichetteRegioni);
+    return;
+  }
+  /* i marker esistono nel DOM solo dopo che Leaflet li ha disegnati: misurarli
+     subito darebbe getElement() nullo e nessuna sovrapposizione rilevata */
+  if (mostra) setTimeout(sfoltisci, 60);
+}
+
+function popupRegione(terr,r){
+  var testa='<p class="pop-nome">'+esc(terr)+'</p>';
+  if(!r||!r.catalogo){
+    return testa+'<p class="pop-sotto">Nessun catalogo federato</p>'+
+      '<p class="pop-vuoto">Nessun catalogo regionale risulta federato su dati.gov.it: '+
+      'i dataset di questo territorio non arrivano a data.europa.eu e non hanno un punteggio MQA.</p>';
+  }
+  var f=fascia(r.mqa);
+  return testa+
+    '<p class="pop-sotto">'+esc(r.catalogo)+'</p>'+
+    '<div class="pop-cifre">'+
+      '<div><p class="valore" style="color:'+f.colore+'">'+dec(r.mqa)+'</p>'+
+        '<p class="etichetta">MQA · '+f.nome+'</p></div>'+
+      '<div><p class="valore">'+num(r.n)+'</p><p class="etichetta">Dataset</p></div>'+
+    '</div>'+
+    '<p class="pop-piede">Federato da <a href="'+esc(r.url)+'" target="_blank" rel="noopener">'+
+      esc(r.dominio)+'</a></p>';
+}
+
+/* ---------- strato comuni ---------- */
+function disegnaComuni(){
+  stratoComuni=L.layerGroup();
+  /* I cerchi si disegnano dal piu' piccolo al piu' grande, cosi' i grandi
+     restano sopra. A bassa scala il cerchio di Milano copre i centroidi di 106
+     comuni: con l'ordine opposto, passandoci sopra compariva il nome di uno di
+     quelli invece che Milano. Il riempimento e' abbastanza trasparente da
+     lasciar vedere gli addensamenti sottostanti, e ingrandendo la mappa i
+     cerchi si separano e tornano tutti raggiungibili. */
+  dati.comuni.slice().sort(function(a,b){ return a.n-b.n; }).forEach(function(c){
+    /* I cerchi grandi stanno sotto e i piccoli sopra, come vuole la
+       convenzione dei simboli proporzionali: altrimenti un comune piccolo
+       vicino a uno grande sparirebbe. Con il riempimento troppo coperto pero'
+       le sovrapposizioni non si vedevano, e passando sul cerchio di Milano
+       compariva il nome di uno dei 106 comuni che a bassa scala gli cadono
+       dentro. Con il riempimento piu' leggero l'accavallamento si legge, e il
+       numero di dataset nel suggerimento dice subito di che cerchio si tratta. */
+    var cerchio=L.circleMarker([c.lat,c.lon],{
+      radius:raggio(c), fillColor:coloreComune(c), fillOpacity:.55,
+      color:"#2c3d47", weight:.8, opacity:.9
+    });
+    cerchio.bindPopup(popupComune(c),{maxWidth:300});
+    cerchio.bindTooltip(c.nome+" · "+num(c.n)+(c.n===1?" dataset":" dataset"),
+                        {direction:"top",offset:[0,-4]});
+    cerchio._dato=c;
+    stratoComuni.addLayer(cerchio);
+  });
+}
+function popupComune(c){
+  var f=fascia(c.mqa);
+  /* si dichiara solo la presenza nel catalogo regionale, mai l'assenza: la
+     prima e' un'osservazione, la seconda sarebbe una deduzione */
+  var fed = c.cat
+    ? '<p class="pop-federato">Federato nel catalogo regionale '+esc(c.cat)+'</p>'
+    : '';
+  return '<p class="pop-nome">'+esc(c.nome)+'</p>'+
+    '<p class="pop-sotto">'+esc(c.prov)+' · '+esc(c.reg)+' · '+esc(c.cod)+'</p>'+
+    '<div class="pop-cifre">'+
+      '<div><p class="valore" style="color:'+f.colore+'">'+dec(c.mqa)+'</p>'+
+        '<p class="etichetta">MQA · '+f.nome+'</p></div>'+
+      '<div><p class="valore">'+num(c.n)+'</p><p class="etichetta">Dataset</p></div>'+
+    '</div>'+fed;
+}
+
+/* ---------- legenda ---------- */
+/* ---------- filtro per classe ---------- */
+/* La mappa porta due variabili distinte: il colore dice la qualita' dei
+   metadati, l'area del cerchio quanti dataset pubblica il comune. I due filtri
+   sono percio' indipendenti e si combinano: si puo' chiedere "i comuni con
+   molti dataset e punteggio scarso" tenendo accese entrambe le letture. */
+function elencoAttivo(){ return stato.metrica==="mqa" ? CLASSI_MQA : CLASSI_N; }
+function chiaveClasse(cl){ return stato.metrica+":"+cl.nome; }
+function chiaveTaglia(cl){ return "taglia:"+cl.nome; }
+
+function visibileColore(valore){
+  return !stato.escluse[chiaveClasse(classe(elencoAttivo(), valore))];
+}
+function visibileTaglia(n){
+  return !stato.escluse[chiaveTaglia(classe(CLASSI_N, n))];
+}
+/* Una classe senza enti non e' filtrabile: isolarla svuoterebbe la mappa, e
+   soprattutto restava esclusa dopo un isolamento, tenendo acceso il pulsante
+   di ripristino senza che si vedesse nulla di nascosto. */
+function insiemeAttivo(){
+  return stato.comuni
+    ? dati.comuni
+    : dati.regioni.filter(function(r){ return r.catalogo; });
+}
+function contaClasse(cl){
+  var elenco=elencoAttivo(), perMqa=stato.metrica==="mqa";
+  return insiemeAttivo().filter(function(x){
+    return classe(elenco, perMqa?x.mqa:x.n)===cl;
+  }).length;
+}
+function classiPiene(){
+  return elencoAttivo().filter(function(cl){ return contaClasse(cl)>0; });
+}
+function contaTaglia(cl){
+  return dati.comuni.filter(function(c){ return classe(CLASSI_N,c.n)===cl; }).length;
+}
+function tagliePiene(){
+  return CLASSI_N.filter(function(cl){ return contaTaglia(cl)>0; });
+}
+function filtroAttivo(){
+  return classiPiene().some(function(cl){ return stato.escluse[chiaveClasse(cl)]; });
+}
+function filtroTagliaAttivo(){
+  return tagliePiene().some(function(cl){ return stato.escluse[chiaveTaglia(cl)]; });
+}
+
+/* ---------- legenda ---------- */
+function legenda(){
+  var el=document.getElementById("legenda");
+  el.hidden=false;
+  var perMqa = stato.metrica==="mqa";
+  var elenco = elencoAttivo();
+
+  /* Il conteggio segue lo strato in primo piano: i comuni se accesi,
+     altrimenti i territori regionali. Resta il totale della classe,
+     non il filtrato, così si vede sempre quanti enti ci sono dentro. */
+  var insieme = insiemeAttivo();
+  var voce = stato.comuni ? "comuni" : "territori";
+
+  /* Il suffisso dice che le classi si possono toccare: senza, la legenda
+     sembra puramente descrittiva e nessuno prova a filtrarla. */
+  var html='<h2>'+(perMqa?"Punteggio MQA":"Numero di dataset")+
+    ' <span class="filtrabile">filtrabile</span></h2>'+
+    '<ul class="classi">';
+  elenco.forEach(function(cl){
+    var quanti=contaClasse(cl);
+    var spenta=!!stato.escluse[chiaveClasse(cl)];
+    html+='<li><button type="button" class="riga-classe'+(quanti?"":" vuota")+'"'+
+      (quanti?"":' disabled')+
+      ' data-classe="'+esc(cl.nome)+'" aria-pressed="'+(!spenta)+'">'+
+      '<span class="tassello" style="background:'+cl.colore+
+        (spenta?';opacity:.2':'')+'"></span>'+
+      '<span class="voce-classe">'+cl.nome+
+        (perMqa?'<em>'+cl.soglia+'</em>':'')+'</span>'+
+      '<span class="quanti">'+quanti+'</span></button></li>';
+  });
+  html+='</ul>';
+  html+=filtroAttivo()
+    ? '<button type="button" id="azzera" class="azzera">Mostra tutte le classi</button>'
+    : '<p class="nota-legenda">Tocca una classe per isolarla · '+insieme.length+' '+voce+'</p>';
+
+  if(stato.comuni){
+    /* L'area del cerchio e' una scala continua; le fasce servono a filtrarla.
+       Il cerchio mostrato per ciascuna fascia ha il diametro del valore
+       rappresentativo indicato accanto. */
+    html+='<h3 class="titolo-taglie">Dataset per comune '+
+      '<span class="filtrabile">filtrabile</span></h3><ul class="taglie">';
+    CLASSI_N.forEach(function(cl){
+      var quanti=contaTaglia(cl);
+      var campione=Math.min(Math.max(cl.min*3, cl.min), maxDatasetComune);
+      var r=raggio({n:campione});
+      var spenta=!!stato.escluse[chiaveTaglia(cl)];
+      html+='<li><button type="button" class="riga-taglia'+(quanti?"":" vuota")+
+        (spenta?" spenta":"")+'"'+(quanti?"":' disabled')+
+        ' data-taglia="'+esc(cl.nome)+'"'+
+        ' aria-pressed="'+(spenta?"false":"true")+'">'+
+        '<span class="bolla" style="width:46px"><i style="width:'+(r*2).toFixed(1)+
+        'px;height:'+(r*2).toFixed(1)+'px"></i></span>'+
+        '<span class="voce-classe">'+esc(cl.nome)+'</span>'+
+        '<span class="quanti">'+num(quanti)+'</span></button></li>';
+    });
+    html+='</ul>';
+    html+=filtroTagliaAttivo()
+      ? '<button type="button" id="azzera-taglie" class="azzera">Mostra tutte le fasce</button>'
+      : '<p class="nota-legenda">Area del cerchio proporzionale ai dataset del comune</p>';
+  }
+  if(stato.regioni){
+    html+='<p class="nota-legenda"><span class="tassello" style="background:#c3ccd1"></span>'+
+      'Nessun catalogo regionale federato</p>';
+  }
+  el.innerHTML=html;
+}
+
+/* ---------- aggiornamento ---------- */
+function aggiorna(){
+  if(stato.regioni){ if(!mappa.hasLayer(stratoRegioni)) stratoRegioni.addTo(mappa); }
+  else if(mappa.hasLayer(stratoRegioni)) mappa.removeLayer(stratoRegioni);
+  aggiornaNomiRegioni();
+
+  if(stato.comuni){ if(!mappa.hasLayer(stratoComuni)) stratoComuni.addTo(mappa); }
+  else if(mappa.hasLayer(stratoComuni)) mappa.removeLayer(stratoComuni);
+
+  if(stato.regioni){
+    var perTerr={};
+    dati.regioni.forEach(function(r){ perTerr[r.terr]=r; });
+    stratoRegioni.setStyle(function(f){
+      var r=perTerr[f.properties.terr];
+      if(!r||!r.catalogo) return {fillColor:"#c3ccd1",fillOpacity:.5};
+      var mostra=visibileColore(stato.metrica==="mqa"?r.mqa:r.n);
+      return {fillColor:mostra?coloreRegione(r):"#dde4e8",
+              fillOpacity:mostra?.82:.22};
+    });
+  }
+  if(stato.comuni){
+    stratoComuni.eachLayer(function(l){
+      var c=l._dato;
+      var mostra=visibileColore(stato.metrica==="mqa"?c.mqa:c.n)
+               && visibileTaglia(c.n);
+      l.setStyle({fillColor:coloreComune(c),
+                  fillOpacity:mostra?.55:0,
+                  opacity:mostra?.85:0});
+      /* Un cerchio escluso dal filtro non deve piu' rispondere al puntatore:
+         altrimenti, isolando i comuni sopra i mille dataset, passando su Milano
+         si vedevano ancora i nomi dei comuni nascosti sotto. La riga
+         pointerEvents valeva solo per il disegno vettoriale; qui la mappa usa
+         la tela, dove l'ascolto dipende da options.interactive. */
+      l.options.interactive = mostra;
+      if(!mostra){ l.closeTooltip(); l.closePopup(); }
+      if(l._path) l._path.style.pointerEvents=mostra?"":"none";
+    });
+  }
+  legenda();
+}
+
+document.getElementById("legenda").addEventListener("click",function(e){
+  if(e.target.closest("#azzera")){
+    elencoAttivo().forEach(function(x){ delete stato.escluse[chiaveClasse(x)]; });
+    aggiorna(); return;
+  }
+  if(e.target.closest("#azzera-taglie")){
+    CLASSI_N.forEach(function(x){ delete stato.escluse[chiaveTaglia(x)]; });
+    aggiorna(); return;
+  }
+  var t=e.target.closest("button[data-taglia]");
+  if(t){
+    if(t.disabled) return;
+    var piene=tagliePiene();
+    var cn=piene.filter(function(x){ return x.nome===t.dataset.taglia; })[0];
+    if(!cn) return;
+    var kt=chiaveTaglia(cn);
+    /* stesso gesto della legenda dei colori: il primo tocco isola, i
+       successivi accendono e spengono la singola fascia */
+    if(!filtroTagliaAttivo()){
+      piene.forEach(function(x){ if(x!==cn) stato.escluse[chiaveTaglia(x)]=true; });
+    }else if(stato.escluse[kt]){ delete stato.escluse[kt]; }
+    else { stato.escluse[kt]=true; }
+    aggiorna(); return;
+  }
+  var b=e.target.closest("button[data-classe]");
+  if(!b || b.disabled) return;
+  var piene=classiPiene();
+  var cl=piene.filter(function(x){ return x.nome===b.dataset.classe; })[0];
+  if(!cl) return;
+  var k=chiaveClasse(cl);
+  /* Primo tocco quando sono tutte accese: isola la classe.
+     Tocchi successivi: accende e spegne la singola classe. */
+  if(!filtroAttivo()){
+    piene.forEach(function(x){
+      if(x!==cl) stato.escluse[chiaveClasse(x)]=true;
+    });
+  }else{
+    if(stato.escluse[k]) delete stato.escluse[k];
+    else stato.escluse[k]=true;
+  }
+  aggiorna();
+});
+document.getElementById("metrica").addEventListener("change",function(e){
+  stato.metrica=e.target.value; aggiorna();
+});
+document.getElementById("strati").addEventListener("click",function(e){
+  var b=e.target.closest("button[data-strato]");
+  if(!b) return;
+  var k=b.dataset.strato;
+  if(stato.comuni===false && k==="regioni" && stato.regioni===true) { /* consenti */ }
+  stato[k]=!stato[k];
+  b.setAttribute("aria-pressed", String(stato[k]));
+  aggiorna();
+});
+})();
+</script>
+</body>
+</html>
