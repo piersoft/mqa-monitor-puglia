@@ -1,64 +1,56 @@
-# Mappe territoriali — mqa-monitor
+# Mappa territoriale — mqa-monitor-puglia
 
-Due mappe aggiunte al cruscotto, servite come pagina statica su GitHub Pages.
+Mappa dei comuni pugliesi, servita come pagina statica su GitHub Pages.
+
+Nella versione nazionale ([mqa-monitor](https://github.com/piersoft/mqa-monitor))
+le mappe sono due: quella dei comuni e una coropletica delle regioni, alimentata
+dal livello organizzazioni e ristretta ai cataloghi federati su dati.gov.it. Qui
+il territorio è uno solo, quindi lo strato regionale è stato rimosso insieme ai
+suoi dati e ai suoi filtri.
 
 ## File
 
 | File | Ruolo | Rigenerato |
 |---|---|---|
-| `build_maps.py` | genera i dati delle mappe | a ogni run |
+| `build_maps.py` | genera i dati della mappa | a ogni run |
 | `docs/mappe.html` | pagina Leaflet | mai |
-| `docs/comuni_coords.json` | centroidi e denominazioni degli 7.899 comuni | una tantum |
-| `docs/regioni_split.geojson` | confini regionali, TN e BZ separati | una tantum |
+| `docs/comuni_coords.json` | centroidi e denominazioni dei comuni | una tantum |
 | `docs/maps_data.json` | output di `build_maps.py` | a ogni run |
 
-`comuni_coords.json` e `regioni_split.geojson` sono cache statiche: vanno committate
-una volta e non toccate dal cron. Si rigenerano solo quando ISTAT modifica i confini
-comunali, cioè in pratica a ogni fusione.
+`comuni_coords.json` è una cache statica: va committata una volta e non toccata
+dal workflow. Si rigenera solo quando Istat modifica i confini comunali, cioè in
+pratica a ogni fusione.
 
-## Cron
+## Come si compone il dato
 
-Aggiungere una riga dopo `build_site.py`:
+I comuni vengono dal livello **titolari** di `docs/data.json`
+(`dct:rightsHolder` più `dct:identifier`), già ristretto al perimetro pugliese da
+`mqa_sparql.py`. Il codice IPA è ricondotto al codice catastale e da lì al
+centroide.
 
-    python3 /home/piersoft/mqaedp/mqa-monitor/build_maps.py
+L'area del cerchio è proporzionale al numero di dataset, il colore al punteggio
+MQA — oppure, con il selettore, di nuovo al numero di dataset. Le due letture
+sono filtrabili in modo indipendente dalla legenda.
 
-Costo: una chiamata HTTP a `harvest_source_list` (~170 KB), nessuna query SPARQL.
+## Codici IPA errati
 
-## Metodo
+Il catalogo regionale dichiara tre codici con la lettera `I` scritta `L`, che
+ricondurrebbero il comune a un centroide di un'altra regione. Sono corretti in
+`OVERRIDE_CODICI` dentro `build_maps.py` e segnalati alla Regione per la
+correzione a monte:
 
-**Comuni — livello titolari.** `dct:rightsHolder` più `dct:identifier` è l'unico livello
-che attribuisce il dataset all'ente titolare anche quando il dataset vive dentro il
-catalogo di una regione. Codice IPA `c_` + catastale ricondotto al centroide via
-`com_catasto_code` dei confini openpolis, senza passare dal codice ISTAT.
-
-Il 26% dei dataset comunali sta su titolari con identificativo fuori standard
-(Torino usa la partita IVA, i comuni veneti la denominazione estesa): vengono
-recuperati per confronto sul nome, con match univoco e nessuna omonimia.
-
-**Regioni — livello organizzazioni.** L'elenco dei cataloghi federati viene da
-`harvest_source_list` di dati.gov.it, non da EDP: la gerarchia `dct:hasPart` non
-sopravvive all'harvesting verso data.europa.eu. `catalog.ttl` esporrebbe lo stesso
-dato ma è paginato su 659 pagine, circa 400 MB di scarico per una lista di 321 righe.
-
-Le due mappe non si sommano: un dataset comunale dentro un catalogo regionale è
-contato una volta per titolarità e una volta per federazione.
-
-## Correzioni applicate
-
-Codici IPA errati sui titolari, corretti in `OVERRIDE_CODICI`:
-
-| Dichiarato | Reale | Ente |
+| dichiarato | comune reale | dove finirebbe |
 |---|---|---|
-| `c_l390` | `c_i390` | San Vincenzo (LI) |
-| `c_l344` | `c_i344` | Sant'Ippolito (PU) |
-| `c_f633` | `c_f653` | Monte Urano (FM) |
-| `c_e667` | `c_m312` | Lonato del Garda (BS) |
-| `c_969` | `c_d969` | Genova |
-| `c_cp112` | `c_m323` | Castelfranco Piandiscò |
-| `c_f474` | — | Monteciccardo, fuso in Pesaro nel 2024 |
+| `c_l887` | Specchia (LE) | Vignole Borbera (AL) |
+| `c_l172` | Santa Cesarea Terme (LE) | Tinnura (OR) |
+| `c_l115` | San Pietro in Lama (LE) | Ternate (VA) |
 
-Sono candidati per `correggi_titolare.py` alla fonte.
+## Esecuzione
 
-Esclusi dalla mappa comunale: 4 titolari per 22 dataset, tutti comuni soppressi o
-denominazioni inesistenti (Lentiai, Castellavazzo, Santa Caterina d'Este,
-Monteciccardo). Escluse anche le Città metropolitane, che sono enti di area vasta.
+`build_maps.py` legge `docs/data.json`, quindi va lanciato **dopo**
+`build_site.py`. Non richiede rete: nella versione nazionale interroga
+`harvest_source_list` per sapere quali cataloghi regionali sono federati, qui non
+serve.
+
+    python3 build_site.py
+    python3 build_maps.py

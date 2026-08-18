@@ -1,13 +1,28 @@
-# Monitoraggio MQA — data.europa.eu
+# Monitoraggio MQA — enti del catalogo regionale pugliese
 
 Rilevazione giornaliera del punteggio MQA (Metadata Quality Assessment) che
-data.europa.eu assegna ai dataset di dati.gov.it, aggregato **per ente** e con
-confronto storico.
+data.europa.eu assegna ai dataset di dati.gov.it, ristretta agli enti che
+pubblicano attraverso il catalogo regionale
+[dati.puglia.it](https://dati.puglia.it), aggregata **per ente** e con confronto
+storico.
 
-Pagina pubblica: <https://piersoft.github.io/mqa-monitor/>
+Pagina pubblica: <https://piersoft.github.io/mqa-monitor-puglia/>
 
-Nasce per il catalogo `dati-gov-it`, ma funziona con qualsiasi catalogo del
-portale europeo.
+## Rapporto con il monitoraggio nazionale
+
+È una restrizione territoriale di
+[mqa-monitor](https://github.com/piersoft/mqa-monitor), non un sistema diverso:
+stessa metodologia, stesse fonti, stesso codice salvo tre differenze.
+
+- `puglia_titolari.py` ricava il perimetro dal CKAN pugliese, faccettando su
+  `holder_identifier`, che contiene il codice IPA del titolare
+- `mqa_sparql.py` trattiene i soli titolari del perimetro e interroga le poche
+  organizzazioni che li ospitano, non tutte
+- la mappa regionale è stata rimossa: resta quella dei comuni
+
+Il punteggio mostrato resta quello **complessivo** dell'ente su data.europa.eu.
+Se un comune pubblica anche attraverso un proprio portale federato, quei dataset
+concorrono al risultato: il perimetro seleziona gli enti, non i dataset.
 
 ---
 
@@ -23,9 +38,9 @@ e denominazioni interne.
 
 | Livello | Fonte | Voci | Cosa è | Dimensioni |
 |---|---|---:|---|---|
-| **Titolari** | SPARQL, `dct:rightsHolder` | 1.614 | L'ente proprietario dei dati | sì |
-| **Organizzazioni** | SPARQL, `dcat:contactPoint` | 398 | Chi ospita il catalogo di origine | sì |
-| Editori | API, `dct:publisher` | 1.608 | Il valore grezzo monitorato da EDP | no |
+| **Titolari** | SPARQL, `dct:rightsHolder` | 54 | L'ente proprietario dei dati | sì |
+| **Organizzazioni** | SPARQL, `dcat:contactPoint` | 2 | Chi ospita il catalogo di origine | sì |
+| Editori | API, `dct:publisher` | ~250 | Il valore grezzo monitorato da EDP | no |
 
 I primi due sono le viste della pagina. Gli **editori** restano calcolati in
 `mqa/storico.csv` ma fuori dalla pagina: servono solo a spiegare perché i numeri
@@ -131,8 +146,9 @@ Questo ha condizionato il disegno delle query.
 - **Titolari**: una query aggregata, 20–45 secondi. Vicina al limite, quindi con
   cinque tentativi e attese fino a due minuti e mezzo. Se non passa, il livello
   viene saltato e si riprova il giorno dopo.
-- **Organizzazioni**: **una query per ente**, 398 richieste da meno di un secondo
-  l'una, circa 4 minuti in tutto. Sembra un controsenso, ma la query aggregata
+- **Organizzazioni**: **una query per ente**. Nel catalogo nazionale sono 398
+  richieste, circa 4 minuti; qui bastano le due organizzazioni che ospitano gli
+  enti del perimetro, ricavate dal campo `via` della rilevazione titolari. Sembra un controsenso, ma la query aggregata
   su tutte le organizzazioni ha funzionato per un solo giorno (9 s) prima che
   Virtuoso cambiasse piano di esecuzione e smettesse di rientrare nei 60 secondi
   — anche spezzata per singola metrica. Fissando l'URI dell'organizzazione
@@ -155,14 +171,19 @@ Dettagli utili per chi volesse rifare le query:
 ## Come funziona
 
 ```
-mqa_sparql.py    →  mqa/titolari/<cat>_<data>.csv        ogni giorno,  ~45 s
-                    mqa/organizzazioni/<cat>_<data>.csv
-mqa_monitor.py   →  mqa/dataset/<cat>_<data>.csv.gz      solo lunedì,  ~25 s
-                    mqa/aggregato/<cat>_<livello>_<data>.csv
-                    mqa/report_<cat>_<livello>_<data>.md
-build_site.py    →  mqa/storico.csv                      ogni giorno
-                    docs/data.json
+puglia_titolari.py →  mqa/titolari_puglia.json           ogni giorno,   ~2 s
+mqa_sparql.py      →  mqa/titolari/<cat>_<data>.csv      ogni giorno,  ~45 s
+                      mqa/organizzazioni/<cat>_<data>.csv
+mqa_monitor.py     →  mqa/dataset/<cat>_<data>.csv.gz    solo lunedì,  ~25 s
+filtra_storico.py  →  riduce gli snapshot al perimetro   ogni giorno
+build_site.py      →  mqa/storico.csv                    ogni giorno
+                      docs/data.json
 ```
+
+`filtra_storico.py` serve perché lo scroll dell'API non conosce il perimetro:
+scarica l'intero catalogo nazionale e lo snapshot va ridotto prima del commit. È
+idempotente, quindi rilanciarlo non fa danno. Le aggregazioni e i report che
+`mqa_monitor.py` produce sull'intero catalogo sono esclusi via `.gitignore`.
 
 `mqa_monitor.py` usa il parametro `scroll=true` dell'API di ricerca: la
 paginazione normale si ferma a 10.000 risultati, lo scroll no. Restituisce uno
@@ -179,8 +200,10 @@ Lo storico completo è comunque il `git log`: ogni rilevazione è un commit.
 
 ## Cadenza
 
-Il workflow gira **ogni mattina** alle 06:00 UTC (08:00 italiane in ora legale,
-07:00 in ora solare), perché EDP ricalcola quasi ogni giorno mentre l'harvesting
+Il workflow gira **ogni mattina** alle 06:37 UTC (08:37 italiane in ora legale,
+07:37 in ora solare) — sfalsato rispetto al monitoraggio nazionale, per non
+interrogare il triplestore nello stesso momento con due repository. EDP
+ricalcola quasi ogni giorno mentre l'harvesting
 di dati.gov.it chiude il sabato sera: con la rilevazione settimanale, tra la
 correzione di un ente e la sua verifica potevano passare tredici giorni.
 
@@ -201,9 +224,9 @@ rumore — un server che non risponde per un'ora fa scendere l'accessibilità e
 risalire il giorno dopo.
 
 `docs/data.json` tiene tutte le rilevazioni degli ultimi 60 giorni e poi una a
-settimana: con 2.000 enti ogni rilevazione pesa ~30 KB, e un anno di dati
-giornalieri renderebbe la pagina inutilizzabile. Lo storico integrale resta in
-`mqa/storico.csv`.
+settimana. Con 54 enti il vincolo di dimensione non morde come nel catalogo
+nazionale, ma la regola resta la stessa per non divergere dal codice di monte.
+Lo storico integrale resta in `mqa/storico.csv`.
 
 ## Soglie di rating
 
@@ -249,9 +272,12 @@ per ente. Il valore ufficiale viene comunque letto a ogni run da
 Solo libreria standard, nessuna dipendenza. Serve Python ≥ 3.8.
 
 ```bash
+python3 puglia_titolari.py --outdir ./mqa       # perimetro dal CKAN pugliese
 python3 mqa_sparql.py --catalog dati-gov-it     # titolari e organizzazioni
-python3 mqa_monitor.py --outdir ./mqa           # scroll dell'API + report
+python3 mqa_monitor.py --outdir ./mqa           # scroll dell'API (solo lunedì)
+python3 filtra_storico.py                       # riduce gli snapshot al perimetro
 python3 build_site.py --catalog dati-gov-it     # storico e dati della pagina
+python3 build_maps.py                           # dati della mappa
 ```
 
 La pagina va servita via HTTP, perché carica `data.json` via fetch:
@@ -287,9 +313,9 @@ catalogo.
 Ogni ente ha un indirizzo condivisibile:
 
 ```
-https://piersoft.github.io/mqa-monitor/?titolare=c_f563
-https://piersoft.github.io/mqa-monitor/?titolare=Comune%20di%20Montemesola
-https://piersoft.github.io/mqa-monitor/?organizzazione=comune-di-torino
+https://piersoft.github.io/mqa-monitor-puglia/?titolare=c_f563
+https://piersoft.github.io/mqa-monitor-puglia/?titolare=Comune%20di%20Montemesola
+https://piersoft.github.io/mqa-monitor-puglia/?organizzazione=regione-puglia
 ```
 
 Accetta il codice (IPA per i titolari, slug o UUID per le organizzazioni) oppure
@@ -329,9 +355,15 @@ titoli già presenti o con il fallback.
 
 ## Limiti noti
 
-- Il livello SPARQL copre 61.510 dataset contro i 64.656 dello scroll: la
-  differenza sono quelli privi di misure di qualità nel triplestore. Le medie
-  restano confrontabili, i conteggi assoluti no.
+- Il livello SPARQL non copre i dataset privi di misure di qualità nel
+  triplestore: le medie restano confrontabili, i conteggi assoluti no.
+- Il catalogo regionale dichiara alcuni codici IPA errati. Tre comuni hanno la
+  lettera `I` scritta `L` e sono corretti in `OVERRIDE_CODICI` dentro
+  `build_maps.py`; due titolari — una partita IVA e un codice non IPA — non sono
+  agganciabili a data.europa.eu e restano fuori dal perimetro.
+- Il perimetro si rigenera a ogni corsa, ma gli snapshot già archiviati no: un
+  ente che entra oggi nel catalogo regionale compare senza la propria storia
+  pregressa.
 - L'endpoint SPARQL è pubblico e senza SLA: rifiuta le query la cui stima di
   esecuzione supera i 60 secondi. Nel workflow lo step è `continue-on-error`,
   così un rifiuto non blocca il resto.

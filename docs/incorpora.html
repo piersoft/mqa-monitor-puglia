@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Come includere il monitoraggio MQA in una pagina di dati.gov.it</title>
+<title>Come includere il monitoraggio MQA in una pagina di dati.puglia.it</title>
 <style>
 body{font-family:"Titillium Web",system-ui,sans-serif;max-width:820px;margin:0 auto;
   padding:40px 20px 80px;color:#191919;line-height:1.55}
@@ -21,13 +21,13 @@ th{color:#5d7083;font-weight:600;font-size:13px}
 </head>
 <body>
 
-<h1>Includere il monitoraggio MQA in dati.gov.it</h1>
+<h1>Includere il monitoraggio MQA in dati.puglia.it</h1>
 <p>La dashboard è una pagina statica senza back end: legge un solo file JSON
 rigenerato ogni mattina. Può quindi essere ospitata così com'è, oppure inclusa
 in una pagina del portale.</p>
 
 <h2>Veste grafica</h2>
-<p>La pagina adotta i valori del tema di dati.gov.it
+<p>La pagina adotta i valori del tema di dati.gov.it, comuni al Design Italia
 (<code>bootstrap_italia/assets/agid</code>): fondo bianco, testo
 <code>#19191a</code>, primario <code>#0066cc</code>, Titillium Web e Roboto Mono,
 raggi di 4&nbsp;px sui controlli. È l'unica veste: non c'è un parametro per
@@ -44,7 +44,7 @@ uno per WCAG 2.1 AA sui fondi effettivi.</p>
 <code>?embed=1</code>. La pagina la riconosce, e riconosce comunque da sé di
 trovarsi dentro un riquadro.</p>
 
-<pre>&lt;iframe id="dashIframe" src="https://piersoft.github.io/mqa-monitor/?embed=1"
+<pre>&lt;iframe id="dashIframe" src="https://piersoft.github.io/mqa-monitor-puglia/?embed=1"
         title="Qualità dei metadati, ente per ente"
         style="width:100%;border:0;height:2300px" loading="lazy"&gt;&lt;/iframe&gt;
 
