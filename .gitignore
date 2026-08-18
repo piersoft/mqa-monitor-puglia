@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+
+# Aggregazioni e report prodotti da mqa_monitor.py sull'intero catalogo
+# nazionale: non hanno senso in questo repository, che copre i soli enti
+# del catalogo regionale pugliese.
+mqa/aggregato/
+mqa/report_*.md

@@ -3,10 +3,7 @@
 """
 build_maps.py - genera docs/maps_data.json per le due mappe del monitoraggio MQA.
 
-  1) Mappa puntuale COMUNI      -> livello TITOLARI (dct:rightsHolder + dct:identifier)
-  2) Mappa coropletica REGIONI  -> livello ORGANIZZAZIONI, ristretto ai cataloghi
-                                   regionali effettivamente federati su dati.gov.it
-                                   (fonte: harvest_source_list)
+  Mappa puntuale COMUNI -> livello TITOLARI (dct:rightsHolder + dct:identifier)
 
 Enti centrali, agenzie, partecipate, universita', ASL, consorzi: esclusi.
 
@@ -17,11 +14,8 @@ Output: docs/maps_data.json
 
 import json
 import os
-import time
 import re
-import sys
 import unicodedata
-import urllib.request
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DOCS = os.path.join(HERE, "docs")
@@ -29,7 +23,6 @@ DATA_JSON = os.path.join(DOCS, "data.json")
 COORDS_JSON = os.path.join(DOCS, "comuni_coords.json")
 OUT_JSON = os.path.join(DOCS, "maps_data.json")
 
-HARVEST_API = "https://dati.gov.it/opendata/api/3/action/harvest_source_list"
 
 # Titolare comunale con codice IPA formalmente valido: c_ + catastale (lettera + 3 cifre)
 RE_IPA_COMUNE = re.compile(r"^c_[a-z]\d{3}$", re.I)
@@ -37,45 +30,6 @@ RE_IPA_COMUNE = re.compile(r"^c_[a-z]\d{3}$", re.I)
 RE_NOME_COMUNE = re.compile(r"^(comune|citta|citt\u00e0)\b", re.I)
 # Le Citta' metropolitane sono enti di area vasta, non comuni: fuori dalla mappa
 RE_AREA_VASTA = re.compile(r"^citt[a\u00e0]\s+metropolitana", re.I)
-
-# Sorgenti di harvest regionali/PA -> territorio della mappa.
-# La chiave e' il "title" della sorgente su dati.gov.it.
-CATALOGHI_REGIONALI = {
-    "Regione Piemonte": "Piemonte",
-    "Regione Lombardia": "Lombardia",
-    "Provincia Autonoma di Trento": "P.A. Trento",
-    "Provincia Bolzano": "P.A. Bolzano",
-    "Regione Veneto": "Veneto",
-    "Regione Friuli Venezia-Giulia": "Friuli-Venezia Giulia",
-    "Regione Liguria": "Liguria",
-    "Regione Emilia-Romagna": "Emilia-Romagna",
-    "Regione Toscana": "Toscana",
-    "Regione Umbria": "Umbria",
-    "Regione Marche": "Marche",
-    "Regione Lazio": "Lazio",
-    "Regione Campania": "Campania",
-    "Regione Puglia": "Puglia",
-    "Regione Basilicata": "Basilicata",
-    "Regione Calabria": "Calabria",
-    "Regione Siciliana": "Sicilia",
-}
-
-# Il titolo della sorgente di harvest non sempre coincide con il nome
-# dell'organizzazione in data.json.
-ALIAS_ORGANIZZAZIONE = {
-    "Provincia Bolzano": "Provincia Autonoma di Bolzano",
-    "Regione Emilia-Romagna": "Regione Emilia Romagna",
-    "Regione Friuli Venezia-Giulia": "Regione Friuli Venezia Giulia",
-}
-
-# Chiavi del geojson regioni_split.geojson (proprieta' "terr")
-TERRITORI = [
-    "Piemonte", "Valle d'Aosta/Vall\u00e9e d'Aoste", "Lombardia",
-    "P.A. Trento", "P.A. Bolzano", "Veneto", "Friuli-Venezia Giulia",
-    "Liguria", "Emilia-Romagna", "Toscana", "Umbria", "Marche", "Lazio",
-    "Abruzzo", "Molise", "Campania", "Puglia", "Basilicata", "Calabria",
-    "Sicilia", "Sardegna",
-]
 
 # Comuni soppressi o denominazioni non risolvibili: mappatura manuale.
 # None = da escludere (ente non piu' esistente).
@@ -97,6 +51,10 @@ OVERRIDE_CODICI = {
     "c_f474": None,       # Monteciccardo, fuso in Pesaro (2024)
     "c_969": "c_d969",    # Genova
     "c_cp112": "c_m323",  # Castelfranco Piandiscò
+    # errori nel catalogo regionale pugliese: I letta come L
+    "c_l887": "c_i887",   # Specchia (LE), non Vignole Borbera (AL)
+    "c_l172": "c_i172",   # Santa Cesarea Terme (LE), non Tinnura (OR)
+    "c_l115": "c_i115",   # San Pietro in Lama (LE), non Ternate (VA)
 }
 
 
@@ -117,35 +75,6 @@ def norm_comune(s):
 def carica_json(path):
     with open(path, encoding="utf-8") as fh:
         return json.load(fh)
-
-
-def scarica_harvest():
-    """Elenco dei cataloghi federati su dati.gov.it, con copia locale.
-
-    L'API risponde 500 a intermittenza, e quando succede le mappe non venivano
-    piu' rigenerate: l'elenco dei cataloghi federati cambia pero' di rado — sono
-    17 e restano tali per mesi — quindi si conserva l'ultima risposta buona in
-    docs/harvest.json e la si riusa quando la chiamata fallisce. Se non c'e' ne'
-    rete ne' copia, allora si esce con errore: proseguire senza elenco
-    produrrebbe una mappa con tutte le regioni in grigio.
-    """
-    copia = os.path.join(HERE, "mqa", "harvest.json")
-    try:
-        req = urllib.request.Request(HARVEST_API,
-                                     headers={"User-Agent": "mqa-monitor/1.0"})
-        with urllib.request.urlopen(req, timeout=120) as resp:
-            elenco = json.load(resp)["result"]
-        with open(copia, "w", encoding="utf-8") as fh:
-            json.dump(elenco, fh, ensure_ascii=False)
-        return elenco
-    except Exception as e:  # noqa: BLE001
-        if not os.path.exists(copia):
-            raise
-        eta = (time.time() - os.path.getmtime(copia)) / 86400
-        print("  elenco non raggiungibile (%s): uso la copia locale, %d giorni"
-              % (type(e).__name__, eta))
-        with open(copia, encoding="utf-8") as fh:
-            return json.load(fh)
 
 
 # --------------------------------------------------------------------------
@@ -224,44 +153,6 @@ def costruisci_comuni(data, coords):
     return comuni, scartati
 
 
-# --------------------------------------------------------------------------
-# Mappa 2 - regioni (livello organizzazioni, cataloghi federati)
-# --------------------------------------------------------------------------
-
-def costruisci_regioni(data, harvest):
-    orgs = data["livelli"]["organization"]["enti"]
-    per_nome = {norm(o["nome"]): o for o in orgs}
-
-    trovati = {}
-    for src in harvest:
-        terr = CATALOGHI_REGIONALI.get((src.get("title") or "").strip())
-        if not terr:
-            continue
-        titolo_org = ALIAS_ORGANIZZAZIONE.get(src["title"], src["title"])
-        org = per_nome.get(norm(titolo_org))
-        if org is None:
-            print("  [!] catalogo federato senza organizzazione: %s" % src["title"],
-                  file=sys.stderr)
-            continue
-        dominio = re.sub(r"^https?://", "", src["url"]).split("/")[0]
-        trovati[terr] = {
-            "terr": terr, "catalogo": src["title"], "dominio": dominio,
-            "url": src["url"], "attivo": bool(src.get("active")),
-            "n": org["n"], "mqa": org["media"], "rating": org["rating"],
-            "dim": org.get("dim", {}), "org": org["nome"],
-        }
-
-    regioni = []
-    for terr in TERRITORI:
-        if terr in trovati:
-            regioni.append(trovati[terr])
-        else:
-            regioni.append({"terr": terr, "catalogo": None, "dominio": None,
-                            "url": None, "attivo": False, "n": 0, "mqa": None,
-                            "rating": None, "dim": {}, "org": None})
-    return regioni
-
-
 def rating(mqa):
     if mqa is None:
         return None
@@ -282,28 +173,17 @@ def main():
     print("  data.json aggiornato al %s | coordinate: %d comuni"
           % (data.get("aggiornato"), len(coords)))
 
-    print("  scarico l'elenco dei cataloghi federati...")
-    harvest = scarica_harvest()
-    print("  sorgenti di harvest: %d (%d attive)"
-          % (len(harvest), sum(1 for s in harvest if s.get("active"))))
-
     comuni, scartati = costruisci_comuni(data, coords)
-    regioni = costruisci_regioni(data, harvest)
 
-    federati = [r for r in regioni if r["catalogo"]]
     out = {
         "aggiornato": data.get("aggiornato"),
         "catalogo": data.get("catalogo"),
         "max_score": data.get("max_score", 405),
         "comuni": comuni,
-        "regioni": regioni,
         "scartati": scartati,
         "totali": {
             "comuni": len(comuni),
             "dataset_comuni": sum(c["n"] for c in comuni),
-            "regioni_federate": len(federati),
-            "regioni_totali": len(regioni),
-            "dataset_regioni": sum(r["n"] for r in federati),
         },
     }
 
@@ -312,8 +192,6 @@ def main():
 
     t = out["totali"]
     print("  comuni mappati      : %d (%d dataset)" % (t["comuni"], t["dataset_comuni"]))
-    print("  territori federati  : %d/%d (%d dataset)"
-          % (t["regioni_federate"], t["regioni_totali"], t["dataset_regioni"]))
     print("  titolari non mappati: %d" % len(scartati))
     print("  scritto %s (%.0f KB)" % (OUT_JSON, os.path.getsize(OUT_JSON) / 1024))
 

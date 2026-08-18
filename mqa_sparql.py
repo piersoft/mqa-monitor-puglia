@@ -248,6 +248,22 @@ def provenienza(catalog, mappa_org, verbose=True):
     return per
 
 
+def carica_perimetro(outdir):
+    """Codici IPA dei titolari presenti nel catalogo regionale pugliese.
+
+    E' il filtro che distingue questa versione da quella nazionale: si
+    interroga EDP sull'intero catalogo dati-gov-it, come sempre, e si
+    trattengono solo i titolari che pubblicano su dati.puglia.it.
+    L'elenco lo produce puglia_titolari.py.
+    """
+    path = os.path.join(outdir, "titolari_puglia.json")
+    if not os.path.exists(path):
+        raise SystemExit("manca %s: eseguire prima puglia_titolari.py" % path)
+    with open(path, encoding="utf-8") as f:
+        d = json.load(f)
+    return {t["id"].lower() for t in d["titolari"]}
+
+
 def rileva_titolari(catalog, outdir=".", verbose=True):
     t0 = time.time()
     nomi = nomi_titolari(catalog, verbose)
@@ -286,11 +302,35 @@ def elenco_organizzazioni(catalog):
     return sorted(u for u in uri if ORG_RE.search(u))
 
 
-def rileva_organizzazioni(catalog, pausa=0.3, verbose=True):
+def organizzazioni_perimetro(outdir, catalog):
+    """Slug delle organizzazioni che ospitano i titolari pugliesi.
+
+    Si ricavano dal campo 'via' dell'ultima rilevazione titolari: oggi sono
+    due, contro le ~400 del catalogo nazionale. Interrogarle tutte sarebbe
+    lavoro inutile per l'endpoint.
+    """
+    files = sorted(glob.glob(os.path.join(
+        outdir, "titolari", "%s_*.csv" % catalog)))
+    if not files:
+        return set()
+    slug = set()
+    with open(files[-1], encoding="utf-8") as f:
+        for r in csv.DictReader(f):
+            slug.update(x for x in (r.get("via") or "").split(";") if x)
+    return slug
+
+
+def rileva_organizzazioni(catalog, outdir=".", pausa=0.3, verbose=True):
     t0 = time.time()
     uri = elenco_organizzazioni(catalog)
+    perimetro = organizzazioni_perimetro(outdir, catalog)
+    if perimetro:
+        mappa = nomi_organizzazioni(outdir, catalog)
+        uri = [u for u in uri
+               if mappa.get(ORG_RE.search(u).group(1), ("", ""))[0] in perimetro]
     if verbose:
-        print("      %d organizzazioni da interrogare" % len(uri))
+        print("      %d organizzazioni da interrogare (perimetro: %s)"
+              % (len(uri), ", ".join(sorted(perimetro)) or "nessuno"))
     enti, falliti = {}, []
     for i, u in enumerate(uri, 1):
         try:
@@ -447,6 +487,9 @@ def main():
                     help="secondi di quiete fra i due livelli")
     args = ap.parse_args()
 
+    perimetro = carica_perimetro(args.outdir)
+    print("perimetro Puglia: %d titolari" % len(perimetro))
+
     day = dt.date.today().isoformat()
     esiti = {}
 
@@ -454,6 +497,10 @@ def main():
         print("[titolari] dct:rightsHolder, query unica ...")
         try:
             righe = rileva_titolari(args.catalog, args.outdir)
+            tutti = len(righe)
+            righe = [r for r in righe if r["id"].lower() in perimetro]
+            print("      %d titolari su %d nel perimetro pugliese"
+                  % (len(righe), tutti))
             salva(righe, args.outdir, args.catalog, day, "titolari")
             esiti["titolari"] = len(righe)
         except SparqlNonDisponibile as e:
@@ -466,7 +513,7 @@ def main():
     if args.solo != "titolari":
         print("[organizzazioni] dcat:contactPoint, una query per ente ...")
         try:
-            righe = rileva_organizzazioni(args.catalog)
+            righe = rileva_organizzazioni(args.catalog, args.outdir)
             mappa = nomi_organizzazioni(args.outdir, args.catalog)
             for e in righe:
                 slug, nome = mappa.get(e["id"], ("", ""))

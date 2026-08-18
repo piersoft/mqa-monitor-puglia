@@ -1,0 +1,108 @@
+name: Monitoraggio MQA — Puglia
+
+on:
+  schedule:
+    # Stessa logica del monitoraggio nazionale: SPARQL tutti i giorni, scroll
+    # dell'API solo il lunedi. Gli orari sono pero' sfalsati di venti minuti,
+    # per non interrogare il triplestore di data.europa.eu nello stesso
+    # momento in cui gira mqa-monitor.
+    - cron: "37 6 * * *"     # 08:37 ora legale italiana, 07:37 in ora solare
+    - cron: "37 18 * * *"    # 20:37 ora legale italiana, 19:37 in ora solare
+  workflow_dispatch:
+    inputs:
+      catalog:
+        description: "ID catalogo su data.europa.eu"
+        default: "dati-gov-it"
+      forza_scroll:
+        description: "Esegui anche lo scroll dell'API (di norma solo il lunedi)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mqa-monitor-puglia
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      # Il perimetro si rigenera a ogni corsa: se un comune entra o esce dal
+      # catalogo regionale, la rilevazione del giorno lo recepisce subito.
+      - name: Perimetro dal catalogo regionale pugliese
+        run: python3 puglia_titolari.py --outdir ./mqa
+
+      - name: Che giorno e
+        id: giorno
+        run: echo "dow=$(date -u +%u)" >> "$GITHUB_OUTPUT"
+
+      - name: Scroll dell'API (solo lunedi)
+        if: steps.giorno.outputs.dow == '1' || inputs.forza_scroll
+        continue-on-error: true
+        env:
+          CATALOG: ${{ inputs.catalog || 'dati-gov-it' }}
+        run: |
+          python3 mqa_monitor.py --catalog "$CATALOG" --outdir ./mqa
+          echo "day=$(date -u +%F)" >> "$GITHUB_OUTPUT"
+
+      - name: Serve la rilevazione?
+        id: serve
+        env:
+          CATALOG: ${{ inputs.catalog || 'dati-gov-it' }}
+        run: |
+          DAY=$(date -u +%F)
+          if [ -f "mqa/titolari/${CATALOG}_${DAY}.csv" ]; then
+            echo "la rilevazione del $DAY c'e' gia': salto la parte SPARQL"
+            echo "serve=no" >> "$GITHUB_OUTPUT"
+          else
+            echo "nessuna rilevazione per il $DAY: procedo"
+            echo "serve=si" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Rilevazione SPARQL (titolari e organizzazioni)
+        if: steps.serve.outputs.serve == 'si'
+        continue-on-error: true
+        run: python3 mqa_sparql.py --catalog "${{ inputs.catalog || 'dati-gov-it' }}"
+
+      # Lo scroll dell'API non conosce il perimetro: produce lo snapshot
+      # nazionale per dataset, che va ridotto prima del commit.
+      - name: Riduci gli snapshot al perimetro
+        run: python3 filtra_storico.py --catalog "${{ inputs.catalog || 'dati-gov-it' }}"
+
+      - name: Ricostruisci storico e pagina pubblica
+        run: python3 build_site.py --catalog "${{ inputs.catalog || 'dati-gov-it' }}"
+
+      - name: Rigenera la mappa
+        continue-on-error: true
+        run: python3 build_maps.py
+
+      - name: Verifica che ci sia una rilevazione di oggi
+        env:
+          CATALOG: ${{ inputs.catalog || 'dati-gov-it' }}
+        run: |
+          DAY=$(date -u +%F)
+          TROVATI=$(ls mqa/titolari/${CATALOG}_${DAY}.csv \
+                       mqa/organizzazioni/${CATALOG}_${DAY}.csv \
+                       mqa/dataset/${CATALOG}_${DAY}.csv.gz 2>/dev/null | wc -l)
+          echo "rilevazioni con data $DAY: $TROVATI"
+          if [ "$TROVATI" -eq 0 ]; then
+            echo "::error::Nessuna rilevazione prodotta per $DAY. Controlla il log dello step SPARQL."
+            exit 1
+          fi
+
+      - name: Commit dello snapshot
+        run: |
+          git config user.name "mqa-bot"
+          git config user.email "actions@github.com"
+          git add mqa docs
+          git diff --staged --quiet || git commit -m "MQA Puglia $(date -u +%F)"
+          git push

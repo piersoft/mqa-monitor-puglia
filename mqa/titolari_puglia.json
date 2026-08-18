@@ -1,0 +1,355 @@
+{
+ "aggiornato": "2026-08-18",
+ "fonte": "https://dati.puglia.it/ckan/api/3/action/package_search",
+ "dataset_catalogo": 2012,
+ "n_titolari": 56,
+ "n_comuni": 38,
+ "titolari": [
+  {
+   "id": "c_e506",
+   "n_ckan": 474,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "cciaa_le",
+   "n_ckan": 450,
+   "grezzo": [],
+   "comune": false
+  },
+  {
+   "id": "r_puglia",
+   "n_ckan": 247,
+   "grezzo": [],
+   "comune": false
+  },
+  {
+   "id": "c_a662",
+   "n_ckan": 158,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "arsls",
+   "n_ckan": 75,
+   "grezzo": [],
+   "comune": false
+  },
+  {
+   "id": "c_a893",
+   "n_ckan": 55,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "ipres",
+   "n_ckan": 51,
+   "grezzo": [],
+   "comune": false
+  },
+  {
+   "id": "c_f563",
+   "n_ckan": 40,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "c_d863",
+   "n_ckan": 38,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "c_f027",
+   "n_ckan": 38,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "c_d171",
+   "n_ckan": 36,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "c_e986",
+   "n_ckan": 32,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "asset",
+   "n_ckan": 28,
+   "grezzo": [],
+   "comune": false
+  },
+  {
+   "id": "artpp",
+   "n_ckan": 23,
+   "grezzo": [],
+   "comune": false
+  },
+  {
+   "id": "arpap",
+   "n_ckan": 21,
+   "grezzo": [
+    "ARPAP"
+   ],
+   "comune": false
+  },
+  {
+   "id": "c_g098",
+   "n_ckan": 21,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "c_c978",
+   "n_ckan": 16,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "asl_vvta",
+   "n_ckan": 15,
+   "grezzo": [
+    ":asl_vvta"
+   ],
+   "comune": false
+  },
+  {
+   "id": "ato_pu",
+   "n_ckan": 13,
+   "grezzo": [
+    "ATO_PU"
+   ],
+   "comune": false
+  },
+  {
+   "id": "arltl_0",
+   "n_ckan": 13,
+   "grezzo": [],
+   "comune": false
+  },
+  {
+   "id": "adisu",
+   "n_ckan": 12,
+   "grezzo": [],
+   "comune": false
+  },
+  {
+   "id": "c_f816",
+   "n_ckan": 12,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "c_e471",
+   "n_ckan": 9,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "05487980723",
+   "n_ckan": 8,
+   "grezzo": [],
+   "comune": false
+  },
+  {
+   "id": "pusv",
+   "n_ckan": 8,
+   "grezzo": [
+    "PUSV"
+   ],
+   "comune": false
+  },
+  {
+   "id": "c_f117",
+   "n_ckan": 8,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "c_h985",
+   "n_ckan": 7,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "arlpa",
+   "n_ckan": 6,
+   "grezzo": [],
+   "comune": false
+  },
+  {
+   "id": "c_l887",
+   "n_ckan": 6,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "c_e038",
+   "n_ckan": 5,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "c_e882",
+   "n_ckan": 5,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "c_f221",
+   "n_ckan": 5,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "c_g291",
+   "n_ckan": 5,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "c_l328",
+   "n_ckan": 5,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "c_b584",
+   "n_ckan": 4,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "c_b822",
+   "n_ckan": 4,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "c_d223",
+   "n_ckan": 4,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "c_e053",
+   "n_ckan": 4,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "c_l172",
+   "n_ckan": 4,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "iacp_ba",
+   "n_ckan": 4,
+   "grezzo": [],
+   "comune": false
+  },
+  {
+   "id": "c_a281",
+   "n_ckan": 3,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "c_a874",
+   "n_ckan": 3,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "c_b690",
+   "n_ckan": 3,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "c_f194",
+   "n_ckan": 3,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "c_f881",
+   "n_ckan": 3,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "c_f916",
+   "n_ckan": 3,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "c_g251",
+   "n_ckan": 3,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "c_h096",
+   "n_ckan": 3,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "c_i950",
+   "n_ckan": 3,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "c_l008",
+   "n_ckan": 3,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "c_l010",
+   "n_ckan": 3,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "c_l115",
+   "n_ckan": 3,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "c_m187",
+   "n_ckan": 3,
+   "grezzo": [],
+   "comune": true
+  },
+  {
+   "id": "asl_br",
+   "n_ckan": 1,
+   "grezzo": [
+    "ASL_BR"
+   ],
+   "comune": false
+  },
+  {
+   "id": "amtbs",
+   "n_ckan": 1,
+   "grezzo": [],
+   "comune": false
+  },
+  {
+   "id": "crpuglia",
+   "n_ckan": 1,
+   "grezzo": [],
+   "comune": false
+  }
+ ]
+}

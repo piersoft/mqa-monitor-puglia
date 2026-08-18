@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon">
-<title>Mappe della qualità dei metadati — comuni e cataloghi regionali</title>
-<meta name="description" content="Distribuzione territoriale dei dataset e del punteggio MQA di data.europa.eu: titolari comunali e cataloghi regionali federati su dati.gov.it.">
+<title>Mappa della qualità dei metadati — comuni pugliesi</title>
+<meta name="description" content="Distribuzione territoriale dei dataset e del punteggio MQA di data.europa.eu per i comuni che pubblicano sul catalogo regionale pugliese.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -87,16 +87,6 @@ select:focus-visible{outline:2px solid var(--inchiostro);outline-offset:1px}
 .tavola{position:relative;margin-top:22px;border:1px solid var(--riga-forte);background:#fff}
 #mappa{height:min(84vh,860px);width:100%;background:var(--carta-alta)}
 .leaflet-container{font-family:var(--testo);background:var(--carta-alta)}
-/* i nomi stanno sopra un fondo variabile: l'alone bianco li tiene leggibili
-   sia sul verde pieno sia sul grigio delle regioni non federate */
-.nome-regione span{
-  display:inline-block;transform:translate(-50%,-50%);white-space:nowrap;
-  font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--inchiostro);
-  text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 5px #fff,0 0 5px #fff;
-  pointer-events:none
-}
-
 /* la scala di Leaflet sta in basso a sinistra: la legenda le lascia lo spazio
    sotto invece di appoggiarcisi sopra */
 .legenda{position:absolute;left:14px;bottom:46px;z-index:500;
@@ -195,8 +185,8 @@ select:focus-visible{outline:2px solid var(--inchiostro);outline-offset:1px}
 
 <header>
   <p class="occhiello"><a href="./">Qualità dei metadati</a> — distribuzione territoriale</p>
-  <h1>Dove nascono i dati aperti italiani</h1>
-  <p class="sottotitolo">Ogni comune è posizionato sul proprio centroide: l'area del cerchio è proporzionale ai dataset pubblicati. Le regioni sono colorate solo se un catalogo regionale è effettivamente federato su dati.gov.it. Enti centrali, agenzie e partecipate sono esclusi.</p>
+  <h1>Dove nascono i dati aperti pugliesi</h1>
+  <p class="sottotitolo">Sono rappresentati i comuni che pubblicano attraverso il catalogo regionale <a href="https://dati.puglia.it">dati.puglia.it</a>. Ogni comune è posizionato sul proprio centroide: l'area del cerchio è proporzionale ai dataset pubblicati. Regione, camere di commercio, agenzie e aziende sanitarie figurano nella tabella della pagina principale, non sulla mappa.</p>
   <div class="misure" id="misure"></div>
 </header>
 
@@ -209,13 +199,6 @@ select:focus-visible{outline:2px solid var(--inchiostro);outline-offset:1px}
       <option value="mqa">Punteggio MQA</option>
       <option value="n">Numero dataset</option>
     </select>
-  </div>
-  <div class="campo">
-    <label for="strati">Mostra</label>
-    <div class="interruttore" id="strati" role="group" aria-label="Strati della mappa">
-      <button type="button" data-strato="comuni" aria-pressed="true">Comuni</button>
-      <button type="button" data-strato="regioni" aria-pressed="true">Regioni</button>
-    </div>
   </div>
   <p class="conteggio" id="conteggio"></p>
 </div>
@@ -235,21 +218,15 @@ select:focus-visible{outline:2px solid var(--inchiostro);outline-offset:1px}
   Come si compone il punteggio è spiegato nella
   <a href="https://data.europa.eu/mqa/methodology?locale=it">metodologia MQA</a>
   di data.europa.eu.</p>
-  <p><strong>Regioni.</strong> Il dato viene dal livello delle <em>organizzazioni</em>, ristretto ai cataloghi regionali censiti come sorgenti di harvest su dati.gov.it. Una regione in grigio non indica l’assenza di un portale regionale, ma il fatto che tale portale non risulta federato sul catalogo nazionale: i relativi dataset non sono conferiti a data.europa.eu e non dispongono di un punteggio MQA.</p>
+  <p><strong>Il perimetro.</strong> Gli enti rappresentati sono quelli che risultano titolari di almeno un dataset nel catalogo <a href="https://dati.puglia.it/ckan/">dati.puglia.it</a>, individuati tramite il codice IPA dichiarato nel campo <code>holder_identifier</code>. Il punteggio mostrato è però quello complessivo dell'ente su data.europa.eu: se un comune pubblica anche attraverso un proprio portale federato, quei dataset concorrono al risultato.</p>
   <p><strong>Dati territoriali (RNDT).</strong> Il catalogo <code>dati-gov-it</code>
   su data.europa.eu non comprende i dataset del <abbr title="Repertorio Nazionale dei
   Dati Territoriali">RNDT</abbr> (<a href="https://geodati.gov.it">geodati.gov.it</a>),
   che al portale europeo sono conferiti tramite un catalogo distinto, non oggetto del
-  presente monitoraggio. I comuni e le regioni la cui produzione è prevalentemente di
+  presente monitoraggio. I comuni la cui produzione è prevalentemente di
   natura territoriale figurano pertanto con un cerchio di dimensioni ridotte, o non
   figurano affatto: l’area del cerchio non misura l’attività complessiva dell’ente,
   ma la sola parte rilevata su questo catalogo.</p>
-  <p><strong>I nomi delle regioni.</strong> Sono tratti dai confini Istat, che li
-  riportano in italiano: le etichette dei riquadri di sfondo sono in lingua inglese e
-  non è disponibile un parametro di lingua. Le etichette che risulterebbero
-  sovrapposte vengono omesse, con precedenza alle regioni di maggiore estensione;
-  ingrandendo la mappa ricompaiono.</p>
-<p><strong>Le due mappe non si sommano.</strong> Un dataset comunale pubblicato attraverso un catalogo regionale è contato una volta fra i comuni, per titolarità, e una volta fra le regioni, per federazione.</p>
 </section>
 
 </main>
@@ -257,8 +234,8 @@ select:focus-visible{outline:2px solid var(--inchiostro);outline-offset:1px}
 <footer>
   <p>Fonte: data.europa.eu
   (<a href="https://data.europa.eu/mqa/methodology?locale=it">Metadata Quality Assessment</a>)
-  per i punteggi, Istat (Basi territoriali) per i confini, IndicePA per l'anagrafica
-  degli enti.</p>
+  per i punteggi, dati.puglia.it per il perimetro degli enti, Istat (Basi
+  territoriali) per i centroidi comunali, IndicePA per l'anagrafica degli enti.</p>
   <p>Dati e codice: <a href="https://github.com/piersoft/mqa-monitor">github.com/piersoft/mqa-monitor</a>.</p>
 </footer>
 
@@ -300,7 +277,7 @@ function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(c){
   return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]; }); }
 
 var mappa = L.map("mappa",{
-  center:[42.1,12.6], zoom:6, minZoom:5, maxZoom:16,
+  center:[40.95,16.75], zoom:8, minZoom:7, maxZoom:16,
   scrollWheelZoom:false, preferCanvas:true
 });
 mappa.on("click", function(){ mappa.scrollWheelZoom.enable(); });
@@ -314,8 +291,8 @@ L.control.scale({imperial:false}).addTo(mappa);
 (function etichette(tentativi){
   var c = document.getElementById("mappa");
   if (c && !c.getAttribute("aria-label")) c.setAttribute("aria-label",
-    "Mappa dei comuni e dei cataloghi regionali. Gli stessi dati in forma di " +
-    "tabella sono nella pagina principale.");
+    "Mappa dei comuni pugliesi. Gli stessi dati in forma di tabella sono " +
+    "nella pagina principale.");
   var piu = document.querySelector(".leaflet-control-zoom-in");
   var meno = document.querySelector(".leaflet-control-zoom-out");
   if (piu){ piu.setAttribute("aria-label","Ingrandisci la mappa"); piu.title = "Ingrandisci"; }
@@ -325,28 +302,17 @@ L.control.scale({imperial:false}).addTo(mappa);
   }
 })();
 L.tileLayer("https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png",{
-  attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attributions">CARTO</a> — confini <a href="https://www.istat.it/notizia/confini-delle-unita-amministrative-a-fini-statistici-al-1-gennaio-2018-2/">Istat, Basi territoriali</a>',
+  attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attributions">CARTO</a>',
   subdomains:"abcd", maxZoom:18
 }).addTo(mappa);
-/* Un secondo livello di etichette qui non c'e': quelle di CARTO sono in inglese
-   ("Sardinia", "Sicily", "Tuscany") e i tile raster non hanno un parametro di
-   lingua. I nomi delle regioni li scriviamo noi piu' sotto, presi dai confini
-   Istat che li portano gia' in italiano. */
+var stato = {metrica:"mqa", comuni:true, escluse:{}};
+var dati=null, stratoComuni=null;
+var maxDatasetComune=1;
 
-var stato = {metrica:"mqa", comuni:true, regioni:true, escluse:{}};
-var dati=null, geoRegioni=null, stratoRegioni=null, stratoComuni=null;
-var maxDatasetComune=1, maxDatasetRegione=1;
-
-Promise.all([
-  fetch("maps_data.json").then(function(r){ return r.json(); }),
-  fetch("regioni_split.geojson").then(function(r){ return r.json(); })
-]).then(function(res){
-  dati=res[0]; geoRegioni=res[1];
+fetch("maps_data.json").then(function(r){ return r.json(); }).then(function(res){
+  dati=res;
   maxDatasetComune = Math.max.apply(null, dati.comuni.map(function(c){ return c.n; }));
-  maxDatasetRegione = Math.max.apply(null, dati.regioni.map(function(r){ return r.n; }));
   intestazione();
-  disegnaRegioni();
-  disegnaNomiRegioni();
   disegnaComuni();
   aggiorna();
 }).catch(function(e){
@@ -360,9 +326,7 @@ function intestazione(){
   var t=dati.totali;
   document.getElementById("misure").innerHTML=[
     ["comuni",       t.comuni,            "Comuni mappati"],
-    ["dataset_com",  t.dataset_comuni,    "Dataset comunali"],
-    ["reg",          t.regioni_federate+"/"+t.regioni_totali, "Cataloghi regionali"],
-    ["dataset_reg",  t.dataset_regioni,   "Dataset regionali"]
+    ["dataset_com",  t.dataset_comuni,    "Dataset comunali"]
   ].map(function(m){
     var v = typeof m[1]==="number" ? num(m[1]) : m[1];
     return '<div class="misura"><p class="valore">'+v+'</p>'+
@@ -372,151 +336,12 @@ function intestazione(){
 }
 
 /* ---------- colori per metrica ---------- */
-function coloreRegione(r){
-  if(!r.catalogo) return "#c3ccd1";
-  return stato.metrica==="mqa" ? classe(CLASSI_MQA,r.mqa).colore
-                               : classe(CLASSI_N,r.n).colore;
-}
 function coloreComune(c){
   return stato.metrica==="mqa" ? classe(CLASSI_MQA,c.mqa).colore
                                : classe(CLASSI_N,c.n).colore;
 }
 /* Area proporzionale ai dataset: il raggio cresce come la radice quadrata. */
 function raggio(c){ return 2.6 + 20*Math.sqrt(c.n/maxDatasetComune); }
-
-/* ---------- strato regioni ---------- */
-function disegnaRegioni(){
-  var perTerr={};
-  dati.regioni.forEach(function(r){ perTerr[r.terr]=r; });
-  stratoRegioni = L.geoJSON(geoRegioni,{
-    style:function(f){
-      var r=perTerr[f.properties.terr];
-      return {color:"#8d9ba4",weight:.8,fillColor:r?coloreRegione(r):"#c3ccd1",
-              fillOpacity:r&&r.catalogo?.82:.5,opacity:1};
-    },
-    onEachFeature:function(f,strato){
-      var r=perTerr[f.properties.terr];
-      strato.bindPopup(popupRegione(f.properties.terr,r),{maxWidth:320});
-      strato.on("mouseover",function(){ strato.setStyle({weight:2.2,color:"#17252f"}); });
-      strato.on("mouseout",function(){ strato.setStyle({weight:.8,color:"#8d9ba4"}); });
-    }
-  });
-}
-/* Nomi delle regioni, scritti da noi perche' i tile di CARTO li portano in
-   inglese. Tre accorgimenti: il punto di ancoraggio e' il centroide dell'anello
-   piu' grande e non il centro del riquadro (che per Liguria e Puglia cadrebbe in
-   mare), i nomi ufficiali troppo lunghi hanno una forma breve, e le etichette
-   che si sovrappongono vengono nascoste dando la precedenza alle regioni piu'
-   estese. */
-var etichetteRegioni = null;
-
-var NOMI_BREVI = {
-  "Valle d'Aosta/Vallée d'Aoste": "Valle d'Aosta",
-  "Trentino-Alto Adige/Südtirol": "Trentino-Alto Adige",
-  "Friuli-Venezia Giulia": "Friuli-V. Giulia",
-  "Provincia Autonoma di Bolzano/Bozen": "P.A. Bolzano",
-  "Provincia Autonoma di Trento": "P.A. Trento",
-  "Emilia-Romagna": "Emilia-Romagna"
-};
-
-function anelloMaggiore(geom){
-  var anelli = geom.type === "Polygon" ? [geom.coordinates[0]]
-             : geom.coordinates.map(function(p){ return p[0]; });
-  var meglio = null, maxA = -1;
-  anelli.forEach(function(a){
-    var s = 0;
-    for (var i = 0, j = a.length - 1; i < a.length; j = i++){
-      s += a[j][0] * a[i][1] - a[i][0] * a[j][1];
-    }
-    var area = Math.abs(s / 2);
-    if (area > maxA){ maxA = area; meglio = a; }
-  });
-  return meglio;
-}
-
-function centroide(geom){
-  var a = anelloMaggiore(geom), x = 0, y = 0, s = 0;
-  for (var i = 0, j = a.length - 1; i < a.length; j = i++){
-    var f = a[j][0] * a[i][1] - a[i][0] * a[j][1];
-    s += f; x += (a[j][0] + a[i][0]) * f; y += (a[j][1] + a[i][1]) * f;
-  }
-  if (!s) return L.latLng(a[0][1], a[0][0]);
-  return L.latLng(y / (3 * s), x / (3 * s));
-}
-
-function areaRiquadro(f){
-  var b = L.geoJSON(f).getBounds();
-  return (b.getNorth() - b.getSouth()) * (b.getEast() - b.getWest());
-}
-
-function disegnaNomiRegioni(){
-  etichetteRegioni = L.layerGroup();
-  geoRegioni.features.slice()
-    .sort(function(a, b){ return areaRiquadro(b) - areaRiquadro(a); })
-    .forEach(function(f){
-      var nome = f.properties.terr;
-      L.marker(centroide(f.geometry), {
-        interactive:false, keyboard:false,
-        icon: L.divIcon({
-          className:"nome-regione",
-          html:'<span>' + esc(NOMI_BREVI[nome] || nome) + '</span>',
-          iconSize:[0,0]
-        })
-      }).addTo(etichetteRegioni);
-    });
-  aggiornaNomiRegioni();
-  mappa.on("zoomend moveend", aggiornaNomiRegioni);
-}
-
-/* nasconde le etichette che si accavallano: si scorre dalla regione piu' estesa
-   alla piu' piccola, tenendo solo quelle che non toccano una gia' tenuta */
-function sfoltisci(){
-  var tenuti = [];
-  etichetteRegioni.getLayers().forEach(function(m){
-    var el = m.getElement();
-    if (!el) return;
-    el.style.visibility = "visible";
-    var r = el.firstChild.getBoundingClientRect();
-    var scontro = tenuti.some(function(t){
-      return !(r.right < t.left - 4 || r.left > t.right + 4 ||
-               r.bottom < t.top - 2 || r.top > t.bottom + 2);
-    });
-    if (scontro) el.style.visibility = "hidden";
-    else tenuti.push(r);
-  });
-}
-
-function aggiornaNomiRegioni(){
-  if (!etichetteRegioni) return;
-  var mostra = stato.regioni;
-  if (mostra && !mappa.hasLayer(etichetteRegioni)) etichetteRegioni.addTo(mappa);
-  if (!mostra && mappa.hasLayer(etichetteRegioni)){
-    mappa.removeLayer(etichetteRegioni);
-    return;
-  }
-  /* i marker esistono nel DOM solo dopo che Leaflet li ha disegnati: misurarli
-     subito darebbe getElement() nullo e nessuna sovrapposizione rilevata */
-  if (mostra) setTimeout(sfoltisci, 60);
-}
-
-function popupRegione(terr,r){
-  var testa='<p class="pop-nome">'+esc(terr)+'</p>';
-  if(!r||!r.catalogo){
-    return testa+'<p class="pop-sotto">Nessun catalogo federato</p>'+
-      '<p class="pop-vuoto">Nessun catalogo regionale risulta federato su dati.gov.it: '+
-      'i dataset di questo territorio non arrivano a data.europa.eu e non hanno un punteggio MQA.</p>';
-  }
-  var f=fascia(r.mqa);
-  return testa+
-    '<p class="pop-sotto">'+esc(r.catalogo)+'</p>'+
-    '<div class="pop-cifre">'+
-      '<div><p class="valore" style="color:'+f.colore+'">'+dec(r.mqa)+'</p>'+
-        '<p class="etichetta">MQA · '+f.nome+'</p></div>'+
-      '<div><p class="valore">'+num(r.n)+'</p><p class="etichetta">Dataset</p></div>'+
-    '</div>'+
-    '<p class="pop-piede">Federato da <a href="'+esc(r.url)+'" target="_blank" rel="noopener">'+
-      esc(r.dominio)+'</a></p>';
-}
 
 /* ---------- strato comuni ---------- */
 function disegnaComuni(){
@@ -582,9 +407,7 @@ function visibileTaglia(n){
    soprattutto restava esclusa dopo un isolamento, tenendo acceso il pulsante
    di ripristino senza che si vedesse nulla di nascosto. */
 function insiemeAttivo(){
-  return stato.comuni
-    ? dati.comuni
-    : dati.regioni.filter(function(r){ return r.catalogo; });
+  return dati.comuni;
 }
 function contaClasse(cl){
   var elenco=elencoAttivo(), perMqa=stato.metrica==="mqa";
@@ -619,7 +442,7 @@ function legenda(){
      altrimenti i territori regionali. Resta il totale della classe,
      non il filtrato, così si vede sempre quanti enti ci sono dentro. */
   var insieme = insiemeAttivo();
-  var voce = stato.comuni ? "comuni" : "territori";
+  var voce = "comuni";
 
   /* Il suffisso dice che le classi si possono toccare: senza, la legenda
      sembra puramente descrittiva e nessuno prova a filtrarla. */
@@ -668,33 +491,14 @@ function legenda(){
       ? '<button type="button" id="azzera-taglie" class="azzera">Mostra tutte le fasce</button>'
       : '<p class="nota-legenda">Area del cerchio proporzionale ai dataset del comune</p>';
   }
-  if(stato.regioni){
-    html+='<p class="nota-legenda"><span class="tassello" style="background:#c3ccd1"></span>'+
-      'Nessun catalogo regionale federato</p>';
-  }
   el.innerHTML=html;
 }
 
 /* ---------- aggiornamento ---------- */
 function aggiorna(){
-  if(stato.regioni){ if(!mappa.hasLayer(stratoRegioni)) stratoRegioni.addTo(mappa); }
-  else if(mappa.hasLayer(stratoRegioni)) mappa.removeLayer(stratoRegioni);
-  aggiornaNomiRegioni();
-
   if(stato.comuni){ if(!mappa.hasLayer(stratoComuni)) stratoComuni.addTo(mappa); }
   else if(mappa.hasLayer(stratoComuni)) mappa.removeLayer(stratoComuni);
 
-  if(stato.regioni){
-    var perTerr={};
-    dati.regioni.forEach(function(r){ perTerr[r.terr]=r; });
-    stratoRegioni.setStyle(function(f){
-      var r=perTerr[f.properties.terr];
-      if(!r||!r.catalogo) return {fillColor:"#c3ccd1",fillOpacity:.5};
-      var mostra=visibileColore(stato.metrica==="mqa"?r.mqa:r.n);
-      return {fillColor:mostra?coloreRegione(r):"#dde4e8",
-              fillOpacity:mostra?.82:.22};
-    });
-  }
   if(stato.comuni){
     stratoComuni.eachLayer(function(l){
       var c=l._dato;
@@ -760,15 +564,6 @@ document.getElementById("legenda").addEventListener("click",function(e){
 });
 document.getElementById("metrica").addEventListener("change",function(e){
   stato.metrica=e.target.value; aggiorna();
-});
-document.getElementById("strati").addEventListener("click",function(e){
-  var b=e.target.closest("button[data-strato]");
-  if(!b) return;
-  var k=b.dataset.strato;
-  if(stato.comuni===false && k==="regioni" && stato.regioni===true) { /* consenti */ }
-  stato[k]=!stato[k];
-  b.setAttribute("aria-pressed", String(stato[k]));
-  aggiorna();
 });
 })();
 </script>
