@@ -1,0 +1,55 @@
+id,slug,titolare,n_dataset,scoring,pct,findability,accessibility,interoperability,reusability,contextuality,n_nomi,in_ipa,ipa_nome,ipa_prov,ipa_reg,via
+iacp_ba,,Arca - Puglia Centrale,4,395.0,97.53,100.0,100.0,100.0,75.0,20.0,1,1,Agenzia Regionale per la Casa e l'Abitare - Arca - Puglia Centrale,BA,Puglia,regione-puglia
+asl_vvta,,ASL TARANTO,15,386.33,95.39,100.0,100.0,91.33,75.0,20.0,1,1,Azienda Sanitaria Locale di Taranto,TA,Puglia,regione-puglia
+arlpa,,ARPAL,6,385.0,95.06,100.0,100.0,90.0,75.0,20.0,1,1,Agenzia Regionale per Le Politiche Attive del Lavoro - Arpal Puglia,BA,Puglia,regione-puglia
+c_f916,,Comune di Nociglia,3,385.0,95.06,100.0,100.0,90.0,75.0,20.0,1,1,Comune di Nociglia,LE,Puglia,regione-puglia
+asl_br,,ASL BRINDISI,1,385.0,95.06,100.0,100.0,90.0,75.0,20.0,1,1,Azienda Sanitaria Locale di Brindisi,BR,Puglia,regione-puglia
+c_d223,,Comune di Cursi,4,385.0,95.06,100.0,100.0,90.0,75.0,20.0,1,1,Comune di Cursi,LE,Puglia,regione-puglia
+c_l172,,Comune di Santa Cesarea Terme,4,385.0,95.06,100.0,100.0,90.0,75.0,20.0,1,1,Comune di Santa Cesarea Terme,LE,Puglia,regione-puglia
+c_f221,,Comune di Minervino di Lecce,5,385.0,95.06,100.0,100.0,90.0,75.0,20.0,1,1,Comune di Minervino di Lecce,LE,Puglia,regione-puglia
+c_m187,,Comune di Zollino,3,385.0,95.06,100.0,100.0,90.0,75.0,20.0,1,1,Comune di Zollino,LE,Puglia,regione-puglia
+c_l010,,Comune di Surano,3,385.0,95.06,100.0,100.0,90.0,75.0,20.0,1,1,Comune di Surano,LE,Puglia,regione-puglia
+c_f117,,Comune di Melpignano,8,385.0,95.06,100.0,100.0,90.0,75.0,20.0,1,1,Comune di Melpignano,LE,Puglia,regione-puglia
+arltl_0,,ARTI Puglia,13,385.0,95.06,100.0,100.0,90.0,75.0,20.0,1,1,Agenzia Regionale per La Tecnologia e L'Innovazione della Regione Puglia,BA,Puglia,regione-puglia
+asset,,ASSET Puglia,28,385.0,95.06,100.0,100.0,90.0,75.0,20.0,1,1,Agenzia Regionale Strategica per Lo Sviluppo Ecosostenibile del Territorio,BA,Puglia,regione-puglia
+c_b584,,Comune di Candela,4,385.0,95.06,100.0,100.0,90.0,75.0,20.0,1,1,Comune di Candela,FG,Puglia,regione-puglia
+c_l115,,Comune di San Pietro in Lama,3,385.0,95.06,100.0,100.0,90.0,75.0,20.0,1,1,Comune di Ternate,VA,Lombardia,regione-puglia
+c_e882,,Comune di Manduria,5,385.0,95.06,100.0,100.0,90.0,75.0,20.0,1,1,Comune di Manduria,TA,Puglia,regione-puglia
+c_f194,,Comune di Miggiano,3,385.0,95.06,100.0,100.0,90.0,75.0,20.0,1,1,Comune di Miggiano,LE,Puglia,regione-puglia
+c_g291,,Comune Palo Del Colle,5,385.0,95.06,100.0,100.0,90.0,75.0,20.0,1,1,Comune di Palo del Colle,BA,Puglia,regione-puglia
+c_h096,,Città di Putignano,3,385.0,95.06,100.0,100.0,90.0,75.0,20.0,1,1,Comune di Putignano,BA,Puglia,regione-puglia
+c_e053,,Comune di Giuggianello,4,385.0,95.06,100.0,100.0,90.0,75.0,20.0,1,1,Comune di Giuggianello,LE,Puglia,regione-puglia
+c_l008,,Comune di Supersano,3,385.0,95.06,100.0,100.0,90.0,75.0,20.0,1,1,Comune di Supersano,LE,Puglia,regione-puglia
+c_l887,,Comune di Specchia,6,385.0,95.06,100.0,100.0,90.0,75.0,20.0,1,1,Comune di Specchia,LE,Puglia,regione-puglia
+pusv,,Puglia Sviluppo SpA,8,385.0,95.06,100.0,100.0,90.0,75.0,20.0,1,1,Puglia Sviluppo S.P.A.,BA,Puglia,regione-puglia
+adisu,,Adisu,12,385.0,95.06,100.0,100.0,90.0,75.0,20.0,1,1,Agenzia per Il Diritto allo Studio Universitario di Puglia,BA,Puglia,regione-puglia
+ipres,,IPRES,51,385.0,95.06,100.0,100.0,90.0,75.0,20.0,1,1,Istituto Pugliese di Ricerche Economiche e Sociali Ipres,BA,Puglia,regione-puglia
+c_a281,,Comune di Andrano,3,385.0,95.06,100.0,100.0,90.0,75.0,20.0,1,1,Comune di Andrano,LE,Puglia,regione-puglia
+c_e038,,Comune di Gioia del Colle,5,385.0,95.06,100.0,100.0,90.0,75.0,20.0,1,1,Comune di Gioia del Colle,BA,Puglia,regione-puglia
+c_f881,,Comune di Neviano,3,385.0,95.06,100.0,100.0,90.0,75.0,20.0,1,1,Comune di Neviano,LE,Puglia,regione-puglia
+c_b690,,Comune di Caprarica di Lecce,3,385.0,95.06,100.0,100.0,90.0,75.0,20.0,1,1,Comune di Caprarica di Lecce,LE,Puglia,regione-puglia
+crpuglia,,Consiglio Regionale della Puglia,1,385.0,95.06,100.0,100.0,90.0,75.0,20.0,1,1,Consiglio Regionale della Puglia,BA,Puglia,regione-puglia
+c_b822,,Comune di Carpignano Salentino,4,385.0,95.06,100.0,100.0,90.0,75.0,20.0,1,1,Comune di Carpignano Salentino,LE,Puglia,regione-puglia
+c_f027,,Comune di Massafra,38,384.21,94.87,100.0,100.0,89.21,75.0,20.0,1,1,Comune di Massafra,TA,Puglia,regione-puglia
+artpp,,ARET - Pugliapromozione,23,384.13,94.85,100.0,100.0,89.13,75.0,20.0,1,1,Agenzia Regionale del Turismo - Pugliapromozione,BA,Puglia,regione-puglia
+r_puglia,,Regione Puglia,247,383.91,94.79,100.0,99.6,89.31,75.0,20.0,1,1,Regione Puglia,BA,Puglia,regione-puglia
+c_a893,,Comune di Bitonto,55,383.55,94.7,100.0,98.55,90.0,75.0,20.0,1,1,Comune di Bitonto,BA,Puglia,regione-puglia
+c_d863,,Comune di Galatone,39,379.62,93.73,100.0,93.85,90.77,75.0,20.0,1,1,Comune di Galatone,LE,Puglia,regione-puglia
+c_l328,,Città di Trani,5,379.0,93.58,100.0,100.0,84.0,75.0,20.0,1,1,Comune di Trani,BT,Puglia,regione-puglia
+ato_pu,,Autorità idrica Pugliese (AIP),13,375.77,92.78,100.0,100.0,80.77,75.0,20.0,1,1,Autorita' Idrica Pugliese,BA,Puglia,regione-puglia
+c_a874,,Comune di Binetto,3,375.0,92.59,100.0,100.0,80.0,75.0,20.0,1,1,Comune di Binetto,BA,Puglia,regione-puglia
+arpap,,ARPA Puglia ,21,372.62,92.0,100.0,88.57,89.05,75.0,20.0,1,1,Agenzia Regionale per la Protezione dell'Ambiente della Puglia,BA,Puglia,regione-puglia
+c_c978,,Comune di Copertino,16,371.88,91.82,100.0,86.88,90.0,75.0,20.0,1,1,Comune di Copertino,LE,Puglia,regione-puglia
+arsls,,Agenzia Regionale Strategica per la Salute ed il Sociale,75,366.87,90.59,100.0,85.07,86.8,75.0,20.0,1,1,Agenzia Regionale Strategica per La Salute Ed Il Sociale,BA,Puglia,regione-puglia
+c_h985,,Comune di San Marco in Lamis,10,363.0,89.63,100.0,84.0,84.0,75.0,20.0,1,1,Comune di San Marco In Lamis,FG,Puglia,comune-di-san-marco-in-lamis;regione-puglia
+c_g251,,Comune di Palagianello,3,358.33,88.48,100.0,73.33,90.0,75.0,20.0,1,1,Comune di Palagianello,TA,Puglia,regione-puglia
+cciaa_le,,Camera di Commercio di Lecce,450,354.4,87.51,100.0,68.89,90.51,75.0,20.0,1,1,"Camera di Commercio, Industria, Artigianato e Agricoltura di Lecce",LE,Puglia,regione-puglia
+c_e506,,Comune di Lecce,474,352.57,87.05,100.0,68.46,89.11,75.0,20.0,1,1,Comune di Lecce,LE,Puglia,regione-puglia
+c_e986,,Comune di Martina Franca,32,349.38,86.27,100.0,65.0,89.38,75.0,20.0,1,1,Comune di Martina Franca,TA,Puglia,regione-puglia
+c_g098,,Comune di Oria,21,347.86,85.89,100.0,65.71,87.14,75.0,20.0,1,1,Comune di Oria,BR,Puglia,regione-puglia
+c_e471,,Comune di Latiano,9,338.33,83.54,100.0,55.56,87.78,75.0,20.0,1,1,Comune di Latiano,BR,Puglia,regione-puglia
+c_d171,,Comune di Crispiano,36,335.56,82.85,100.0,53.33,87.22,75.0,20.0,1,1,Comune di Crispiano,TA,Puglia,regione-puglia
+c_f816,,Comune di Muro Leccese,12,335.0,82.72,100.0,53.33,86.67,75.0,20.0,1,1,Comune di Muro Leccese,LE,Puglia,regione-puglia
+c_f563,,Comune di Montemesola,40,305.0,75.31,100.0,20.0,90.0,75.0,20.0,1,1,Comune di Montemesola,TA,Puglia,regione-puglia
+c_i950,,Comune di Sternatia,3,305.0,75.31,100.0,20.0,90.0,75.0,20.0,1,1,Comune di Sternatia,LE,Puglia,regione-puglia
+c_a662,,Comune di Bari,167,305.0,75.31,100.0,22.87,87.13,75.0,20.0,1,1,Comune di Bari,BA,Puglia,regione-puglia
