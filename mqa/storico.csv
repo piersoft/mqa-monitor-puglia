@@ -43,7 +43,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-03,holder,arsls,arsls,Agenzia Regionale Strategica per la Salute ed il Sociale,75,366.87,,,,Excellent
 2026-08-03,holder,c_g251,c_g251,Comune di Palagianello,3,358.33,,,,Excellent
 2026-08-03,holder,05487980723,05487980723,AMIU,8,355.0,,,,Excellent
-2026-08-03,holder,amtbs,amtbs,Amtab,1,355.0,,,,Excellent
 2026-08-03,holder,c_a662,c_a662,Comune di Bari,158,351.96,,,,Excellent
 2026-08-03,holder,c_e506,c_e506,Comune di Lecce,505,350.35,,,,Good
 2026-08-03,holder,c_e986,c_e986,Comune di Martina Franca,32,349.38,,,,Good
@@ -99,7 +98,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-04,holder,arsls,arsls,Agenzia Regionale Strategica per la Salute ed il Sociale,75,366.87,,,,Excellent
 2026-08-04,holder,c_g251,c_g251,Comune di Palagianello,3,358.33,,,,Excellent
 2026-08-04,holder,05487980723,05487980723,AMIU,8,355.0,,,,Excellent
-2026-08-04,holder,amtbs,amtbs,Amtab,1,355.0,,,,Excellent
 2026-08-04,holder,c_a662,c_a662,Comune di Bari,158,351.96,,,,Excellent
 2026-08-04,holder,c_e506,c_e506,Comune di Lecce,505,350.35,,,,Good
 2026-08-04,holder,c_e986,c_e986,Comune di Martina Franca,32,349.38,,,,Good
@@ -155,7 +153,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-05,holder,arsls,arsls,Agenzia Regionale Strategica per la Salute ed il Sociale,75,366.87,,,,Excellent
 2026-08-05,holder,c_g251,c_g251,Comune di Palagianello,3,358.33,,,,Excellent
 2026-08-05,holder,05487980723,05487980723,AMIU,8,355.0,,,,Excellent
-2026-08-05,holder,amtbs,amtbs,Amtab,1,355.0,,,,Excellent
 2026-08-05,holder,c_a662,c_a662,Comune di Bari,158,351.96,,,,Excellent
 2026-08-05,holder,c_e506,c_e506,Comune di Lecce,505,350.35,,,,Good
 2026-08-05,holder,c_e986,c_e986,Comune di Martina Franca,32,349.38,,,,Good
@@ -211,7 +208,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-06,holder,arsls,arsls,Agenzia Regionale Strategica per la Salute ed il Sociale,75,366.87,,,,Excellent
 2026-08-06,holder,c_g251,c_g251,Comune di Palagianello,3,358.33,,,,Excellent
 2026-08-06,holder,05487980723,05487980723,AMIU,8,355.0,,,,Excellent
-2026-08-06,holder,amtbs,amtbs,Amtab,1,355.0,,,,Excellent
 2026-08-06,holder,c_a662,c_a662,Comune di Bari,158,351.96,,,,Excellent
 2026-08-06,holder,c_e506,c_e506,Comune di Lecce,505,350.35,,,,Good
 2026-08-06,holder,c_e986,c_e986,Comune di Martina Franca,32,349.38,,,,Good
@@ -267,7 +263,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-07,holder,arsls,arsls,Agenzia Regionale Strategica per la Salute ed il Sociale,75,366.87,,,,Excellent
 2026-08-07,holder,c_g251,c_g251,Comune di Palagianello,3,358.33,,,,Excellent
 2026-08-07,holder,05487980723,05487980723,AMIU,8,355.0,,,,Excellent
-2026-08-07,holder,amtbs,amtbs,Amtab,1,355.0,,,,Excellent
 2026-08-07,holder,c_a662,c_a662,Comune di Bari,158,351.96,,,,Excellent
 2026-08-07,holder,c_e506,c_e506,Comune di Lecce,505,350.35,,,,Good
 2026-08-07,holder,c_e986,c_e986,Comune di Martina Franca,32,349.38,,,,Good
@@ -323,7 +318,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-08,holder,arsls,arsls,Agenzia Regionale Strategica per la Salute ed il Sociale,75,366.87,,,,Excellent
 2026-08-08,holder,c_g251,c_g251,Comune di Palagianello,3,358.33,,,,Excellent
 2026-08-08,holder,05487980723,05487980723,AMIU,8,355.0,,,,Excellent
-2026-08-08,holder,amtbs,amtbs,Amtab,1,355.0,,,,Excellent
 2026-08-08,holder,c_a662,c_a662,Comune di Bari,158,351.96,,,,Excellent
 2026-08-08,holder,c_e506,c_e506,Comune di Lecce,505,350.35,,,,Good
 2026-08-08,holder,c_e986,c_e986,Comune di Martina Franca,32,349.38,,,,Good
@@ -379,7 +373,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-09,holder,c_l887,c_l887,Comune di Specchia,6,358.33,,,,Excellent
 2026-08-09,holder,c_g251,c_g251,Comune di Palagianello,3,358.33,,,,Excellent
 2026-08-09,holder,05487980723,05487980723,AMIU,8,355.0,,,,Excellent
-2026-08-09,holder,amtbs,amtbs,Amtab,1,355.0,,,,Excellent
 2026-08-09,holder,cciaa_le,cciaa_le,Camera di Commercio di Lecce,450,353.51,,,,Excellent
 2026-08-09,holder,c_e506,c_e506,Comune di Lecce,505,353.22,,,,Excellent
 2026-08-09,holder,c_a662,c_a662,Comune di Bari,158,351.96,,,,Excellent
@@ -435,7 +428,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-10,holder,c_h985,c_h985,Comune di San Marco in Lamis,10,363.0,,,,Excellent
 2026-08-10,holder,c_g251,c_g251,Comune di Palagianello,3,358.33,,,,Excellent
 2026-08-10,holder,05487980723,05487980723,AMIU,8,355.0,,,,Excellent
-2026-08-10,holder,amtbs,amtbs,Amtab,1,355.0,,,,Excellent
 2026-08-10,holder,cciaa_le,cciaa_le,Camera di Commercio di Lecce,450,353.51,,,,Excellent
 2026-08-10,holder,c_a662,c_a662,Comune di Bari,158,351.96,,,,Excellent
 2026-08-10,holder,c_e506,c_e506,Comune di Lecce,474,351.6,,,,Excellent
@@ -491,7 +483,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-11,holder,c_h985,c_h985,Comune di San Marco in Lamis,10,363.0,,,,Excellent
 2026-08-11,holder,c_g251,c_g251,Comune di Palagianello,3,358.33,,,,Excellent
 2026-08-11,holder,05487980723,05487980723,AMIU,8,355.0,,,,Excellent
-2026-08-11,holder,amtbs,amtbs,Amtab,1,355.0,,,,Excellent
 2026-08-11,holder,cciaa_le,cciaa_le,Camera di Commercio di Lecce,450,353.51,,,,Excellent
 2026-08-11,holder,c_a662,c_a662,Comune di Bari,158,351.96,,,,Excellent
 2026-08-11,holder,c_e506,c_e506,Comune di Lecce,474,351.6,,,,Excellent
@@ -547,7 +538,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-12,holder,c_h985,c_h985,Comune di San Marco in Lamis,10,363.0,,,,Excellent
 2026-08-12,holder,c_g251,c_g251,Comune di Palagianello,3,358.33,,,,Excellent
 2026-08-12,holder,05487980723,05487980723,AMIU,8,355.0,,,,Excellent
-2026-08-12,holder,amtbs,amtbs,Amtab,1,355.0,,,,Excellent
 2026-08-12,holder,cciaa_le,cciaa_le,Camera di Commercio di Lecce,450,353.51,,,,Excellent
 2026-08-12,holder,c_a662,c_a662,Comune di Bari,158,351.96,,,,Excellent
 2026-08-12,holder,c_e506,c_e506,Comune di Lecce,474,351.6,,,,Excellent
@@ -603,7 +593,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-13,holder,c_h985,c_h985,Comune di San Marco in Lamis,10,363.0,,,,Excellent
 2026-08-13,holder,c_g251,c_g251,Comune di Palagianello,3,358.33,,,,Excellent
 2026-08-13,holder,05487980723,05487980723,AMIU,8,355.0,,,,Excellent
-2026-08-13,holder,amtbs,amtbs,Amtab,1,355.0,,,,Excellent
 2026-08-13,holder,cciaa_le,cciaa_le,Camera di Commercio di Lecce,450,353.51,,,,Excellent
 2026-08-13,holder,c_a662,c_a662,Comune di Bari,158,351.96,,,,Excellent
 2026-08-13,holder,c_e506,c_e506,Comune di Lecce,474,351.6,,,,Excellent
@@ -659,7 +648,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-14,holder,c_h985,c_h985,Comune di San Marco in Lamis,10,363.0,,,,Excellent
 2026-08-14,holder,c_g251,c_g251,Comune di Palagianello,3,358.33,,,,Excellent
 2026-08-14,holder,05487980723,05487980723,AMIU,8,355.0,,,,Excellent
-2026-08-14,holder,amtbs,amtbs,Amtab,1,355.0,,,,Excellent
 2026-08-14,holder,cciaa_le,cciaa_le,Camera di Commercio di Lecce,450,353.51,,,,Excellent
 2026-08-14,holder,c_a662,c_a662,Comune di Bari,158,351.96,,,,Excellent
 2026-08-14,holder,c_e506,c_e506,Comune di Lecce,474,351.6,,,,Excellent
@@ -715,7 +703,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-15,holder,c_h985,c_h985,Comune di San Marco in Lamis,10,363.0,,,,Excellent
 2026-08-15,holder,c_g251,c_g251,Comune di Palagianello,3,358.33,,,,Excellent
 2026-08-15,holder,05487980723,05487980723,AMIU,8,355.0,,,,Excellent
-2026-08-15,holder,amtbs,amtbs,Amtab,1,355.0,,,,Excellent
 2026-08-15,holder,cciaa_le,cciaa_le,Camera di Commercio di Lecce,450,353.51,,,,Excellent
 2026-08-15,holder,c_a662,c_a662,Comune di Bari,158,351.96,,,,Excellent
 2026-08-15,holder,c_e506,c_e506,Comune di Lecce,474,351.6,,,,Excellent
@@ -3255,72 +3242,72 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-31,publisher,Sezione Bilancio e Ragioneria servizio.bilancio.ragioneria@pec.rupar.puglia.it,,Sezione Bilancio e Ragioneria servizio.bilancio.ragioneria@pec.rupar.puglia.it,1,385.0,385,385,385,Excellent
 2026-08-31,publisher,InnovaPuglia,,InnovaPuglia,2,385.0,385,385,385,Excellent
 2026-08-31,publisher,Area Valutazione e Ricerca – Servizio Ricerca Sanitaria e Sperimentazioni Gestionali,,Area Valutazione e Ricerca – Servizio Ricerca Sanitaria e Sperimentazioni Gestionali,2,385.0,385,385,385,Excellent
-2026-08-31,publisher,Area Direzione Amministrativa - Servizio Risorse Umane,,Area Direzione Amministrativa - Servizio Risorse Umane,1,385.0,385,385,385,Excellent
 2026-08-31,publisher,Area Valutazione e Ricerca – Servizio Valutazione e Governo dell'Innovazione,,Area Valutazione e Ricerca – Servizio Valutazione e Governo dell'Innovazione,1,385.0,385,385,385,Excellent
 2026-08-31,publisher,SEZIONE INCLUSIONE SOCIALE ATTIVA e SEZIONE ISTRUZIONE E UNIVERSITA',,SEZIONE INCLUSIONE SOCIALE ATTIVA e SEZIONE ISTRUZIONE E UNIVERSITA',1,385.0,385,385,385,Excellent
-2026-08-31,publisher,Sezione Competitività,,Sezione Competitività,2,385.0,385,385,385,Excellent
-2026-08-31,publisher,Sezione Finanze,,Sezione Finanze,1,385.0,385,385,385,Excellent
-2026-08-31,publisher,Ufficio Sistemi Informativi e Flussi Informativi,,Ufficio Sistemi Informativi e Flussi Informativi,1,385.0,385,385,385,Excellent
-2026-08-31,publisher,ASL Brindisi,,ASL Brindisi,1,385.0,385,385,385,Excellent
-2026-08-31,publisher,Dott.ssa Rocca Anna Ettorre,,Dott.ssa Rocca Anna Ettorre,1,385.0,385,385,385,Excellent
-2026-08-31,publisher,SEZIONE POLITICHE E MERCATO DEL LAVORO,,SEZIONE POLITICHE E MERCATO DEL LAVORO,1,385.0,385,385,385,Excellent
-2026-08-31,publisher,Segreteria generale della Presidenza - Struttura Speciale Audit FSE+,,Segreteria generale della Presidenza - Struttura Speciale Audit FSE+,1,385.0,385,385,385,Excellent
+2026-08-31,publisher,Dipartimento Personale e Organizzazione - Sezione Personale,,Dipartimento Personale e Organizzazione - Sezione Personale,1,385.0,385,385,385,Excellent
+2026-08-31,publisher,"Sezione Sicurezza del Cittadino, politiche per le migrazioni ed Antimafia sociale",,"Sezione Sicurezza del Cittadino, politiche per le migrazioni ed Antimafia sociale",1,385.0,385,385,385,Excellent
 2026-08-31,publisher,"Dipartimento Welfare, sezione Benessere Sociale, Innovazione e Sussidiarietà",,"Dipartimento Welfare, sezione Benessere Sociale, Innovazione e Sussidiarietà",1,385.0,385,385,385,Excellent
 2026-08-31,publisher,Sezione Tutela e valorizzazione del paesaggio,,Sezione Tutela e valorizzazione del paesaggio,1,385.0,385,385,385,Excellent
 2026-08-31,publisher,"Sezione Turismo e Internazionalizzazione - Servizio Sviluppo, Infrastrutture, Imprese, Professioni",,"Sezione Turismo e Internazionalizzazione - Servizio Sviluppo, Infrastrutture, Imprese, Professioni",1,385.0,385,385,385,Excellent
+2026-08-31,publisher,Area Direzione Amministrativa - Servizio Risorse Umane,,Area Direzione Amministrativa - Servizio Risorse Umane,1,385.0,385,385,385,Excellent
 2026-08-31,publisher,Redazione,,Redazione,1,385.0,385,385,385,Excellent
 2026-08-31,publisher,Affari Generali,,Affari Generali,2,385.0,385,385,385,Excellent
-2026-08-31,publisher,Sezione Personale e Sezione Statistica,,Sezione Personale e Sezione Statistica,1,385.0,385,385,385,Excellent
-2026-08-31,publisher,Sezione Supporto Legsislativo,,Sezione Supporto Legsislativo,1,385.0,385,385,385,Excellent
-2026-08-31,publisher,Comune di Oria,,Comune di Oria,1,385.0,385,385,385,Excellent
-2026-08-31,publisher,Sezione Controlli,,Sezione Controlli,1,385.0,385,385,385,Excellent
-2026-08-31,publisher,InnovaPuglia spa infolivinglabs@innova.puglia.it,,InnovaPuglia spa infolivinglabs@innova.puglia.it,2,385.0,385,385,385,Excellent
-2026-08-31,publisher,Sezione Personale e Organizzazione - servizio.personale@regione.puglia.it,,Sezione Personale e Organizzazione - servizio.personale@regione.puglia.it,1,385.0,385,385,385,Excellent
-2026-08-31,publisher,Sezione politiche di benessere sociale e pari opportunità - Sezione programmazione Sociale ed integrazione socio-sanitaria - InnovaPuglia S.p.a.,,Sezione politiche di benessere sociale e pari opportunità - Sezione programmazione Sociale ed integrazione socio-sanitaria - InnovaPuglia S.p.a.,1,385.0,385,385,385,Excellent
-2026-08-31,publisher,Sezione Programmazione Acquisti servizio.affarigenerali@regione.puglia.it,,Sezione Programmazione Acquisti servizio.affarigenerali@regione.puglia.it,1,385.0,385,385,385,Excellent
-2026-08-31,publisher,Dipartimento Ambiente Paesaggio e Qualità Urbana,,Dipartimento Ambiente Paesaggio e Qualità Urbana,1,385.0,385,385,385,Excellent
-2026-08-31,publisher,DIPARTIMENTO PROMOZIONE DELLA SALUTE E DEL BENESSERE ANIMALE/SEZIONE PROMOZIONE DELLA SALUTE E DEL BENESSERE,,DIPARTIMENTO PROMOZIONE DELLA SALUTE E DEL BENESSERE ANIMALE/SEZIONE PROMOZIONE DELLA SALUTE E DEL BENESSERE,3,385.0,385,385,385,Excellent
+2026-08-31,publisher,Dott.ssa Rocca Anna Ettorre,,Dott.ssa Rocca Anna Ettorre,1,385.0,385,385,385,Excellent
+2026-08-31,publisher,Sezione Competitività,,Sezione Competitività,2,385.0,385,385,385,Excellent
 2026-08-31,publisher,Comune di Candela,,Comune di Candela,4,385.0,385,385,385,Excellent
-2026-08-31,publisher,"Dipartimento Agricoltura, sviluppo rurale e Ambientale - Sezione Attuazione dei Programmi Comunitari per l'agricoltura",,"Dipartimento Agricoltura, sviluppo rurale e Ambientale - Sezione Attuazione dei Programmi Comunitari per l'agricoltura",1,385.0,385,385,385,Excellent
-2026-08-31,publisher,Servizio Programmazione Acquisti,,Servizio Programmazione Acquisti,1,385.0,385,385,385,Excellent
-2026-08-31,publisher,Sezione Bilancio e ragioneria,,Sezione Bilancio e ragioneria,1,385.0,385,385,385,Excellent
-2026-08-31,publisher,Affari generali,,Affari generali,1,385.0,385,385,385,Excellent
-2026-08-31,publisher,Ufficio Urbanistica,,Ufficio Urbanistica,1,385.0,385,385,385,Excellent
-2026-08-31,publisher,Urbanistica,,Urbanistica,1,385.0,385,385,385,Excellent
-2026-08-31,publisher,Sezione Tutela e Valorizzazione dei Patrimoni Culturali,,Sezione Tutela e Valorizzazione dei Patrimoni Culturali,1,385.0,385,385,385,Excellent
-2026-08-31,publisher,"Dipartimento Turismo, Economia della Cultura e Valorizzazione del Territorio - Struttura Progetto Cooperazione Territoriale Europea E Poli Biblio-Museali",,"Dipartimento Turismo, Economia della Cultura e Valorizzazione del Territorio - Struttura Progetto Cooperazione Territoriale Europea E Poli Biblio-Museali",1,385.0,385,385,385,Excellent
+2026-08-31,publisher,Dipartimento Ambiente Paesaggio e Qualità Urbana,,Dipartimento Ambiente Paesaggio e Qualità Urbana,1,385.0,385,385,385,Excellent
+2026-08-31,publisher,"SEZIONE BENESSERE SOCIALE, INNOVAIONE E SUSSIDIARIETA'",,"SEZIONE BENESSERE SOCIALE, INNOVAIONE E SUSSIDIARIETA'",1,385.0,385,385,385,Excellent
 2026-08-31,publisher,Struttura Speciale Cooperazione Euro-Mediterranea,,Struttura Speciale Cooperazione Euro-Mediterranea,1,385.0,385,385,385,Excellent
 2026-08-31,publisher,Sezione Bilancio della Sanità e dello Sport,,Sezione Bilancio della Sanità e dello Sport,1,385.0,385,385,385,Excellent
 2026-08-31,publisher,Sezione Coordinamento dei Servizi Territoriali,,Sezione Coordinamento dei Servizi Territoriali,1,385.0,385,385,385,Excellent
-2026-08-31,publisher,"Sezione Sicurezza del Cittadino, politiche per le migrazioni ed Antimafia sociale",,"Sezione Sicurezza del Cittadino, politiche per le migrazioni ed Antimafia sociale",1,385.0,385,385,385,Excellent
-2026-08-31,publisher,Dipartimento Personale e Organizzazione - Sezione Personale,,Dipartimento Personale e Organizzazione - Sezione Personale,1,385.0,385,385,385,Excellent
-2026-08-31,publisher,"SEZIONE BENESSERE SOCIALE, INNOVAIONE E SUSSIDIARIETA'",,"SEZIONE BENESSERE SOCIALE, INNOVAIONE E SUSSIDIARIETA'",1,385.0,385,385,385,Excellent
+2026-08-31,publisher,Urbanistica,,Urbanistica,1,385.0,385,385,385,Excellent
+2026-08-31,publisher,Ufficio Urbanistica,,Ufficio Urbanistica,1,385.0,385,385,385,Excellent
+2026-08-31,publisher,Affari generali,,Affari generali,1,385.0,385,385,385,Excellent
+2026-08-31,publisher,Sezione Tutela e Valorizzazione dei Patrimoni Culturali,,Sezione Tutela e Valorizzazione dei Patrimoni Culturali,1,385.0,385,385,385,Excellent
+2026-08-31,publisher,"Dipartimento Turismo, Economia della Cultura e Valorizzazione del Territorio - Struttura Progetto Cooperazione Territoriale Europea E Poli Biblio-Museali",,"Dipartimento Turismo, Economia della Cultura e Valorizzazione del Territorio - Struttura Progetto Cooperazione Territoriale Europea E Poli Biblio-Museali",1,385.0,385,385,385,Excellent
+2026-08-31,publisher,Servizio Programmazione Acquisti,,Servizio Programmazione Acquisti,1,385.0,385,385,385,Excellent
+2026-08-31,publisher,DIPARTIMENTO PROMOZIONE DELLA SALUTE E DEL BENESSERE ANIMALE/SEZIONE PROMOZIONE DELLA SALUTE E DEL BENESSERE,,DIPARTIMENTO PROMOZIONE DELLA SALUTE E DEL BENESSERE ANIMALE/SEZIONE PROMOZIONE DELLA SALUTE E DEL BENESSERE,3,385.0,385,385,385,Excellent
+2026-08-31,publisher,Sezione politiche di benessere sociale e pari opportunità Sezione programmazione Sociale ed integrazione socio-sanitaria,,Sezione politiche di benessere sociale e pari opportunità Sezione programmazione Sociale ed integrazione socio-sanitaria,1,385.0,385,385,385,Excellent
+2026-08-31,publisher,Sezione Programmazione e coordinamento,,Sezione Programmazione e coordinamento,2,385.0,385,385,385,Excellent
 2026-08-31,publisher,Marica Girardi - laboratoriurbani@regione.puglia.it,,Marica Girardi - laboratoriurbani@regione.puglia.it,1,385.0,385,385,385,Excellent
 2026-08-31,publisher,Servizio Ricerca Industriale e Innovazione,,Servizio Ricerca Industriale e Innovazione,1,385.0,385,385,385,Excellent
 2026-08-31,publisher,Sezione Personale e Organizzazione servizio.personale@regione.puglia.it,,Sezione Personale e Organizzazione servizio.personale@regione.puglia.it,1,385.0,385,385,385,Excellent
-2026-08-31,publisher,Sezione Ricerca industriale e Innovazione,,Sezione Ricerca industriale e Innovazione,2,385.0,385,385,385,Excellent
-2026-08-31,publisher,Sezione politiche di benessere sociale e pari opportunità Sezione programmazione Sociale ed integrazione socio-sanitaria,,Sezione politiche di benessere sociale e pari opportunità Sezione programmazione Sociale ed integrazione socio-sanitaria,1,385.0,385,385,385,Excellent
-2026-08-31,publisher,Sezione Programmazione e coordinamento,,Sezione Programmazione e coordinamento,2,385.0,385,385,385,Excellent
-2026-08-31,publisher,Dipartimento Sviluppo Economico,,Dipartimento Sviluppo Economico,1,385.0,385,385,385,Excellent
-2026-08-31,publisher,M. Capozzi,,M. Capozzi,1,385.0,385,385,385,Excellent
-2026-08-31,publisher,ex Sezione Promozione della Salute e del Benessere - attuale Sezione Sanità Veterinaria e Sicurezza Alimentare,,ex Sezione Promozione della Salute e del Benessere - attuale Sezione Sanità Veterinaria e Sicurezza Alimentare,1,385.0,385,385,385,Excellent
-2026-08-31,publisher,Sezione Trattamento Economico,,Sezione Trattamento Economico,2,385.0,385,385,385,Excellent
-2026-08-31,publisher,Servizio Finanziario – Comune di Palo del Colle,,Servizio Finanziario – Comune di Palo del Colle,1,385.0,385,385,385,Excellent
-2026-08-31,publisher,Sezione Attuzione dei programmi comunitari per l'agricolturai,,Sezione Attuzione dei programmi comunitari per l'agricolturai,1,385.0,385,385,385,Excellent
-2026-08-31,publisher,Sezione APG,,Sezione APG,1,385.0,385,385,385,Excellent
-2026-08-31,publisher,Programmazione Unitaria,,Programmazione Unitaria,1,385.0,385,385,385,Excellent
-2026-08-31,publisher,Protezione Civile,,Protezione Civile,1,385.0,385,385,385,Excellent
-2026-08-31,publisher,"Dipartimento Turismo, Economia della Cultura e Valorizzazione del Territorio - Sezione Economia della Cultura",,"Dipartimento Turismo, Economia della Cultura e Valorizzazione del Territorio - Sezione Economia della Cultura",1,385.0,385,385,385,Excellent
-2026-08-31,publisher,Sezione Coordinamento dei servizi territoriali,,Sezione Coordinamento dei servizi territoriali,1,385.0,385,385,385,Excellent
-2026-08-31,publisher,"SEZIONE INNOVAZIONE, DATI E SERVIZI DIGITALI",,"SEZIONE INNOVAZIONE, DATI E SERVIZI DIGITALI",1,385.0,385,385,385,Excellent
-2026-08-31,publisher,Comune di Palo del Colle – Ufficio Anagrafe,,Comune di Palo del Colle – Ufficio Anagrafe,1,385.0,385,385,385,Excellent
+2026-08-31,publisher,InnovaPuglia spa infolivinglabs@innova.puglia.it,,InnovaPuglia spa infolivinglabs@innova.puglia.it,2,385.0,385,385,385,Excellent
 2026-08-31,publisher,Sezione Promozione della salute e del benessere,,Sezione Promozione della salute e del benessere,1,385.0,385,385,385,Excellent
 2026-08-31,publisher,Servizio Protezione Civile servizio.protezionecivile@regione.puglia.it,,Servizio Protezione Civile servizio.protezionecivile@regione.puglia.it,1,385.0,385,385,385,Excellent
-2026-08-31,publisher,Sezione Trasporto Pubblico Locale e Intermodalità,,Sezione Trasporto Pubblico Locale e Intermodalità,2,385.0,385,385,385,Excellent
+2026-08-31,publisher,Sezione Ricerca industriale e Innovazione,,Sezione Ricerca industriale e Innovazione,2,385.0,385,385,385,Excellent
+2026-08-31,publisher,Sezione Controlli,,Sezione Controlli,1,385.0,385,385,385,Excellent
+2026-08-31,publisher,Sezione Personale e Organizzazione - servizio.personale@regione.puglia.it,,Sezione Personale e Organizzazione - servizio.personale@regione.puglia.it,1,385.0,385,385,385,Excellent
+2026-08-31,publisher,Sezione politiche di benessere sociale e pari opportunità - Sezione programmazione Sociale ed integrazione socio-sanitaria - InnovaPuglia S.p.a.,,Sezione politiche di benessere sociale e pari opportunità - Sezione programmazione Sociale ed integrazione socio-sanitaria - InnovaPuglia S.p.a.,1,385.0,385,385,385,Excellent
+2026-08-31,publisher,Sezione Programmazione Acquisti servizio.affarigenerali@regione.puglia.it,,Sezione Programmazione Acquisti servizio.affarigenerali@regione.puglia.it,1,385.0,385,385,385,Excellent
+2026-08-31,publisher,"Dipartimento Agricoltura, sviluppo rurale e Ambientale - Sezione Attuazione dei Programmi Comunitari per l'agricoltura",,"Dipartimento Agricoltura, sviluppo rurale e Ambientale - Sezione Attuazione dei Programmi Comunitari per l'agricoltura",1,385.0,385,385,385,Excellent
+2026-08-31,publisher,Sezione Bilancio e ragioneria,,Sezione Bilancio e ragioneria,1,385.0,385,385,385,Excellent
+2026-08-31,publisher,"Sezione Promozione del Commercio, Artigianato e Internazionalizzazione delle imprese",,"Sezione Promozione del Commercio, Artigianato e Internazionalizzazione delle imprese",1,385.0,385,385,385,Excellent
+2026-08-31,publisher,Sezione Supporto Legsislativo,,Sezione Supporto Legsislativo,1,385.0,385,385,385,Excellent
+2026-08-31,publisher,Sezione Finanze,,Sezione Finanze,1,385.0,385,385,385,Excellent
+2026-08-31,publisher,Ufficio Sistemi Informativi e Flussi Informativi,,Ufficio Sistemi Informativi e Flussi Informativi,1,385.0,385,385,385,Excellent
+2026-08-31,publisher,Comune di Oria,,Comune di Oria,1,385.0,385,385,385,Excellent
+2026-08-31,publisher,Segreteria generale della Presidenza - Struttura Speciale Audit FSE+,,Segreteria generale della Presidenza - Struttura Speciale Audit FSE+,1,385.0,385,385,385,Excellent
+2026-08-31,publisher,ASL Brindisi,,ASL Brindisi,1,385.0,385,385,385,Excellent
+2026-08-31,publisher,Sezione Personale e Sezione Statistica,,Sezione Personale e Sezione Statistica,1,385.0,385,385,385,Excellent
+2026-08-31,publisher,SEZIONE POLITICHE E MERCATO DEL LAVORO,,SEZIONE POLITICHE E MERCATO DEL LAVORO,1,385.0,385,385,385,Excellent
+2026-08-31,publisher,Comune di Palo del Colle – Ufficio Anagrafe,,Comune di Palo del Colle – Ufficio Anagrafe,1,385.0,385,385,385,Excellent
+2026-08-31,publisher,"Dipartimento Turismo, Economia della Cultura e Valorizzazione del Territorio - Sezione Economia della Cultura",,"Dipartimento Turismo, Economia della Cultura e Valorizzazione del Territorio - Sezione Economia della Cultura",1,385.0,385,385,385,Excellent
+2026-08-31,publisher,Protezione Civile,,Protezione Civile,1,385.0,385,385,385,Excellent
+2026-08-31,publisher,Programmazione Unitaria,,Programmazione Unitaria,1,385.0,385,385,385,Excellent
+2026-08-31,publisher,Servizio Finanziario – Comune di Palo del Colle,,Servizio Finanziario – Comune di Palo del Colle,1,385.0,385,385,385,Excellent
+2026-08-31,publisher,Sezione Trattamento Economico,,Sezione Trattamento Economico,2,385.0,385,385,385,Excellent
+2026-08-31,publisher,Sezione Coordinamento dei servizi territoriali,,Sezione Coordinamento dei servizi territoriali,1,385.0,385,385,385,Excellent
+2026-08-31,publisher,Sezione Attuzione dei programmi comunitari per l'agricolturai,,Sezione Attuzione dei programmi comunitari per l'agricolturai,1,385.0,385,385,385,Excellent
+2026-08-31,publisher,Sezione APG,,Sezione APG,1,385.0,385,385,385,Excellent
+2026-08-31,publisher,"SEZIONE INNOVAZIONE, DATI E SERVIZI DIGITALI",,"SEZIONE INNOVAZIONE, DATI E SERVIZI DIGITALI",1,385.0,385,385,385,Excellent
 2026-08-31,publisher,"Dipartimento Sviluppo Economico - Sezione Crescita Digitale delle persone, del territorio e delle imprese",,"Dipartimento Sviluppo Economico - Sezione Crescita Digitale delle persone, del territorio e delle imprese",1,385.0,385,385,385,Excellent
 2026-08-31,publisher,Servizio Risorse Finanziarie,,Servizio Risorse Finanziarie,1,385.0,385,385,385,Excellent
+2026-08-31,publisher,Sezione Trasporto Pubblico Locale e Intermodalità,,Sezione Trasporto Pubblico Locale e Intermodalità,2,385.0,385,385,385,Excellent
 2026-08-31,publisher,Interreg Management Structure,,Interreg Management Structure,1,385.0,385,385,385,Excellent
-2026-08-31,publisher,"Sezione Promozione del Commercio, Artigianato e Internazionalizzazione delle imprese",,"Sezione Promozione del Commercio, Artigianato e Internazionalizzazione delle imprese",1,385.0,385,385,385,Excellent
+2026-08-31,publisher,M. Capozzi,,M. Capozzi,1,385.0,385,385,385,Excellent
+2026-08-31,publisher,Dipartimento Sviluppo Economico,,Dipartimento Sviluppo Economico,1,385.0,385,385,385,Excellent
+2026-08-31,publisher,ex Sezione Promozione della Salute e del Benessere - attuale Sezione Sanità Veterinaria e Sicurezza Alimentare,,ex Sezione Promozione della Salute e del Benessere - attuale Sezione Sanità Veterinaria e Sicurezza Alimentare,1,385.0,385,385,385,Excellent
 2026-08-31,publisher,Regione Puglia,,Regione Puglia,61,384.51,385,355,385,Excellent
 2026-08-31,publisher,Comune di Massafra,,Comune di Massafra,38,384.21,385,355,385,Excellent
 2026-08-31,publisher,ARET Ufficio Innovazione,,ARET Ufficio Innovazione,14,383.57,385,365,385,Excellent
@@ -3372,6 +3359,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-31,publisher,Polizia Locale Lecce,,Polizia Locale Lecce,1,305.0,305,305,305,Good
 2026-08-31,publisher,Ufficio Servizi Finanziari,,Ufficio Servizi Finanziari,2,305.0,305,305,305,Good
 2026-08-31,publisher,Comune di Sternatia,,Comune di Sternatia,3,305.0,305,305,305,Good
-2026-08-31,publisher,redazione  O.P.,,redazione  O.P.,1,305.0,305,305,305,Good
 2026-08-31,publisher,Ufficio  Coordinamento PNRR,,Ufficio  Coordinamento PNRR,1,305.0,305,305,305,Good
+2026-08-31,publisher,redazione  O.P.,,redazione  O.P.,1,305.0,305,305,305,Good
 2026-08-31,publisher,Mauro Nicola de Pinto,,Mauro Nicola de Pinto,1,255.0,255,255,255,Good

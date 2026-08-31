@@ -1,7 +1,7 @@
 {
  "aggiornato": "2026-08-31",
  "fonte": "https://dati.puglia.it/ckan/api/3/action/package_search",
- "dataset_catalogo": 2012,
+ "dataset_catalogo": 2014,
  "n_titolari": 56,
  "n_comuni": 38,
  "titolari": [
@@ -144,16 +144,16 @@
    "comune": true
   },
   {
+   "id": "05487980723",
+   "n_ckan": 9,
+   "grezzo": [],
+   "comune": false
+  },
+  {
    "id": "c_e471",
    "n_ckan": 9,
    "grezzo": [],
    "comune": true
-  },
-  {
-   "id": "05487980723",
-   "n_ckan": 8,
-   "grezzo": [],
-   "comune": false
   },
   {
    "id": "pusv",
@@ -332,17 +332,17 @@
    "comune": true
   },
   {
+   "id": "06010490727",
+   "n_ckan": 2,
+   "grezzo": [],
+   "comune": false
+  },
+  {
    "id": "asl_br",
    "n_ckan": 1,
    "grezzo": [
     "ASL_BR"
    ],
-   "comune": false
-  },
-  {
-   "id": "amtbs",
-   "n_ckan": 1,
-   "grezzo": [],
    "comune": false
   },
   {
