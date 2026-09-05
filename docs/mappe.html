@@ -307,8 +307,19 @@ L.control.scale({imperial:false}).addTo(mappa);
    non chiede chiave, ha la stessa tonalita' chiara e nell'indirizzo la y
    precede la x. */
 L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",{
-  attribution:'Sfondo <a href="https://www.esri.com/">Esri</a>, HERE, Garmin, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> — confini <a href="https://www.istat.it/notizia/confini-delle-unita-amministrative-a-fini-statistici-al-1-gennaio-2018-2/">Istat, Basi territoriali</a>',
+  attribution:'Sfondo <a href="https://www.esri.com/">Esri</a>, HERE, Garmin, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> — centroidi comunali <a href="https://www.istat.it/notizia/confini-delle-unita-amministrative-a-fini-statistici-al-1-gennaio-2018-2/">Istat, Basi territoriali</a>',
   maxZoom:16
+}).addTo(mappa);
+
+/* In Esri le etichette stanno in un servizio a parte: il fondo chiaro da solo
+   non porta nemmeno i nomi dei capoluoghi, e su una mappa senza confini
+   disegnati diventa difficile capire dove si e'. Il livello di riferimento va
+   sopra i cerchi, quindi con pane dedicato. */
+mappa.createPane("etichette");
+mappa.getPane("etichette").style.zIndex = 650;
+mappa.getPane("etichette").style.pointerEvents = "none";
+L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}",{
+  pane:"etichette", maxZoom:16
 }).addTo(mappa);
 var stato = {metrica:"mqa", comuni:true, escluse:{}};
 var dati=null, stratoComuni=null;
