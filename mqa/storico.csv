@@ -36,7 +36,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-03,holder,c_d863,c_d863,Comune di Galatone,39,379.1,,,,Excellent
 2026-08-03,holder,c_l328,c_l328,Città di Trani,5,379.0,,,,Excellent
 2026-08-03,holder,ato_pu,ato_pu,Autorità idrica Pugliese (AIP),13,375.77,,,,Excellent
-2026-08-03,holder,c_c978,c_c978,Comune di Copertino,16,375.0,,,,Excellent
 2026-08-03,holder,c_a874,c_a874,Comune di Binetto,3,375.0,,,,Excellent
 2026-08-03,holder,arpap,arpap,ARPA Puglia ,21,372.62,,,,Excellent
 2026-08-03,holder,c_h985,c_h985,Comune di San Marco in Lamis,10,368.53,,,,Excellent
@@ -91,7 +90,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-04,holder,c_d863,c_d863,Comune di Galatone,39,379.1,,,,Excellent
 2026-08-04,holder,c_l328,c_l328,Città di Trani,5,379.0,,,,Excellent
 2026-08-04,holder,ato_pu,ato_pu,Autorità idrica Pugliese (AIP),13,375.77,,,,Excellent
-2026-08-04,holder,c_c978,c_c978,Comune di Copertino,16,375.0,,,,Excellent
 2026-08-04,holder,c_a874,c_a874,Comune di Binetto,3,375.0,,,,Excellent
 2026-08-04,holder,arpap,arpap,ARPA Puglia ,21,372.62,,,,Excellent
 2026-08-04,holder,c_h985,c_h985,Comune di San Marco in Lamis,10,368.53,,,,Excellent
@@ -146,7 +144,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-05,holder,c_d863,c_d863,Comune di Galatone,39,379.1,,,,Excellent
 2026-08-05,holder,c_l328,c_l328,Città di Trani,5,379.0,,,,Excellent
 2026-08-05,holder,ato_pu,ato_pu,Autorità idrica Pugliese (AIP),13,375.77,,,,Excellent
-2026-08-05,holder,c_c978,c_c978,Comune di Copertino,16,375.0,,,,Excellent
 2026-08-05,holder,c_a874,c_a874,Comune di Binetto,3,375.0,,,,Excellent
 2026-08-05,holder,arpap,arpap,ARPA Puglia ,21,372.62,,,,Excellent
 2026-08-05,holder,c_h985,c_h985,Comune di San Marco in Lamis,10,368.53,,,,Excellent
@@ -201,7 +198,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-06,holder,c_d863,c_d863,Comune di Galatone,39,379.1,,,,Excellent
 2026-08-06,holder,c_l328,c_l328,Città di Trani,5,379.0,,,,Excellent
 2026-08-06,holder,ato_pu,ato_pu,Autorità idrica Pugliese (AIP),13,375.77,,,,Excellent
-2026-08-06,holder,c_c978,c_c978,Comune di Copertino,16,375.0,,,,Excellent
 2026-08-06,holder,c_a874,c_a874,Comune di Binetto,3,375.0,,,,Excellent
 2026-08-06,holder,arpap,arpap,ARPA Puglia ,21,372.62,,,,Excellent
 2026-08-06,holder,c_h985,c_h985,Comune di San Marco in Lamis,10,368.53,,,,Excellent
@@ -256,7 +252,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-07,holder,c_d863,c_d863,Comune di Galatone,39,379.1,,,,Excellent
 2026-08-07,holder,c_l328,c_l328,Città di Trani,5,379.0,,,,Excellent
 2026-08-07,holder,ato_pu,ato_pu,Autorità idrica Pugliese (AIP),13,375.77,,,,Excellent
-2026-08-07,holder,c_c978,c_c978,Comune di Copertino,16,375.0,,,,Excellent
 2026-08-07,holder,c_a874,c_a874,Comune di Binetto,3,375.0,,,,Excellent
 2026-08-07,holder,arpap,arpap,ARPA Puglia ,21,372.62,,,,Excellent
 2026-08-07,holder,c_h985,c_h985,Comune di San Marco in Lamis,10,368.53,,,,Excellent
@@ -311,7 +306,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-08,holder,c_d863,c_d863,Comune di Galatone,39,379.1,,,,Excellent
 2026-08-08,holder,c_l328,c_l328,Città di Trani,5,379.0,,,,Excellent
 2026-08-08,holder,ato_pu,ato_pu,Autorità idrica Pugliese (AIP),13,375.77,,,,Excellent
-2026-08-08,holder,c_c978,c_c978,Comune di Copertino,16,375.0,,,,Excellent
 2026-08-08,holder,c_a874,c_a874,Comune di Binetto,3,375.0,,,,Excellent
 2026-08-08,holder,arpap,arpap,ARPA Puglia ,21,372.62,,,,Excellent
 2026-08-08,holder,c_h985,c_h985,Comune di San Marco in Lamis,10,368.53,,,,Excellent
@@ -365,7 +359,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-09,holder,c_d863,c_d863,Comune di Galatone,39,379.62,,,,Excellent
 2026-08-09,holder,c_l328,c_l328,Città di Trani,5,379.0,,,,Excellent
 2026-08-09,holder,ato_pu,ato_pu,Autorità idrica Pugliese (AIP),13,375.77,,,,Excellent
-2026-08-09,holder,c_c978,c_c978,Comune di Copertino,16,375.0,,,,Excellent
 2026-08-09,holder,c_a874,c_a874,Comune di Binetto,3,375.0,,,,Excellent
 2026-08-09,holder,arpap,arpap,ARPA Puglia ,21,371.67,,,,Excellent
 2026-08-09,holder,arsls,arsls,Agenzia Regionale Strategica per la Salute ed il Sociale,75,366.87,,,,Excellent
@@ -421,7 +414,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-10,holder,c_d863,c_d863,Comune di Galatone,39,379.62,,,,Excellent
 2026-08-10,holder,c_l328,c_l328,Città di Trani,5,379.0,,,,Excellent
 2026-08-10,holder,ato_pu,ato_pu,Autorità idrica Pugliese (AIP),13,375.77,,,,Excellent
-2026-08-10,holder,c_c978,c_c978,Comune di Copertino,16,375.0,,,,Excellent
 2026-08-10,holder,c_a874,c_a874,Comune di Binetto,3,375.0,,,,Excellent
 2026-08-10,holder,arpap,arpap,ARPA Puglia ,21,371.67,,,,Excellent
 2026-08-10,holder,arsls,arsls,Agenzia Regionale Strategica per la Salute ed il Sociale,75,366.87,,,,Excellent
@@ -476,7 +468,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-11,holder,c_d863,c_d863,Comune di Galatone,39,379.62,,,,Excellent
 2026-08-11,holder,c_l328,c_l328,Città di Trani,5,379.0,,,,Excellent
 2026-08-11,holder,ato_pu,ato_pu,Autorità idrica Pugliese (AIP),13,375.77,,,,Excellent
-2026-08-11,holder,c_c978,c_c978,Comune di Copertino,16,375.0,,,,Excellent
 2026-08-11,holder,c_a874,c_a874,Comune di Binetto,3,375.0,,,,Excellent
 2026-08-11,holder,arpap,arpap,ARPA Puglia ,21,371.67,,,,Excellent
 2026-08-11,holder,arsls,arsls,Agenzia Regionale Strategica per la Salute ed il Sociale,75,366.87,,,,Excellent
@@ -531,7 +522,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-12,holder,c_d863,c_d863,Comune di Galatone,39,379.62,,,,Excellent
 2026-08-12,holder,c_l328,c_l328,Città di Trani,5,379.0,,,,Excellent
 2026-08-12,holder,ato_pu,ato_pu,Autorità idrica Pugliese (AIP),13,375.77,,,,Excellent
-2026-08-12,holder,c_c978,c_c978,Comune di Copertino,16,375.0,,,,Excellent
 2026-08-12,holder,c_a874,c_a874,Comune di Binetto,3,375.0,,,,Excellent
 2026-08-12,holder,arpap,arpap,ARPA Puglia ,21,371.67,,,,Excellent
 2026-08-12,holder,arsls,arsls,Agenzia Regionale Strategica per la Salute ed il Sociale,75,366.87,,,,Excellent
@@ -586,7 +576,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-13,holder,c_d863,c_d863,Comune di Galatone,39,379.62,,,,Excellent
 2026-08-13,holder,c_l328,c_l328,Città di Trani,5,379.0,,,,Excellent
 2026-08-13,holder,ato_pu,ato_pu,Autorità idrica Pugliese (AIP),13,375.77,,,,Excellent
-2026-08-13,holder,c_c978,c_c978,Comune di Copertino,16,375.0,,,,Excellent
 2026-08-13,holder,c_a874,c_a874,Comune di Binetto,3,375.0,,,,Excellent
 2026-08-13,holder,arpap,arpap,ARPA Puglia ,21,371.67,,,,Excellent
 2026-08-13,holder,arsls,arsls,Agenzia Regionale Strategica per la Salute ed il Sociale,75,366.87,,,,Excellent
@@ -641,7 +630,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-14,holder,c_d863,c_d863,Comune di Galatone,39,379.62,,,,Excellent
 2026-08-14,holder,c_l328,c_l328,Città di Trani,5,379.0,,,,Excellent
 2026-08-14,holder,ato_pu,ato_pu,Autorità idrica Pugliese (AIP),13,375.77,,,,Excellent
-2026-08-14,holder,c_c978,c_c978,Comune di Copertino,16,375.0,,,,Excellent
 2026-08-14,holder,c_a874,c_a874,Comune di Binetto,3,375.0,,,,Excellent
 2026-08-14,holder,arpap,arpap,ARPA Puglia ,21,371.67,,,,Excellent
 2026-08-14,holder,arsls,arsls,Agenzia Regionale Strategica per la Salute ed il Sociale,75,366.87,,,,Excellent
@@ -696,7 +684,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-15,holder,c_d863,c_d863,Comune di Galatone,39,379.62,,,,Excellent
 2026-08-15,holder,c_l328,c_l328,Città di Trani,5,379.0,,,,Excellent
 2026-08-15,holder,ato_pu,ato_pu,Autorità idrica Pugliese (AIP),13,375.77,,,,Excellent
-2026-08-15,holder,c_c978,c_c978,Comune di Copertino,16,375.0,,,,Excellent
 2026-08-15,holder,c_a874,c_a874,Comune di Binetto,3,375.0,,,,Excellent
 2026-08-15,holder,arpap,arpap,ARPA Puglia ,21,371.67,,,,Excellent
 2026-08-15,holder,arsls,arsls,Agenzia Regionale Strategica per la Salute ed il Sociale,75,366.87,,,,Excellent
@@ -754,7 +741,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-16,holder,ato_pu,ato_pu,Autorità idrica Pugliese (AIP),13,375.77,,,,Excellent
 2026-08-16,holder,c_a874,c_a874,Comune di Binetto,3,375.0,,,,Excellent
 2026-08-16,holder,arpap,arpap,ARPA Puglia ,21,372.62,,,,Excellent
-2026-08-16,holder,c_c978,c_c978,Comune di Copertino,16,371.88,,,,Excellent
 2026-08-16,holder,arsls,arsls,Agenzia Regionale Strategica per la Salute ed il Sociale,75,366.87,,,,Excellent
 2026-08-16,holder,c_h985,c_h985,Comune di San Marco in Lamis,10,363.0,,,,Excellent
 2026-08-16,holder,c_g251,c_g251,Comune di Palagianello,3,358.33,,,,Excellent
@@ -808,7 +794,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-17,holder,ato_pu,ato_pu,Autorità idrica Pugliese (AIP),13,375.77,,,,Excellent
 2026-08-17,holder,c_a874,c_a874,Comune di Binetto,3,375.0,,,,Excellent
 2026-08-17,holder,arpap,arpap,ARPA Puglia ,21,372.62,,,,Excellent
-2026-08-17,holder,c_c978,c_c978,Comune di Copertino,16,371.88,,,,Excellent
 2026-08-17,holder,arsls,arsls,Agenzia Regionale Strategica per la Salute ed il Sociale,75,366.87,,,,Excellent
 2026-08-17,holder,c_h985,c_h985,Comune di San Marco in Lamis,10,363.0,,,,Excellent
 2026-08-17,holder,c_g251,c_g251,Comune di Palagianello,3,358.33,,,,Excellent
@@ -862,7 +847,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-18,holder,ato_pu,ato_pu,Autorità idrica Pugliese (AIP),13,375.77,,,,Excellent
 2026-08-18,holder,c_a874,c_a874,Comune di Binetto,3,375.0,,,,Excellent
 2026-08-18,holder,arpap,arpap,ARPA Puglia ,21,372.62,,,,Excellent
-2026-08-18,holder,c_c978,c_c978,Comune di Copertino,16,371.88,,,,Excellent
 2026-08-18,holder,arsls,arsls,Agenzia Regionale Strategica per la Salute ed il Sociale,75,366.87,,,,Excellent
 2026-08-18,holder,c_h985,c_h985,Comune di San Marco in Lamis,10,363.0,,,,Excellent
 2026-08-18,holder,c_g251,c_g251,Comune di Palagianello,3,358.33,,,,Excellent
@@ -916,7 +900,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-19,holder,ato_pu,ato_pu,Autorità idrica Pugliese (AIP),13,375.77,,,,Excellent
 2026-08-19,holder,c_a874,c_a874,Comune di Binetto,3,375.0,,,,Excellent
 2026-08-19,holder,arpap,arpap,ARPA Puglia ,21,372.62,,,,Excellent
-2026-08-19,holder,c_c978,c_c978,Comune di Copertino,16,371.88,,,,Excellent
 2026-08-19,holder,arsls,arsls,Agenzia Regionale Strategica per la Salute ed il Sociale,75,366.87,,,,Excellent
 2026-08-19,holder,c_h985,c_h985,Comune di San Marco in Lamis,10,363.0,,,,Excellent
 2026-08-19,holder,c_g251,c_g251,Comune di Palagianello,3,358.33,,,,Excellent
@@ -970,7 +953,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-20,holder,ato_pu,ato_pu,Autorità idrica Pugliese (AIP),13,375.77,,,,Excellent
 2026-08-20,holder,c_a874,c_a874,Comune di Binetto,3,375.0,,,,Excellent
 2026-08-20,holder,arpap,arpap,ARPA Puglia ,21,372.62,,,,Excellent
-2026-08-20,holder,c_c978,c_c978,Comune di Copertino,16,371.88,,,,Excellent
 2026-08-20,holder,arsls,arsls,Agenzia Regionale Strategica per la Salute ed il Sociale,75,366.87,,,,Excellent
 2026-08-20,holder,c_h985,c_h985,Comune di San Marco in Lamis,10,363.0,,,,Excellent
 2026-08-20,holder,c_g251,c_g251,Comune di Palagianello,3,358.33,,,,Excellent
@@ -1024,7 +1006,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-21,holder,ato_pu,ato_pu,Autorità idrica Pugliese (AIP),13,375.77,,,,Excellent
 2026-08-21,holder,c_a874,c_a874,Comune di Binetto,3,375.0,,,,Excellent
 2026-08-21,holder,arpap,arpap,ARPA Puglia ,21,372.62,,,,Excellent
-2026-08-21,holder,c_c978,c_c978,Comune di Copertino,16,371.88,,,,Excellent
 2026-08-21,holder,arsls,arsls,Agenzia Regionale Strategica per la Salute ed il Sociale,75,366.87,,,,Excellent
 2026-08-21,holder,c_h985,c_h985,Comune di San Marco in Lamis,10,363.0,,,,Excellent
 2026-08-21,holder,c_g251,c_g251,Comune di Palagianello,3,358.33,,,,Excellent
@@ -1078,7 +1059,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-22,holder,ato_pu,ato_pu,Autorità idrica Pugliese (AIP),13,375.77,,,,Excellent
 2026-08-22,holder,c_a874,c_a874,Comune di Binetto,3,375.0,,,,Excellent
 2026-08-22,holder,arpap,arpap,ARPA Puglia ,21,372.62,,,,Excellent
-2026-08-22,holder,c_c978,c_c978,Comune di Copertino,16,371.88,,,,Excellent
 2026-08-22,holder,arsls,arsls,Agenzia Regionale Strategica per la Salute ed il Sociale,75,366.87,,,,Excellent
 2026-08-22,holder,c_h985,c_h985,Comune di San Marco in Lamis,10,363.0,,,,Excellent
 2026-08-22,holder,c_g251,c_g251,Comune di Palagianello,3,358.33,,,,Excellent
@@ -1131,7 +1111,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-23,holder,ato_pu,ato_pu,Autorità idrica Pugliese (AIP),13,375.77,,,,Excellent
 2026-08-23,holder,c_a874,c_a874,Comune di Binetto,3,375.0,,,,Excellent
 2026-08-23,holder,arpap,arpap,ARPA Puglia ,21,372.62,,,,Excellent
-2026-08-23,holder,c_c978,c_c978,Comune di Copertino,16,371.88,,,,Excellent
 2026-08-23,holder,arsls,arsls,Agenzia Regionale Strategica per la Salute ed il Sociale,75,366.87,,,,Excellent
 2026-08-23,holder,c_h985,c_h985,Comune di San Marco in Lamis,10,363.0,,,,Excellent
 2026-08-23,holder,c_g251,c_g251,Comune di Palagianello,3,358.33,,,,Excellent
@@ -1184,7 +1163,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-24,holder,ato_pu,ato_pu,Autorità idrica Pugliese (AIP),13,375.77,,,,Excellent
 2026-08-24,holder,c_a874,c_a874,Comune di Binetto,3,375.0,,,,Excellent
 2026-08-24,holder,arpap,arpap,ARPA Puglia ,21,372.62,,,,Excellent
-2026-08-24,holder,c_c978,c_c978,Comune di Copertino,16,371.88,,,,Excellent
 2026-08-24,holder,arsls,arsls,Agenzia Regionale Strategica per la Salute ed il Sociale,75,366.87,,,,Excellent
 2026-08-24,holder,c_h985,c_h985,Comune di San Marco in Lamis,10,363.0,,,,Excellent
 2026-08-24,holder,c_g251,c_g251,Comune di Palagianello,3,358.33,,,,Excellent
@@ -1237,7 +1215,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-25,holder,ato_pu,ato_pu,Autorità idrica Pugliese (AIP),13,375.77,,,,Excellent
 2026-08-25,holder,c_a874,c_a874,Comune di Binetto,3,375.0,,,,Excellent
 2026-08-25,holder,arpap,arpap,ARPA Puglia ,21,372.62,,,,Excellent
-2026-08-25,holder,c_c978,c_c978,Comune di Copertino,16,371.88,,,,Excellent
 2026-08-25,holder,arsls,arsls,Agenzia Regionale Strategica per la Salute ed il Sociale,75,366.87,,,,Excellent
 2026-08-25,holder,c_h985,c_h985,Comune di San Marco in Lamis,10,363.0,,,,Excellent
 2026-08-25,holder,c_g251,c_g251,Comune di Palagianello,3,358.33,,,,Excellent
@@ -1290,7 +1267,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-26,holder,ato_pu,ato_pu,Autorità idrica Pugliese (AIP),13,375.77,,,,Excellent
 2026-08-26,holder,c_a874,c_a874,Comune di Binetto,3,375.0,,,,Excellent
 2026-08-26,holder,arpap,arpap,ARPA Puglia ,21,372.62,,,,Excellent
-2026-08-26,holder,c_c978,c_c978,Comune di Copertino,16,371.88,,,,Excellent
 2026-08-26,holder,arsls,arsls,Agenzia Regionale Strategica per la Salute ed il Sociale,75,366.87,,,,Excellent
 2026-08-26,holder,c_h985,c_h985,Comune di San Marco in Lamis,10,363.0,,,,Excellent
 2026-08-26,holder,c_g251,c_g251,Comune di Palagianello,3,358.33,,,,Excellent
@@ -1343,7 +1319,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-27,holder,ato_pu,ato_pu,Autorità idrica Pugliese (AIP),13,375.77,,,,Excellent
 2026-08-27,holder,c_a874,c_a874,Comune di Binetto,3,375.0,,,,Excellent
 2026-08-27,holder,arpap,arpap,ARPA Puglia ,21,372.62,,,,Excellent
-2026-08-27,holder,c_c978,c_c978,Comune di Copertino,16,371.88,,,,Excellent
 2026-08-27,holder,arsls,arsls,Agenzia Regionale Strategica per la Salute ed il Sociale,75,366.87,,,,Excellent
 2026-08-27,holder,c_h985,c_h985,Comune di San Marco in Lamis,10,363.0,,,,Excellent
 2026-08-27,holder,c_g251,c_g251,Comune di Palagianello,3,358.33,,,,Excellent
@@ -1396,7 +1371,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-28,holder,ato_pu,ato_pu,Autorità idrica Pugliese (AIP),13,375.77,,,,Excellent
 2026-08-28,holder,c_a874,c_a874,Comune di Binetto,3,375.0,,,,Excellent
 2026-08-28,holder,arpap,arpap,ARPA Puglia ,21,372.62,,,,Excellent
-2026-08-28,holder,c_c978,c_c978,Comune di Copertino,16,371.88,,,,Excellent
 2026-08-28,holder,arsls,arsls,Agenzia Regionale Strategica per la Salute ed il Sociale,75,366.87,,,,Excellent
 2026-08-28,holder,c_h985,c_h985,Comune di San Marco in Lamis,10,363.0,,,,Excellent
 2026-08-28,holder,c_g251,c_g251,Comune di Palagianello,3,358.33,,,,Excellent
@@ -1449,7 +1423,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-29,holder,ato_pu,ato_pu,Autorità idrica Pugliese (AIP),13,375.77,,,,Excellent
 2026-08-29,holder,c_a874,c_a874,Comune di Binetto,3,375.0,,,,Excellent
 2026-08-29,holder,arpap,arpap,ARPA Puglia ,21,372.62,,,,Excellent
-2026-08-29,holder,c_c978,c_c978,Comune di Copertino,16,371.88,,,,Excellent
 2026-08-29,holder,arsls,arsls,Agenzia Regionale Strategica per la Salute ed il Sociale,75,366.87,,,,Excellent
 2026-08-29,holder,c_h985,c_h985,Comune di San Marco in Lamis,10,363.0,,,,Excellent
 2026-08-29,holder,c_g251,c_g251,Comune di Palagianello,3,358.33,,,,Excellent
@@ -1505,7 +1478,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-30,holder,c_g251,c_g251,Comune di Palagianello,3,358.33,,,,Excellent
 2026-08-30,holder,cciaa_le,cciaa_le,Camera di Commercio di Lecce,450,350.84,,,,Good
 2026-08-30,holder,c_e506,c_e506,Comune di Lecce,474,349.77,,,,Good
-2026-08-30,holder,c_c978,c_c978,Comune di Copertino,16,349.38,,,,Good
 2026-08-30,holder,c_g098,c_g098,Comune di Oria,21,347.86,,,,Good
 2026-08-30,holder,c_e986,c_e986,Comune di Martina Franca,32,346.88,,,,Good
 2026-08-30,holder,c_a662,c_a662,Comune di Bari,167,345.24,,,,Good
@@ -1558,7 +1530,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-08-31,holder,c_g251,c_g251,Comune di Palagianello,3,358.33,,,,Excellent
 2026-08-31,holder,cciaa_le,cciaa_le,Camera di Commercio di Lecce,450,350.84,,,,Good
 2026-08-31,holder,c_e506,c_e506,Comune di Lecce,474,349.77,,,,Good
-2026-08-31,holder,c_c978,c_c978,Comune di Copertino,16,349.38,,,,Good
 2026-08-31,holder,c_g098,c_g098,Comune di Oria,21,347.86,,,,Good
 2026-08-31,holder,c_e986,c_e986,Comune di Martina Franca,32,346.88,,,,Good
 2026-08-31,holder,c_a662,c_a662,Comune di Bari,167,345.24,,,,Good
@@ -1611,7 +1582,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-09-01,holder,c_g251,c_g251,Comune di Palagianello,3,358.33,,,,Excellent
 2026-09-01,holder,cciaa_le,cciaa_le,Camera di Commercio di Lecce,450,350.84,,,,Good
 2026-09-01,holder,c_e506,c_e506,Comune di Lecce,474,349.77,,,,Good
-2026-09-01,holder,c_c978,c_c978,Comune di Copertino,16,349.38,,,,Good
 2026-09-01,holder,c_g098,c_g098,Comune di Oria,21,347.86,,,,Good
 2026-09-01,holder,c_e986,c_e986,Comune di Martina Franca,32,346.88,,,,Good
 2026-09-01,holder,c_a662,c_a662,Comune di Bari,167,345.24,,,,Good
@@ -1664,7 +1634,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-09-02,holder,c_g251,c_g251,Comune di Palagianello,3,358.33,,,,Excellent
 2026-09-02,holder,cciaa_le,cciaa_le,Camera di Commercio di Lecce,450,350.84,,,,Good
 2026-09-02,holder,c_e506,c_e506,Comune di Lecce,474,349.77,,,,Good
-2026-09-02,holder,c_c978,c_c978,Comune di Copertino,16,349.38,,,,Good
 2026-09-02,holder,c_g098,c_g098,Comune di Oria,21,347.86,,,,Good
 2026-09-02,holder,c_e986,c_e986,Comune di Martina Franca,32,346.88,,,,Good
 2026-09-02,holder,c_a662,c_a662,Comune di Bari,167,345.24,,,,Good
@@ -1717,7 +1686,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-09-03,holder,c_g251,c_g251,Comune di Palagianello,3,358.33,,,,Excellent
 2026-09-03,holder,cciaa_le,cciaa_le,Camera di Commercio di Lecce,450,350.84,,,,Good
 2026-09-03,holder,c_e506,c_e506,Comune di Lecce,474,349.77,,,,Good
-2026-09-03,holder,c_c978,c_c978,Comune di Copertino,16,349.38,,,,Good
 2026-09-03,holder,c_g098,c_g098,Comune di Oria,21,347.86,,,,Good
 2026-09-03,holder,c_e986,c_e986,Comune di Martina Franca,32,346.88,,,,Good
 2026-09-03,holder,c_a662,c_a662,Comune di Bari,167,345.24,,,,Good
@@ -1770,7 +1738,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-09-04,holder,c_g251,c_g251,Comune di Palagianello,3,358.33,,,,Excellent
 2026-09-04,holder,cciaa_le,cciaa_le,Camera di Commercio di Lecce,450,350.84,,,,Good
 2026-09-04,holder,c_e506,c_e506,Comune di Lecce,474,349.77,,,,Good
-2026-09-04,holder,c_c978,c_c978,Comune di Copertino,16,349.38,,,,Good
 2026-09-04,holder,c_g098,c_g098,Comune di Oria,21,347.86,,,,Good
 2026-09-04,holder,c_e986,c_e986,Comune di Martina Franca,32,346.88,,,,Good
 2026-09-04,holder,c_a662,c_a662,Comune di Bari,167,345.24,,,,Good
@@ -1823,7 +1790,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-09-05,holder,c_g251,c_g251,Comune di Palagianello,3,358.33,,,,Excellent
 2026-09-05,holder,cciaa_le,cciaa_le,Camera di Commercio di Lecce,450,350.84,,,,Good
 2026-09-05,holder,c_e506,c_e506,Comune di Lecce,474,349.77,,,,Good
-2026-09-05,holder,c_c978,c_c978,Comune di Copertino,16,349.38,,,,Good
 2026-09-05,holder,c_g098,c_g098,Comune di Oria,21,347.86,,,,Good
 2026-09-05,holder,c_e986,c_e986,Comune di Martina Franca,32,346.88,,,,Good
 2026-09-05,holder,c_a662,c_a662,Comune di Bari,167,345.24,,,,Good
@@ -1879,7 +1845,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-09-06,holder,c_g098,c_g098,Comune di Oria,21,347.86,,,,Good
 2026-09-06,holder,c_a662,c_a662,Comune di Bari,171,346.17,,,,Good
 2026-09-06,holder,c_g251,c_g251,Comune di Palagianello,4,345.0,,,,Good
-2026-09-06,holder,c_c978,c_c978,Comune di Copertino,16,339.38,,,,Good
 2026-09-06,holder,c_f816,c_f816,Comune di Muro Leccese,12,335.0,,,,Good
 2026-09-06,holder,c_l887,c_l887,Comune di Specchia,6,331.67,,,,Good
 2026-09-06,holder,c_d171,c_d171,Comune di Crispiano,36,326.67,,,,Good
@@ -1932,7 +1897,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-09-07,holder,c_g098,c_g098,Comune di Oria,21,347.86,,,,Good
 2026-09-07,holder,c_a662,c_a662,Comune di Bari,171,346.17,,,,Good
 2026-09-07,holder,c_g251,c_g251,Comune di Palagianello,4,345.0,,,,Good
-2026-09-07,holder,c_c978,c_c978,Comune di Copertino,16,339.38,,,,Good
 2026-09-07,holder,c_f816,c_f816,Comune di Muro Leccese,12,335.0,,,,Good
 2026-09-07,holder,c_l887,c_l887,Comune di Specchia,6,331.67,,,,Good
 2026-09-07,holder,c_d171,c_d171,Comune di Crispiano,36,326.67,,,,Good
@@ -1985,7 +1949,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-09-08,holder,cciaa_le,cciaa_le,Camera di Commercio di Lecce,450,348.36,,,,Good
 2026-09-08,holder,c_g098,c_g098,Comune di Oria,21,347.86,,,,Good
 2026-09-08,holder,c_a662,c_a662,Comune di Bari,171,346.17,,,,Good
-2026-09-08,holder,c_c978,c_c978,Comune di Copertino,16,339.38,,,,Good
 2026-09-08,holder,c_f816,c_f816,Comune di Muro Leccese,12,335.0,,,,Good
 2026-09-08,holder,c_l887,c_l887,Comune di Specchia,6,331.67,,,,Good
 2026-09-08,holder,c_d171,c_d171,Comune di Crispiano,36,326.67,,,,Good
@@ -2038,7 +2001,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-09-09,holder,cciaa_le,cciaa_le,Camera di Commercio di Lecce,450,348.36,,,,Good
 2026-09-09,holder,c_g098,c_g098,Comune di Oria,21,347.86,,,,Good
 2026-09-09,holder,c_a662,c_a662,Comune di Bari,171,346.17,,,,Good
-2026-09-09,holder,c_c978,c_c978,Comune di Copertino,16,339.38,,,,Good
 2026-09-09,holder,c_f816,c_f816,Comune di Muro Leccese,12,335.0,,,,Good
 2026-09-09,holder,c_l887,c_l887,Comune di Specchia,6,331.67,,,,Good
 2026-09-09,holder,c_d171,c_d171,Comune di Crispiano,36,326.67,,,,Good
@@ -2091,7 +2053,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-09-10,holder,cciaa_le,cciaa_le,Camera di Commercio di Lecce,450,348.36,,,,Good
 2026-09-10,holder,c_g098,c_g098,Comune di Oria,21,347.86,,,,Good
 2026-09-10,holder,c_a662,c_a662,Comune di Bari,171,346.17,,,,Good
-2026-09-10,holder,c_c978,c_c978,Comune di Copertino,16,339.38,,,,Good
 2026-09-10,holder,c_f816,c_f816,Comune di Muro Leccese,12,335.0,,,,Good
 2026-09-10,holder,c_l887,c_l887,Comune di Specchia,6,331.67,,,,Good
 2026-09-10,holder,c_d171,c_d171,Comune di Crispiano,36,326.67,,,,Good
@@ -2144,7 +2105,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-09-11,holder,cciaa_le,cciaa_le,Camera di Commercio di Lecce,450,348.36,,,,Good
 2026-09-11,holder,c_g098,c_g098,Comune di Oria,21,347.86,,,,Good
 2026-09-11,holder,c_a662,c_a662,Comune di Bari,171,346.17,,,,Good
-2026-09-11,holder,c_c978,c_c978,Comune di Copertino,16,339.38,,,,Good
 2026-09-11,holder,c_f816,c_f816,Comune di Muro Leccese,12,335.0,,,,Good
 2026-09-11,holder,c_l887,c_l887,Comune di Specchia,6,331.67,,,,Good
 2026-09-11,holder,c_d171,c_d171,Comune di Crispiano,36,326.67,,,,Good
@@ -2152,6 +2112,58 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-09-11,holder,c_a893,c_a893,Comune di Bitonto,55,310.82,,,,Good
 2026-09-11,holder,c_f563,c_f563,Comune di Montemesola,40,305.0,,,,Good
 2026-09-11,holder,c_i950,c_i950,Comune di Sternatia,3,305.0,,,,Good
+2026-09-12,holder,iacp_ba,iacp_ba,Arca - Puglia Centrale,4,395.0,,,,Excellent
+2026-09-12,holder,asl_vvta,asl_vvta,ASL TARANTO,15,386.33,,,,Excellent
+2026-09-12,holder,arlpa,arlpa,ARPAL,6,385.0,,,,Excellent
+2026-09-12,holder,c_f916,c_f916,Comune di Nociglia,3,385.0,,,,Excellent
+2026-09-12,holder,asl_br,asl_br,ASL BRINDISI,1,385.0,,,,Excellent
+2026-09-12,holder,c_d223,c_d223,Comune di Cursi,4,385.0,,,,Excellent
+2026-09-12,holder,c_l172,c_l172,Comune di Santa Cesarea Terme,4,385.0,,,,Excellent
+2026-09-12,holder,c_f221,c_f221,Comune di Minervino di Lecce,5,385.0,,,,Excellent
+2026-09-12,holder,c_m187,c_m187,Comune di Zollino,3,385.0,,,,Excellent
+2026-09-12,holder,c_l010,c_l010,Comune di Surano,3,385.0,,,,Excellent
+2026-09-12,holder,c_f117,c_f117,Comune di Melpignano,8,385.0,,,,Excellent
+2026-09-12,holder,arltl_0,arltl_0,ARTI Puglia,13,385.0,,,,Excellent
+2026-09-12,holder,asset,asset,ASSET Puglia,28,385.0,,,,Excellent
+2026-09-12,holder,c_b584,c_b584,Comune di Candela,4,385.0,,,,Excellent
+2026-09-12,holder,c_e882,c_e882,Comune di Manduria,5,385.0,,,,Excellent
+2026-09-12,holder,c_f194,c_f194,Comune di Miggiano,3,385.0,,,,Excellent
+2026-09-12,holder,c_g291,c_g291,Comune Palo Del Colle,5,385.0,,,,Excellent
+2026-09-12,holder,c_h096,c_h096,Città di Putignano,3,385.0,,,,Excellent
+2026-09-12,holder,c_e053,c_e053,Comune di Giuggianello,4,385.0,,,,Excellent
+2026-09-12,holder,c_l008,c_l008,Comune di Supersano,3,385.0,,,,Excellent
+2026-09-12,holder,pusv,pusv,Puglia Sviluppo SpA,8,385.0,,,,Excellent
+2026-09-12,holder,adisu,adisu,Adisu,12,385.0,,,,Excellent
+2026-09-12,holder,ipres,ipres,IPRES,51,385.0,,,,Excellent
+2026-09-12,holder,c_a281,c_a281,Comune di Andrano,3,385.0,,,,Excellent
+2026-09-12,holder,c_e038,c_e038,Comune di Gioia del Colle,5,385.0,,,,Excellent
+2026-09-12,holder,c_f881,c_f881,Comune di Neviano,3,385.0,,,,Excellent
+2026-09-12,holder,c_b690,c_b690,Comune di Caprarica di Lecce,3,385.0,,,,Excellent
+2026-09-12,holder,crpuglia,crpuglia,Consiglio Regionale della Puglia,1,385.0,,,,Excellent
+2026-09-12,holder,c_b822,c_b822,Comune di Carpignano Salentino,4,385.0,,,,Excellent
+2026-09-12,holder,c_f027,c_f027,Comune di Massafra,38,384.21,,,,Excellent
+2026-09-12,holder,artpp,artpp,ARET - Pugliapromozione,23,384.13,,,,Excellent
+2026-09-12,holder,r_puglia,r_puglia,Regione Puglia,247,383.91,,,,Excellent
+2026-09-12,holder,c_d863,c_d863,Comune di Galatone,39,379.1,,,,Excellent
+2026-09-12,holder,c_l328,c_l328,Città di Trani,5,379.0,,,,Excellent
+2026-09-12,holder,ato_pu,ato_pu,Autorità idrica Pugliese (AIP),13,375.77,,,,Excellent
+2026-09-12,holder,c_a874,c_a874,Comune di Binetto,3,375.0,,,,Excellent
+2026-09-12,holder,arpap,arpap,ARPA Puglia ,21,370.24,,,,Excellent
+2026-09-12,holder,arsls,arsls,Agenzia Regionale Strategica per la Salute ed il Sociale,75,366.87,,,,Excellent
+2026-09-12,holder,c_g251,c_g251,Comune di Palagianello,4,365.0,,,,Excellent
+2026-09-12,holder,c_h985,c_h985,Comune di San Marco in Lamis,10,363.0,,,,Excellent
+2026-09-12,holder,c_e986,c_e986,Comune di Martina Franca,32,349.38,,,,Good
+2026-09-12,holder,c_e506,c_e506,Comune di Lecce,474,348.44,,,,Good
+2026-09-12,holder,cciaa_le,cciaa_le,Camera di Commercio di Lecce,450,348.36,,,,Good
+2026-09-12,holder,c_g098,c_g098,Comune di Oria,21,347.86,,,,Good
+2026-09-12,holder,c_a662,c_a662,Comune di Bari,171,346.17,,,,Good
+2026-09-12,holder,c_f816,c_f816,Comune di Muro Leccese,12,335.0,,,,Good
+2026-09-12,holder,c_l887,c_l887,Comune di Specchia,6,331.67,,,,Good
+2026-09-12,holder,c_d171,c_d171,Comune di Crispiano,36,326.67,,,,Good
+2026-09-12,holder,c_e471,c_e471,Comune di Latiano,9,311.67,,,,Good
+2026-09-12,holder,c_a893,c_a893,Comune di Bitonto,55,310.82,,,,Good
+2026-09-12,holder,c_f563,c_f563,Comune di Montemesola,40,305.0,,,,Good
+2026-09-12,holder,c_i950,c_i950,Comune di Sternatia,3,305.0,,,,Good
 2026-08-03,organization,585452e2-12b4-4187-89d6-c33068eff19f,regione-puglia,Regione Puglia,1840,357.79,,,,Excellent
 2026-08-03,organization,df53accc-dc73-4f98-bd0e-66c32524eb6f,comune-di-bari,Comune di Bari,167,352.13,,,,Excellent
 2026-08-03,organization,954a56b3-6ace-4e65-947b-e737b8824d9e,comune-di-san-marco-in-lamis,Comune di San Marco in Lamis,3,331.67,,,,Good
@@ -2245,6 +2257,8 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-09-10,organization,954a56b3-6ace-4e65-947b-e737b8824d9e,comune-di-san-marco-in-lamis,Comune di San Marco in Lamis,3,331.67,,,,Good
 2026-09-11,organization,585452e2-12b4-4187-89d6-c33068eff19f,regione-puglia,Regione Puglia,2017,356.84,,,,Excellent
 2026-09-11,organization,954a56b3-6ace-4e65-947b-e737b8824d9e,comune-di-san-marco-in-lamis,Comune di San Marco in Lamis,3,331.67,,,,Good
+2026-09-12,organization,585452e2-12b4-4187-89d6-c33068eff19f,regione-puglia,Regione Puglia,2017,356.84,,,,Excellent
+2026-09-12,organization,954a56b3-6ace-4e65-947b-e737b8824d9e,comune-di-san-marco-in-lamis,Comune di San Marco in Lamis,3,331.67,,,,Good
 2026-08-02,publisher,PO CED,,PO CED,2,405.0,405,405,405,Excellent
 2026-08-02,publisher,Ufficio Commercio,,Ufficio Commercio,10,391.0,385,385,405,Excellent
 2026-08-02,publisher,ASL TA,,ASL TA,12,386.67,385,385,405,Excellent
