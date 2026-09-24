@@ -251,10 +251,9 @@ select:focus-visible{outline:2px solid var(--inchiostro);outline-offset:1px}
    e resta stabile nel tempo: un ente cambia colore solo quando cambia
    davvero fascia, non a ogni decimo di punto. */
 var CLASSI_MQA = [
-  {min:351, nome:"Ottimo",      soglia:"351 – 405", colore:"#1e8a5f"},
-  {min:221, nome:"Buono",       soglia:"221 – 350", colore:"#93b83a"},
-  {min:121, nome:"Sufficiente", soglia:"121 – 220", colore:"#e08a1e"},
-  {min:0,   nome:"Scarso",      soglia:"0 – 120",   colore:"#8c2f1d"}
+  {min:5.0, nome:"Ottimo",      soglia:"5 – 7,5",   colore:"#1e8a5f"},
+  {min:2.5, nome:"Buono",       soglia:"2,5 – 5",   colore:"#93b83a"},
+  {min:0,   nome:"Sufficiente", soglia:"0 – 2,5",   colore:"#e08a1e"}
 ];
 
 /* Classi per numero di dataset: ordini di grandezza, tinta diversa
@@ -325,7 +324,12 @@ var stato = {metrica:"mqa", comuni:true, escluse:{}};
 var dati=null, stratoComuni=null;
 var maxDatasetComune=1;
 
-fetch("maps_data.json").then(function(r){ return r.json(); }).then(function(res){
+/* I file di dati cambiano ogni giorno ma hanno sempre lo stesso nome: senza
+   un parametro che vari, il browser continua a servire la copia in cache. */
+function conVersione(nome){
+  return nome + "?v=" + Math.floor(Date.now() / 3600000);
+}
+fetch(conVersione("maps_data.json")).then(function(r){ return r.json(); }).then(function(res){
   dati=res;
   maxDatasetComune = Math.max.apply(null, dati.comuni.map(function(c){ return c.n; }));
   intestazione();

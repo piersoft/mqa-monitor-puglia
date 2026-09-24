@@ -156,13 +156,11 @@ def costruisci_comuni(data, coords):
 def rating(mqa):
     if mqa is None:
         return None
-    if mqa >= 351:
+    if mqa >= 5.0:
         return "Excellent"
-    if mqa >= 221:
+    if mqa >= 2.5:
         return "Good"
-    if mqa >= 121:
-        return "Sufficient"
-    return "Bad"
+    return "Sufficient"
 
 
 def main():
@@ -178,7 +176,7 @@ def main():
     out = {
         "aggiornato": data.get("aggiornato"),
         "catalogo": data.get("catalogo"),
-        "max_score": data.get("max_score", 405),
+        "max_score": data.get("max_score", 7.5),
         "comuni": comuni,
         "scartati": scartati,
         "totali": {

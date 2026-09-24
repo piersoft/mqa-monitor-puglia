@@ -334,7 +334,7 @@ footer p{max-width:78ch}
       <th scope="col" class="num">Punteggio</th>
       <th scope="col" class="num">7 giorni</th>
       <th scope="col" class="nascondi-stretto">Andamento</th>
-      <th scope="col" class="nascondi-stretto">Giudizio</th>
+      <th scope="col" class="num nascondi-stretto">% del massimo</th>
     </tr>
   </thead>
   <tbody id="corpo"></tbody>
@@ -362,7 +362,8 @@ footer p{max-width:78ch}
   <p>Nel grafico del dettaglio, passando sopra un punto ne compaiono data,
   punteggio, variazione rispetto alla rilevazione precedente e numero di dataset.
   La scala verticale si adatta all’escursione della singola serie, non all’intero
-  intervallo 0–405: variazioni di pochi punti sarebbero altrimenti impercettibili.</p>
+  intervallo 0–7,5: variazioni di pochi centesimi sarebbero altrimenti
+  impercettibili.</p>
 
   <p>Il tracciato riportato in tabella rappresenta l’andamento delle rilevazioni con
   scala adattata al singolo ente: la linea tratteggiata corrisponde alla prima misura
@@ -382,8 +383,11 @@ footer p{max-width:78ch}
   territoriale risultano pertanto con un numero ridotto di dataset, o non risultano
   affatto.</p>
 
-  <p id="nota-fonte">Fonte: data.europa.eu (Metadata Quality Assessment), scala 0–405.
-  Giudizi: Excellent ≥ 351, Good ≥ 221, Sufficient ≥ 121, Bad inferiore a 121. La
+  <p id="nota-fonte">Fonte: data.europa.eu (Metadata Quality Assessment), scala 0–7,5.
+  Fasce ufficiali: eccellente da 5, buono da 2,5, sufficiente sotto 2,5. Oggi tutti
+  i titolari stanno nella fascia più alta, e per questo la tabella mostra la
+  percentuale del massimo invece del giudizio: è l’unico valore che varia in
+  modo leggibile. La
   composizione del punteggio, controllo per controllo, è descritta nella
   <a href="https://data.europa.eu/mqa/methodology?locale=it">metodologia MQA</a>. Il
   punteggio attribuito a un ente è la media dei punteggi dei suoi dataset, mentre il
@@ -419,11 +423,14 @@ footer p{max-width:78ch}
 </div>
 
 <script>
-const MAX = 405;
+const MAX = 7.5;
 let DATI = null, DATE = [], LIV = 'holder';
 const blocco = () => DATI.livelli[LIV];
 
 const nf1 = new Intl.NumberFormat('it-IT', {minimumFractionDigits:1, maximumFractionDigits:1});
+/* sulla scala 0-7,5 il campo sta in pochi punti: con un decimale solo meta'
+   delle variazioni giornaliere sarebbe invisibile */
+const nf2 = new Intl.NumberFormat('it-IT', {minimumFractionDigits:2, maximumFractionDigits:2});
 const nf0 = new Intl.NumberFormat('it-IT');
 
 function dataBreve(iso){
@@ -522,10 +529,10 @@ function riga(e, i){
       <span class="nome">${e.nome}</span><span class="slug">${e.slug || e.id}</span>
     </button></td>
     <td class="num conta">${nf0.format(e.n)}</td>
-    <td class="num punteggio">${nf1.format(e.media)}</td>
+    <td class="num punteggio">${nf2.format(e.media)}</td>
     <td class="num">${segnoDelta(e.delta)}${scattoGiu(e)}</td>
     <td class="nascondi-stretto">${tracciato(e.serie)}</td>
-    <td class="nascondi-stretto"><span class="giudizio ${e.rating}">${e.rating}</span></td>
+    <td class="num nascondi-stretto quota">${nf1.format(e.media / MAX * 100)}%</td>
   </tr>`;
 }
 
@@ -542,11 +549,11 @@ function catalogoRegionale(e){
     : '';
 }
 
-const MAX_DIM = {findability:100, accessibility:100, interoperability:110,
-                 reusability:75, contextuality:20};
+/* A livello dataset le dimensioni sono tre: l'interoperabilita' vive su
+   distribuzioni e servizi di dati, la contestualita' e' stata eliminata. */
+const MAX_DIM = {findability:5, accessibility:0.75, reusability:1.75};
 const ETICH_DIM = {findability:'Reperibilità', accessibility:'Accessibilità',
-                   interoperability:'Interoperabilità', reusability:'Riusabilità',
-                   contextuality:'Contesto'};
+                   reusability:'Riusabilità'};
 
 function dimensioni(d){
   if (!d) return '';
@@ -742,10 +749,15 @@ async function suggerisciCodice(codice, dove){
   }
 }
 
+/* I file di dati cambiano ogni giorno ma hanno sempre lo stesso nome: senza
+   un parametro che vari, il browser continua a servire la copia in cache. */
+function conVersione(nome){
+  return nome + "?v=" + Math.floor(Date.now() / 3600000);
+}
+
 const SPARQL = 'https://data.europa.eu/sparql';
 const BLOCCO = 300;
-const DIM_ORD = ['scoring','findability','accessibility','interoperability',
-                 'reusability','contextuality'];
+const DIM_ORD = ['scoring','findability','accessibility','reusability'];
 
 async function chiedi(query){
   const r = await fetch(SPARQL, {
@@ -783,14 +795,16 @@ SELECT ?ds WHERE {
 SELECT ?ds ?metrica ?v WHERE {
   VALUES ?ds { ${blocco.map(u => '<' + u + '>').join(' ')} }
   GRAPH ?mg { ?ds dqv:hasQualityMeasurement ?m . ?m dqv:isMeasurementOf ?metrica ; dqv:value ?v }
-  FILTER(?metrica IN (voc:scoring, voc:findabilityScoring, voc:accessibilityScoring,
-                      voc:interoperabilityScoring, voc:reusabilityScoring,
-                      voc:contextualityScoring))
+  FILTER(?metrica IN (voc:finalScore, voc:findabilityScoring,
+                      voc:accessibilityScoring, voc:reusabilityScoring))
+  FILTER EXISTS { GRAPH ?mg { ?ds dqv:hasQualityMeasurement ?mf .
+                              ?mf dqv:isMeasurementOf voc:finalScore } }
 }`);
     for (const b of righe){
       const d = per[b.ds.value] || (per[b.ds.value] = {});
-      const nome = b.metrica.value.split('#').pop()
-        .replace('Scoring','').replace(/^./, c => c.toLowerCase());
+      const grezzo = b.metrica.value.split('#').pop();
+      const nome = grezzo === 'finalScore' ? 'scoring'
+        : grezzo.replace('Scoring','').replace(/^./, c => c.toLowerCase());
       d[nome === '' ? 'scoring' : nome] = Number(b.v.value);
     }
   }
@@ -927,7 +941,7 @@ if (window.parent !== window && 'ResizeObserver' in window){
 }
 window.addEventListener('load', annunciaAltezza);
 
-fetch('data.json')
+fetch(conVersione('data.json'))
   .then(r => r.json())
   .then(d => {
     DATI = d; DATE = d.date;

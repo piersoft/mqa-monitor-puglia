@@ -50,19 +50,23 @@ GRAFO = "http://data.europa.eu/88u/catalogue/%s"
 ORG_RE = re.compile(r"/organization/([0-9a-fA-F-]{8,})")
 
 METRICHE = {
-    "scoring": "scoring",
+    "finalScore": "scoring",
     "findabilityScoring": "findability",
     "accessibilityScoring": "accessibility",
-    "interoperabilityScoring": "interoperability",
     "reusabilityScoring": "reusability",
-    "contextualityScoring": "contextuality",
 }
-MASSIMI = {"scoring": 405, "findability": 100, "accessibility": 100,
-           "interoperability": 110, "reusability": 75, "contextuality": 20}
+# Somma delle ponderazioni di ciascuna dimensione nella metodologia ufficiale.
+MASSIMI = {"scoring": 7.5, "findability": 5.0,
+           "accessibility": 0.75, "reusability": 1.75}
+FASCE = [(5.0, "Excellent"), (2.5, "Good"), (0.0, "Sufficient")]
 
-FILTRO = """  FILTER(?metrica IN (voc:scoring, voc:findabilityScoring,
-                      voc:accessibilityScoring, voc:interoperabilityScoring,
-                      voc:reusabilityScoring, voc:contextualityScoring))"""
+# Le misure si prendono dal grafo che contiene finalScore: le tre dimensioni
+# esistono in doppia copia sugli stessi dataset, vecchia su base 100 e nuova
+# sulla scala dei pesi, e senza questo vincolo si sommerebbero.
+FILTRO = """  FILTER(?metrica IN (voc:finalScore, voc:findabilityScoring,
+                      voc:accessibilityScoring, voc:reusabilityScoring))
+  FILTER EXISTS { GRAPH ?mg { ?ds dqv:hasQualityMeasurement ?mf .
+                              ?mf dqv:isMeasurementOf voc:finalScore } }"""
 
 PREFISSI = """PREFIX dcat: <http://www.w3.org/ns/dcat#>
 PREFIX dct: <http://purl.org/dc/terms/>
@@ -373,13 +377,12 @@ def nomi_organizzazioni(outdir, catalog):
 
 # ---------------------------------------------------------------- salvataggio
 
-CAMPI = ["id", "slug", "titolare", "n_dataset", "scoring", "pct", "findability",
-         "accessibility", "interoperability", "reusability", "contextuality",
+CAMPI = ["id", "slug", "titolare", "n_dataset", "scoring", "pct", "rating",
+         "findability", "accessibility", "reusability",
          "n_nomi", "in_ipa", "ipa_nome", "ipa_prov", "ipa_reg", "via"]
 
 
-DIM_TUTTE = ["scoring", "findability", "accessibility", "interoperability",
-             "reusability", "contextuality"]
+DIM_TUTTE = ["scoring", "findability", "accessibility", "reusability"]
 
 
 def fondi_chiavi(righe, campo_id="id", campo_n="n_dataset",
@@ -419,8 +422,7 @@ def fondi_chiavi(righe, campo_id="id", campo_n="n_dataset",
     return out
 
 
-MISURE = ["scoring", "findability", "accessibility", "interoperability",
-          "reusability", "contextuality"]
+MISURE = ["scoring", "findability", "accessibility", "reusability"]
 
 
 def fondi_per_codice(righe):
@@ -455,6 +457,7 @@ def completa(righe):
         if "scoring" not in e:
             continue
         e["pct"] = round(e["scoring"] / MASSIMI["scoring"] * 100, 2)
+        e["rating"] = next(n for s, n in FASCE if e["scoring"] >= s)
         e.setdefault("slug", "")
         out.append(e)
     out.sort(key=lambda x: -x["scoring"])
@@ -472,8 +475,8 @@ def salva(righe, outdir, catalog, day, cartella):
             w.writerow(r)
     n = sum(r["n_dataset"] for r in righe)
     media = sum(r["scoring"] * r["n_dataset"] for r in righe) / max(n, 1)
-    print("      %s  (%d voci, %d dataset, media %.1f/405)"
-          % (path, len(righe), n, media))
+    print("      %s  (%d voci, %d dataset, media %.2f/%s)"
+          % (path, len(righe), n, media, MASSIMI["scoring"]))
     return path
 
 
