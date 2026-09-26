@@ -1,7 +1,7 @@
 {
  "aggiornato": "2026-09-26",
  "fonte": "https://dati.puglia.it/ckan/api/3/action/package_search",
- "dataset_catalogo": 2039,
+ "dataset_catalogo": 2031,
  "n_titolari": 56,
  "n_comuni": 38,
  "titolari": [
@@ -13,7 +13,7 @@
   },
   {
    "id": "cciaa_le",
-   "n_ckan": 459,
+   "n_ckan": 451,
    "grezzo": [],
    "comune": false
   },
@@ -112,9 +112,7 @@
   {
    "id": "asl_vvta",
    "n_ckan": 15,
-   "grezzo": [
-    ":asl_vvta"
-   ],
+   "grezzo": [],
    "comune": false
   },
   {
@@ -308,6 +306,12 @@
    "comune": true
   },
   {
+   "id": "c_i115",
+   "n_ckan": 3,
+   "grezzo": [],
+   "comune": true
+  },
+  {
    "id": "c_i950",
    "n_ckan": 3,
    "grezzo": [],
@@ -321,12 +325,6 @@
   },
   {
    "id": "c_l010",
-   "n_ckan": 3,
-   "grezzo": [],
-   "comune": true
-  },
-  {
-   "id": "c_l115",
    "n_ckan": 3,
    "grezzo": [],
    "comune": true
