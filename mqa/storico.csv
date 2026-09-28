@@ -5585,7 +5585,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-09-21,publisher,redazione  O.P.,,redazione  O.P.,1,305.0,305,305,305,Excellent
 2026-09-21,publisher,Ufficio  Coordinamento PNRR,,Ufficio  Coordinamento PNRR,1,305.0,305,305,305,Excellent
 2026-09-21,publisher,Mauro Nicola de Pinto,,Mauro Nicola de Pinto,1,255.0,255,255,255,Excellent
-2026-09-28,publisher,Ufficio Urbanistica,,Ufficio Urbanistica,1,700.0,700,700,700,Excellent
 2026-09-28,publisher,Urbanistica,,Urbanistica,1,700.0,700,700,700,Excellent
 2026-09-28,publisher,Affari generali,,Affari generali,1,700.0,700,700,700,Excellent
 2026-09-28,publisher,Sezione Personale e Sezione Statistica,,Sezione Personale e Sezione Statistica,1,700.0,700,700,700,Excellent
@@ -5611,6 +5610,7 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-09-28,publisher,Servizio Ricerca Industriale e Innovazione,,Servizio Ricerca Industriale e Innovazione,1,700.0,700,700,700,Excellent
 2026-09-28,publisher,ASL Taranto,,ASL Taranto,3,700.0,700,700,700,Excellent
 2026-09-28,publisher,"Sezione Turismo e Internazionalizzazione - Servizio Sviluppo, Infrastrutture, Imprese, Professioni",,"Sezione Turismo e Internazionalizzazione - Servizio Sviluppo, Infrastrutture, Imprese, Professioni",1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Ufficio Urbanistica,,Ufficio Urbanistica,1,700.0,700,700,700,Excellent
 2026-09-28,publisher,Sezione Bilancio e Ragioneria,,Sezione Bilancio e Ragioneria,1,700.0,700,700,700,Excellent
 2026-09-28,publisher,Autorità di Gestione del POR 2014-2020,,Autorità di Gestione del POR 2014-2020,1,700.0,700,700,700,Excellent
 2026-09-28,publisher,Sezione Promozione della Salute e del Benessere - Servizio Sicurezza Alimentare e Sanità Veterinaria,,Sezione Promozione della Salute e del Benessere - Servizio Sicurezza Alimentare e Sanità Veterinaria,1,700.0,700,700,700,Excellent
@@ -5651,17 +5651,17 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-09-28,publisher,ufficio tecnico,,ufficio tecnico,7,678.57,700,650,700,Excellent
 2026-09-28,publisher,Comune di Bitonto,,Comune di Bitonto,55,678.18,700,650,700,Excellent
 2026-09-28,publisher,Agenzia regionale strategica per lo Sviluppo Ecososteniile del Territorio,,Agenzia regionale strategica per lo Sviluppo Ecososteniile del Territorio,9,677.78,700,650,700,Excellent
-2026-09-28,publisher,ARET - Ufficio Osservatorio,,ARET - Ufficio Osservatorio,4,675.0,700,650,700,Excellent
-2026-09-28,publisher,Comune di Santa Cesarea Terme,,Comune di Santa Cesarea Terme,4,675.0,700,650,700,Excellent
-2026-09-28,publisher,Ufficio Ambiente,,Ufficio Ambiente,4,675.0,700,650,700,Excellent
 2026-09-28,publisher,Ufficio Servizi Finanziari,,Ufficio Servizi Finanziari,2,675.0,675,675,675,Excellent
 2026-09-28,publisher,Sezione Competitività,,Sezione Competitività,2,675.0,700,650,700,Excellent
 2026-09-28,publisher,Comune di Cursi,,Comune di Cursi,4,675.0,700,650,700,Excellent
 2026-09-28,publisher,Sezione Programmazione e coordinamento,,Sezione Programmazione e coordinamento,2,675.0,700,650,700,Excellent
 2026-09-28,publisher,Sezione Osservatorio fitosanitario,,Sezione Osservatorio fitosanitario,2,675.0,700,650,700,Excellent
+2026-09-28,publisher,Ufficio Ambiente,,Ufficio Ambiente,4,675.0,700,650,700,Excellent
 2026-09-28,publisher,Sezione Provveditorato Economato,,Sezione Provveditorato Economato,2,675.0,700,650,700,Excellent
 2026-09-28,publisher,Sezione Mobilità Sostenibile e Vigilanza del Trasporto Pubblico Locale,,Sezione Mobilità Sostenibile e Vigilanza del Trasporto Pubblico Locale,2,675.0,700,650,700,Excellent
+2026-09-28,publisher,ARET - Ufficio Osservatorio,,ARET - Ufficio Osservatorio,4,675.0,700,650,700,Excellent
 2026-09-28,publisher,Sezione Politiche Abitative,,Sezione Politiche Abitative,2,675.0,700,650,700,Excellent
+2026-09-28,publisher,Comune di Santa Cesarea Terme,,Comune di Santa Cesarea Terme,4,675.0,700,650,700,Excellent
 2026-09-28,publisher,Servizio Appalti,,Servizio Appalti,2,675.0,700,650,700,Excellent
 2026-09-28,publisher,redazione  O.P.,,redazione  O.P.,1,675.0,675,675,675,Excellent
 2026-09-28,publisher,Sezione Transizione Energetica,,Sezione Transizione Energetica,2,675.0,700,650,700,Excellent
@@ -5692,8 +5692,8 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-09-28,publisher,Arpa Puglia - Direzione Scientifica - Centro Regionale Mare,,Arpa Puglia - Direzione Scientifica - Centro Regionale Mare,9,663.89,700,600,700,Excellent
 2026-09-28,publisher,Redazione O.D.,,Redazione O.D.,108,663.66,675,550,700,Excellent
 2026-09-28,publisher,comune di lecce,,comune di lecce,22,663.64,675,625,700,Excellent
-2026-09-28,publisher,Comune di San Marco in Lamis,,Comune di San Marco in Lamis,8,662.5,650,625,700,Excellent
 2026-09-28,publisher,Arpa Puglia - Direzione Scientifica - Servizio Agenti Fisici,,Arpa Puglia - Direzione Scientifica - Servizio Agenti Fisici,4,662.5,675,650,675,Excellent
+2026-09-28,publisher,Comune di San Marco in Lamis,,Comune di San Marco in Lamis,8,662.5,650,625,700,Excellent
 2026-09-28,publisher,Ufficio transizione digitale,,Ufficio transizione digitale,2,662.5,675,650,675,Excellent
 2026-09-28,publisher,Comune di Giuggianello,,Comune di Giuggianello,4,662.5,650,650,700,Excellent
 2026-09-28,publisher,Comune di Candela,,Comune di Candela,4,662.5,650,650,700,Excellent
@@ -5713,9 +5713,6 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-09-28,publisher,Redazione OD,,Redazione OD,343,654.23,650,325,700,Excellent
 2026-09-28,publisher,re,,re,8,653.12,650,550,700,Excellent
 2026-09-28,publisher,Comune di Lecce,,Comune di Lecce,39,650.64,650,550,725,Excellent
-2026-09-28,publisher,Città di Trani,,Città di Trani,5,650.0,650,650,650,Excellent
-2026-09-28,publisher,Comune di Carpignano Salentino,,Comune di Carpignano Salentino,4,650.0,650,650,650,Excellent
-2026-09-28,publisher,Dott.ssa Rocca Anna Ettorre,,Dott.ssa Rocca Anna Ettorre,1,650.0,650,650,650,Excellent
 2026-09-28,publisher,SEZIONE INCLUSIONE SOCIALE ATTIVA,,SEZIONE INCLUSIONE SOCIALE ATTIVA,5,650.0,650,650,650,Excellent
 2026-09-28,publisher,SEZIONE INCLUSIONE SOCIALE ATTIVA e SEZIONE ISTRUZIONE E UNIVERSITA',,SEZIONE INCLUSIONE SOCIALE ATTIVA e SEZIONE ISTRUZIONE E UNIVERSITA',1,650.0,650,650,650,Excellent
 2026-09-28,publisher,Sezione Trasformazione Digitale,,Sezione Trasformazione Digitale,2,650.0,650,650,650,Excellent
@@ -5749,6 +5746,7 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-09-28,publisher,Servizio Risorse Finanziarie,,Servizio Risorse Finanziarie,1,650.0,650,650,650,Excellent
 2026-09-28,publisher,Sezione Coordinamento dei servizi territoriali,,Sezione Coordinamento dei servizi territoriali,1,650.0,650,650,650,Excellent
 2026-09-28,publisher,Sezione Difesa del suolo e rischio sismico,,Sezione Difesa del suolo e rischio sismico,2,650.0,650,650,650,Excellent
+2026-09-28,publisher,Città di Trani,,Città di Trani,5,650.0,650,650,650,Excellent
 2026-09-28,publisher,Sezione Trattamento Economico,,Sezione Trattamento Economico,2,650.0,650,650,650,Excellent
 2026-09-28,publisher,Comune di Oria,,Comune di Oria,1,650.0,650,650,650,Excellent
 2026-09-28,publisher,Ragioneria Crispiano,,Ragioneria Crispiano,2,650.0,700,600,700,Excellent
@@ -5767,10 +5765,12 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-09-28,publisher,Sezione Personale e Organizzazione servizio.personale@regione.puglia.it,,Sezione Personale e Organizzazione servizio.personale@regione.puglia.it,1,650.0,650,650,650,Excellent
 2026-09-28,publisher,Comune di Galatone,,Comune di Galatone,5,650.0,650,625,675,Excellent
 2026-09-28,publisher,Struttura Speciale Monitoraggio dell'Attuazione Regionale del PNRR,,Struttura Speciale Monitoraggio dell'Attuazione Regionale del PNRR,2,650.0,650,650,650,Excellent
+2026-09-28,publisher,Comune di Carpignano Salentino,,Comune di Carpignano Salentino,4,650.0,650,650,650,Excellent
 2026-09-28,publisher,Servizio Protezione Civile servizio.protezionecivile@regione.puglia.it,,Servizio Protezione Civile servizio.protezionecivile@regione.puglia.it,1,650.0,650,650,650,Excellent
 2026-09-28,publisher,Segreteria generale della Presidenza - Struttura Speciale Audit FSE+,,Segreteria generale della Presidenza - Struttura Speciale Audit FSE+,1,650.0,650,650,650,Excellent
 2026-09-28,publisher,Sezione APG,,Sezione APG,1,650.0,650,650,650,Excellent
 2026-09-28,publisher,"Dipartimento Sviluppo Economico - Sezione Crescita Digitale delle persone, del territorio e delle imprese",,"Dipartimento Sviluppo Economico - Sezione Crescita Digitale delle persone, del territorio e delle imprese",1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Dott.ssa Rocca Anna Ettorre,,Dott.ssa Rocca Anna Ettorre,1,650.0,650,650,650,Excellent
 2026-09-28,publisher,Area E-Health,,Area E-Health,1,650.0,650,650,650,Excellent
 2026-09-28,publisher,Servizio politiche di benessere sociale e pari opportunità - Servizio programmazione Sociale ed integrazione socio-sanitaria,,Servizio politiche di benessere sociale e pari opportunità - Servizio programmazione Sociale ed integrazione socio-sanitaria,1,650.0,650,650,650,Excellent
 2026-09-28,publisher,ufficio lavori pubblii,,ufficio lavori pubblii,1,650.0,650,650,650,Excellent
