@@ -2941,6 +2941,62 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-09-27,holder,arltl_0,arltl_0,ARTI Puglia,13,6.4,,,,Excellent
 2026-09-27,holder,c_e882,c_e882,Comune di Manduria,5,6.38,,,,Excellent
 2026-09-27,holder,c_a874,c_a874,Comune di Binetto,3,6.35,,,,Excellent
+2026-09-28,holder,c_d223,c_d223,Comune di Cursi,4,6.75,,,,Excellent
+2026-09-28,holder,c_f221,c_f221,Comune di Minervino di Lecce,5,6.75,,,,Excellent
+2026-09-28,holder,c_m187,c_m187,Comune di Zollino,3,6.75,,,,Excellent
+2026-09-28,holder,c_b822,c_b822,Comune di Carpignano Salentino,4,6.75,,,,Excellent
+2026-09-28,holder,c_l172,c_l172,Comune di Santa Cesarea Terme,4,6.75,,,,Excellent
+2026-09-28,holder,iacp_ba,iacp_ba,Arca - Puglia Centrale,2,6.75,,,,Excellent
+2026-09-28,holder,c_a893,c_a893,Comune di Bitonto,55,6.75,,,,Excellent
+2026-09-28,holder,c_f117,c_f117,Comune di Melpignano,8,6.75,,,,Excellent
+2026-09-28,holder,c_g291,c_g291,Comune Palo Del Colle,5,6.75,,,,Excellent
+2026-09-28,holder,c_i115,c_i115,Comune di San Pietro in Lama,3,6.75,,,,Excellent
+2026-09-28,holder,c_h096,c_h096,Città di Putignano,3,6.75,,,,Excellent
+2026-09-28,holder,c_e038,c_e038,Comune di Gioia del Colle,5,6.75,,,,Excellent
+2026-09-28,holder,c_e053,c_e053,Comune di Giuggianello,4,6.75,,,,Excellent
+2026-09-28,holder,c_l008,c_l008,Comune di Supersano,3,6.75,,,,Excellent
+2026-09-28,holder,pusv,pusv,Puglia Sviluppo SpA,8,6.75,,,,Excellent
+2026-09-28,holder,arlpa,arlpa,ARPAL,6,6.75,,,,Excellent
+2026-09-28,holder,adisu,adisu,Adisu,12,6.75,,,,Excellent
+2026-09-28,holder,c_l010,c_l010,Comune di Surano,3,6.75,,,,Excellent
+2026-09-28,holder,c_l887,c_l887,Comune di Specchia,6,6.75,,,,Excellent
+2026-09-28,holder,asl_vvta,asl_vvta,ASL TARANTO,14,6.72,,,,Excellent
+2026-09-28,holder,c_g098,c_g098,Comune di Oria,21,6.72,,,,Excellent
+2026-09-28,holder,06010490727,06010490727,Amtab,4,6.67,,,,Excellent
+2026-09-28,holder,c_a281,c_a281,Comune di Andrano,3,6.67,,,,Excellent
+2026-09-28,holder,c_g251,c_g251,Comune di Palagianello,4,6.67,,,,Excellent
+2026-09-28,holder,cciaa_le,cciaa_le,camera-di-commercio-di-lecce,430,6.64,,,,Excellent
+2026-09-28,holder,c_f816,c_f816,Comune di Muro Leccese,12,6.63,,,,Excellent
+2026-09-28,holder,asset,asset,ASSET Puglia,28,6.63,,,,Excellent
+2026-09-28,holder,arpap,arpap,ARPA Puglia ,21,6.62,,,,Excellent
+2026-09-28,holder,c_f563,c_f563,Comune di Montemesola,40,6.62,,,,Excellent
+2026-09-28,holder,c_h985,c_h985,Comune di San Marco in Lamis,10,6.62,,,,Excellent
+2026-09-28,holder,c_i950,c_i950,Comune di Sternatia,3,6.62,,,,Excellent
+2026-09-28,holder,05487980723,05487980723,AMIU,9,6.61,,,,Excellent
+2026-09-28,holder,c_a662,c_a662,Comune di Bari,158,6.61,,,,Excellent
+2026-09-28,holder,c_d863,c_d863,Comune di Galatone,35,6.6,,,,Excellent
+2026-09-28,holder,c_f027,c_f027,Comune di Massafra,38,6.6,,,,Excellent
+2026-09-28,holder,artpp,artpp,ARET - Pugliapromozione,23,6.59,,,,Excellent
+2026-09-28,holder,c_f916,c_f916,Comune di Nociglia,3,6.58,,,,Excellent
+2026-09-28,holder,c_f194,c_f194,Comune di Miggiano,3,6.58,,,,Excellent
+2026-09-28,holder,c_e471,c_e471,Comune di Latiano,9,6.58,,,,Excellent
+2026-09-28,holder,c_e986,c_e986,Comune di Martina Franca,40,6.58,,,,Excellent
+2026-09-28,holder,c_b690,c_b690,Comune di Caprarica di Lecce,3,6.58,,,,Excellent
+2026-09-28,holder,ipres,ipres,Fondazione Istituto Pugliese di Ricerche Economiche e Sociali,51,6.55,,,,Excellent
+2026-09-28,holder,c_e506,c_e506,Comune di Lecce,478,6.55,,,,Excellent
+2026-09-28,holder,r_puglia,r_puglia,Regione Puglia,248,6.54,,,,Excellent
+2026-09-28,holder,c_c978,c_c978,Comune di Copertino,16,6.51,,,,Excellent
+2026-09-28,holder,c_f881,c_f881,Comune di Neviano,3,6.5,,,,Excellent
+2026-09-28,holder,crpuglia,crpuglia,Consiglio Regionale della Puglia,1,6.5,,,,Excellent
+2026-09-28,holder,asl_br,asl_br,ASL BRINDISI,1,6.5,,,,Excellent
+2026-09-28,holder,c_b584,c_b584,Comune di Candela,4,6.49,,,,Excellent
+2026-09-28,holder,c_l328,c_l328,Città di Trani,5,6.49,,,,Excellent
+2026-09-28,holder,arsls,arsls,Agenzia Regionale Strategica per la Salute ed il Sociale,75,6.49,,,,Excellent
+2026-09-28,holder,ato_pu,ato_pu,Autorità idrica Pugliese (AIP),13,6.46,,,,Excellent
+2026-09-28,holder,c_d171,c_d171,Comune di Crispiano,36,6.45,,,,Excellent
+2026-09-28,holder,arltl_0,arltl_0,ARTI Puglia,13,6.4,,,,Excellent
+2026-09-28,holder,c_e882,c_e882,Comune di Manduria,5,6.38,,,,Excellent
+2026-09-28,holder,c_a874,c_a874,Comune di Binetto,3,6.35,,,,Excellent
 2026-08-03,organization,585452e2-12b4-4187-89d6-c33068eff19f,regione-puglia,Regione Puglia,1840,6.63,,,,Excellent
 2026-08-03,organization,df53accc-dc73-4f98-bd0e-66c32524eb6f,comune-di-bari,Comune di Bari,167,6.52,,,,Excellent
 2026-08-03,organization,954a56b3-6ace-4e65-947b-e737b8824d9e,comune-di-san-marco-in-lamis,Comune di San Marco in Lamis,3,6.14,,,,Excellent
@@ -3066,6 +3122,8 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-09-26,organization,954a56b3-6ace-4e65-947b-e737b8824d9e,comune-di-san-marco-in-lamis,Comune di San Marco in Lamis,3,6.62,,,,Excellent
 2026-09-27,organization,954a56b3-6ace-4e65-947b-e737b8824d9e,comune-di-san-marco-in-lamis,Comune di San Marco in Lamis,3,6.62,,,,Excellent
 2026-09-27,organization,585452e2-12b4-4187-89d6-c33068eff19f,regione-puglia,Regione Puglia,2003,6.59,,,,Excellent
+2026-09-28,organization,954a56b3-6ace-4e65-947b-e737b8824d9e,comune-di-san-marco-in-lamis,Comune di San Marco in Lamis,3,6.62,,,,Excellent
+2026-09-28,organization,585452e2-12b4-4187-89d6-c33068eff19f,regione-puglia,Regione Puglia,2004,6.59,,,,Excellent
 2026-08-02,publisher,PO CED,,PO CED,2,405.0,405,405,405,Excellent
 2026-08-02,publisher,Ufficio Commercio,,Ufficio Commercio,10,391.0,385,385,405,Excellent
 2026-08-02,publisher,ASL TA,,ASL TA,12,386.67,385,385,405,Excellent
@@ -5527,3 +5585,252 @@ data,livello,chiave,slug,etichetta,n_dataset,media,mediana,min,max,rating
 2026-09-21,publisher,redazione  O.P.,,redazione  O.P.,1,305.0,305,305,305,Excellent
 2026-09-21,publisher,Ufficio  Coordinamento PNRR,,Ufficio  Coordinamento PNRR,1,305.0,305,305,305,Excellent
 2026-09-21,publisher,Mauro Nicola de Pinto,,Mauro Nicola de Pinto,1,255.0,255,255,255,Excellent
+2026-09-28,publisher,Ufficio Urbanistica,,Ufficio Urbanistica,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Urbanistica,,Urbanistica,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Affari generali,,Affari generali,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Sezione Personale e Sezione Statistica,,Sezione Personale e Sezione Statistica,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Dipartimento Ambiente Paesaggio e Qualità Urbana,,Dipartimento Ambiente Paesaggio e Qualità Urbana,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Ufficio tecnico,,Ufficio tecnico,2,700.0,700,700,700,Excellent
+2026-09-28,publisher,"SEZIONE INNOVAZIONE, DATI E SERVIZI DIGITALI",,"SEZIONE INNOVAZIONE, DATI E SERVIZI DIGITALI",1,700.0,700,700,700,Excellent
+2026-09-28,publisher,"Dipartimento Turismo, Economia della Cultura e Valorizzazione del Territorio - Struttura Progetto Cooperazione Territoriale Europea E Poli Biblio-Museali",,"Dipartimento Turismo, Economia della Cultura e Valorizzazione del Territorio - Struttura Progetto Cooperazione Territoriale Europea E Poli Biblio-Museali",1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Sezione Personale e Organizzazione - servizio.personale@regione.puglia.it,,Sezione Personale e Organizzazione - servizio.personale@regione.puglia.it,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Servizio Finanziario – Comune di Palo del Colle,,Servizio Finanziario – Comune di Palo del Colle,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Sezione Finanze,,Sezione Finanze,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,ex Sezione Promozione della Salute e del Benessere - attuale Sezione Sanità Veterinaria e Sicurezza Alimentare,,ex Sezione Promozione della Salute e del Benessere - attuale Sezione Sanità Veterinaria e Sicurezza Alimentare,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Sezione Ciclo Rifiuti e Bonifiche,,Sezione Ciclo Rifiuti e Bonifiche,2,700.0,700,700,700,Excellent
+2026-09-28,publisher,"Sezione Promozione del Commercio, Artigianato e Internazionalizzazione delle imprese",,"Sezione Promozione del Commercio, Artigianato e Internazionalizzazione delle imprese",1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Città di Putignano,,Città di Putignano,3,700.0,700,700,700,Excellent
+2026-09-28,publisher,Struttura Speciale Cooperazione Euro-Mediterranea,,Struttura Speciale Cooperazione Euro-Mediterranea,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Sezione Bilancio della Sanità e dello Sport,,Sezione Bilancio della Sanità e dello Sport,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,"Dipartimento Welfare, sezione Benessere Sociale, Innovazione e Sussidiarietà",,"Dipartimento Welfare, sezione Benessere Sociale, Innovazione e Sussidiarietà",1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Sezione Tutela e Valorizzazione dei Patrimoni Culturali,,Sezione Tutela e Valorizzazione dei Patrimoni Culturali,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Sezione Supporto Legsislativo,,Sezione Supporto Legsislativo,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Sezione Bilancio e ragioneria,,Sezione Bilancio e ragioneria,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Adisu,,Adisu,2,700.0,700,700,700,Excellent
+2026-09-28,publisher,Sezione Personale e Organizzazione,,Sezione Personale e Organizzazione,3,700.0,700,700,700,Excellent
+2026-09-28,publisher,Servizio Ricerca Industriale e Innovazione,,Servizio Ricerca Industriale e Innovazione,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,ASL Taranto,,ASL Taranto,3,700.0,700,700,700,Excellent
+2026-09-28,publisher,"Sezione Turismo e Internazionalizzazione - Servizio Sviluppo, Infrastrutture, Imprese, Professioni",,"Sezione Turismo e Internazionalizzazione - Servizio Sviluppo, Infrastrutture, Imprese, Professioni",1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Sezione Bilancio e Ragioneria,,Sezione Bilancio e Ragioneria,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Autorità di Gestione del POR 2014-2020,,Autorità di Gestione del POR 2014-2020,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Sezione Promozione della Salute e del Benessere - Servizio Sicurezza Alimentare e Sanità Veterinaria,,Sezione Promozione della Salute e del Benessere - Servizio Sicurezza Alimentare e Sanità Veterinaria,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Sezione Economia della Cultura,,Sezione Economia della Cultura,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Sezione Autorizzazioni Ambientali,,Sezione Autorizzazioni Ambientali,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,AREA ANALISI E RICERCHE,,AREA ANALISI E RICERCHE,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,"Dipartimento Turismo, Economia della Cultura e Valorizzazione del Territorio - Sezione Tutela e valorizzazione dei patrimoni culturali",,"Dipartimento Turismo, Economia della Cultura e Valorizzazione del Territorio - Sezione Tutela e valorizzazione dei patrimoni culturali",1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Servizio Struttura di Staff Amministrazione e Affari generali,,Servizio Struttura di Staff Amministrazione e Affari generali,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Sezione Affari istituzionali e giuridici,,Sezione Affari istituzionali e giuridici,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Struttura Speciale Comunicazione Istituzionale,,Struttura Speciale Comunicazione Istituzionale,2,700.0,700,700,700,Excellent
+2026-09-28,publisher,Ufficio LL.PP.,,Ufficio LL.PP.,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Puglia Sviluppo,,Puglia Sviluppo,2,700.0,700,700,700,Excellent
+2026-09-28,publisher,Segreteria Generale della Presidenza,,Segreteria Generale della Presidenza,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,PROGRAMMAZIONE UNITARIA,,PROGRAMMAZIONE UNITARIA,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,SEZIONE CONTROLLI REGOLARITA AMMINISTRATIVA,,SEZIONE CONTROLLI REGOLARITA AMMINISTRATIVA,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Comune di Palo del Colle – Ufficio Anagrafe / Demografici,,Comune di Palo del Colle – Ufficio Anagrafe / Demografici,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Puglia Sviluppo spa,,Puglia Sviluppo spa,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,SEZIONE FORMAZIONE,,SEZIONE FORMAZIONE,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Sezione Personale,,Sezione Personale,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Sezione Statistica,,Sezione Statistica,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Sezione Politiche per lo sviluppo delle aree produttive e industriali,,Sezione Politiche per lo sviluppo delle aree produttive e industriali,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Sezione Strategie e Governo dell'Offerta,,Sezione Strategie e Governo dell'Offerta,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Sezione Urbanistica - Servizio Osservatorio Abusivismo e Usi Civici,,Sezione Urbanistica - Servizio Osservatorio Abusivismo e Usi Civici,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Sezione Demanio e Patrimonio,,Sezione Demanio e Patrimonio,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Sezione datore di lavoro,,Sezione datore di lavoro,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Redazione OD - Regione Puglia,,Redazione OD - Regione Puglia,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Sezione Regionale di Vigilanza,,Sezione Regionale di Vigilanza,1,700.0,700,700,700,Excellent
+2026-09-28,publisher,Comune di Specchia,,Comune di Specchia,6,691.67,700,650,700,Excellent
+2026-09-28,publisher,Ufficio Statistica e Studi,,Ufficio Statistica e Studi,5,690.0,700,675,700,Excellent
+2026-09-28,publisher,Area Analisi e Ricerche,,Area Analisi e Ricerche,5,690.0,700,650,700,Excellent
+2026-09-28,publisher,Comune di Minervino di Lecce,,Comune di Minervino di Lecce,5,690.0,700,650,700,Excellent
+2026-09-28,publisher,Puglia Sviluppo SpA,,Puglia Sviluppo SpA,5,690.0,700,650,700,Excellent
+2026-09-28,publisher,REDAZIONE OD,,REDAZIONE OD,2,687.5,700,675,700,Excellent
+2026-09-28,publisher,Ufficio statistica,,Ufficio statistica,90,686.67,700,625,700,Excellent
+2026-09-28,publisher,Comune di Andrano,,Comune di Andrano,3,683.33,700,650,700,Excellent
+2026-09-28,publisher,Comune di Zollino,,Comune di Zollino,3,683.33,700,650,700,Excellent
+2026-09-28,publisher,Sistemi Informativi e Transizione Digitale,,Sistemi Informativi e Transizione Digitale,5,680.0,700,650,700,Excellent
+2026-09-28,publisher,ufficio tecnico,,ufficio tecnico,7,678.57,700,650,700,Excellent
+2026-09-28,publisher,Comune di Bitonto,,Comune di Bitonto,55,678.18,700,650,700,Excellent
+2026-09-28,publisher,Agenzia regionale strategica per lo Sviluppo Ecososteniile del Territorio,,Agenzia regionale strategica per lo Sviluppo Ecososteniile del Territorio,9,677.78,700,650,700,Excellent
+2026-09-28,publisher,ARET - Ufficio Osservatorio,,ARET - Ufficio Osservatorio,4,675.0,700,650,700,Excellent
+2026-09-28,publisher,Comune di Santa Cesarea Terme,,Comune di Santa Cesarea Terme,4,675.0,700,650,700,Excellent
+2026-09-28,publisher,Ufficio Ambiente,,Ufficio Ambiente,4,675.0,700,650,700,Excellent
+2026-09-28,publisher,Ufficio Servizi Finanziari,,Ufficio Servizi Finanziari,2,675.0,675,675,675,Excellent
+2026-09-28,publisher,Sezione Competitività,,Sezione Competitività,2,675.0,700,650,700,Excellent
+2026-09-28,publisher,Comune di Cursi,,Comune di Cursi,4,675.0,700,650,700,Excellent
+2026-09-28,publisher,Sezione Programmazione e coordinamento,,Sezione Programmazione e coordinamento,2,675.0,700,650,700,Excellent
+2026-09-28,publisher,Sezione Osservatorio fitosanitario,,Sezione Osservatorio fitosanitario,2,675.0,700,650,700,Excellent
+2026-09-28,publisher,Sezione Provveditorato Economato,,Sezione Provveditorato Economato,2,675.0,700,650,700,Excellent
+2026-09-28,publisher,Sezione Mobilità Sostenibile e Vigilanza del Trasporto Pubblico Locale,,Sezione Mobilità Sostenibile e Vigilanza del Trasporto Pubblico Locale,2,675.0,700,650,700,Excellent
+2026-09-28,publisher,Sezione Politiche Abitative,,Sezione Politiche Abitative,2,675.0,700,650,700,Excellent
+2026-09-28,publisher,Servizio Appalti,,Servizio Appalti,2,675.0,700,650,700,Excellent
+2026-09-28,publisher,redazione  O.P.,,redazione  O.P.,1,675.0,675,675,675,Excellent
+2026-09-28,publisher,Sezione Transizione Energetica,,Sezione Transizione Energetica,2,675.0,700,650,700,Excellent
+2026-09-28,publisher,ARPA Puglia,,ARPA Puglia,2,675.0,675,675,675,Excellent
+2026-09-28,publisher,InnovaPuglia,,InnovaPuglia,2,675.0,700,650,700,Excellent
+2026-09-28,publisher,"Struttura di Progetto Attuazione della Politica Europea per gli Affari Marittimi, la Pesca e l'Acquacoltura",,"Struttura di Progetto Attuazione della Politica Europea per gli Affari Marittimi, la Pesca e l'Acquacoltura",2,675.0,700,650,700,Excellent
+2026-09-28,publisher,Mauro Nicola de Pinto,,Mauro Nicola de Pinto,1,675.0,675,675,675,Excellent
+2026-09-28,publisher,Sezione Infrastrutture per la Mobilità,,Sezione Infrastrutture per la Mobilità,2,675.0,700,650,700,Excellent
+2026-09-28,publisher,Team O.D.,,Team O.D.,2,675.0,700,650,700,Excellent
+2026-09-28,publisher,Polizia Locale Lecce,,Polizia Locale Lecce,1,675.0,675,675,675,Excellent
+2026-09-28,publisher,Ufficio Statistica e Studi Camera di Commercio di Lecce,,Ufficio Statistica e Studi Camera di Commercio di Lecce,96,672.66,675,625,700,Excellent
+2026-09-28,publisher,ADISU Puglia,,ADISU Puglia,10,670.0,650,650,700,Excellent
+2026-09-28,publisher,Polizia Municipale,,Polizia Municipale,5,670.0,650,650,700,Excellent
+2026-09-28,publisher,Comune di Muro Leccese,,Comune di Muro Leccese,5,670.0,675,650,675,Excellent
+2026-09-28,publisher,Comune di Melpignano,,Comune di Melpignano,8,668.75,650,650,700,Excellent
+2026-09-28,publisher,comune lecce,,comune lecce,4,668.75,675,650,675,Excellent
+2026-09-28,publisher,Camera di Commercio di Lecce,,Camera di Commercio di Lecce,105,667.38,675,625,700,Excellent
+2026-09-28,publisher,ASL TA,,ASL TA,12,667.08,700,405,700,Excellent
+2026-09-28,publisher,Area di Epidemiologia e Care Intelligence,,Area di Epidemiologia e Care Intelligence,15,666.67,650,650,700,Excellent
+2026-09-28,publisher,Sezione Politiche Giovanili,,Sezione Politiche Giovanili,3,666.67,650,650,700,Excellent
+2026-09-28,publisher,Sezione politiche di benessere sociale e pari opportunità,,Sezione politiche di benessere sociale e pari opportunità,3,666.67,650,650,700,Excellent
+2026-09-28,publisher,Comune di Miggiano,,Comune di Miggiano,3,666.67,650,650,700,Excellent
+2026-09-28,publisher,DIPARTIMENTO PROMOZIONE DELLA SALUTE E DEL BENESSERE ANIMALE/SEZIONE PROMOZIONE DELLA SALUTE E DEL BENESSERE,,DIPARTIMENTO PROMOZIONE DELLA SALUTE E DEL BENESSERE ANIMALE/SEZIONE PROMOZIONE DELLA SALUTE E DEL BENESSERE,3,666.67,700,600,700,Excellent
+2026-09-28,publisher,Sezione Demanio e Patrimonio serviziodemaniopatrimonio.bari@pec.rupar.puglia.it,,Sezione Demanio e Patrimonio serviziodemaniopatrimonio.bari@pec.rupar.puglia.it,3,666.67,650,650,700,Excellent
+2026-09-28,publisher,DO,,DO,3,666.67,675,650,675,Excellent
+2026-09-28,publisher,Comune di Bari,,Comune di Bari,171,664.33,650,575,725,Excellent
+2026-09-28,publisher,Ufficio Statistica,,Ufficio Statistica,57,664.04,675,625,700,Excellent
+2026-09-28,publisher,Arpa Puglia - Direzione Scientifica - Centro Regionale Mare,,Arpa Puglia - Direzione Scientifica - Centro Regionale Mare,9,663.89,700,600,700,Excellent
+2026-09-28,publisher,Redazione O.D.,,Redazione O.D.,108,663.66,675,550,700,Excellent
+2026-09-28,publisher,comune di lecce,,comune di lecce,22,663.64,675,625,700,Excellent
+2026-09-28,publisher,Comune di San Marco in Lamis,,Comune di San Marco in Lamis,8,662.5,650,625,700,Excellent
+2026-09-28,publisher,Arpa Puglia - Direzione Scientifica - Servizio Agenti Fisici,,Arpa Puglia - Direzione Scientifica - Servizio Agenti Fisici,4,662.5,675,650,675,Excellent
+2026-09-28,publisher,Ufficio transizione digitale,,Ufficio transizione digitale,2,662.5,675,650,675,Excellent
+2026-09-28,publisher,Comune di Giuggianello,,Comune di Giuggianello,4,662.5,650,650,700,Excellent
+2026-09-28,publisher,Comune di Candela,,Comune di Candela,4,662.5,650,650,700,Excellent
+2026-09-28,publisher,redazione OD,,redazione OD,2,662.5,675,650,675,Excellent
+2026-09-28,publisher,Arpa Puglia - Direzione Scientifica - Centro Regionale Aria,,Arpa Puglia - Direzione Scientifica - Centro Regionale Aria,4,662.5,700,600,700,Excellent
+2026-09-28,publisher,ARPAP,,ARPAP,2,662.5,675,650,675,Excellent
+2026-09-28,publisher,Fondazione IPRES,,Fondazione IPRES,51,661.76,650,600,700,Excellent
+2026-09-28,publisher,Comune di Montemesola - Redazione OD,,Comune di Montemesola - Redazione OD,40,661.25,650,650,675,Excellent
+2026-09-28,publisher,Comune di Massafra,,Comune di Massafra,38,660.53,650,650,700,Excellent
+2026-09-28,publisher,Osservatorio Turismo,,Osservatorio Turismo,5,660.0,650,650,700,Excellent
+2026-09-28,publisher,Servizi Sociali Pubblica Istruzione,,Servizi Sociali Pubblica Istruzione,5,660.0,650,650,700,Excellent
+2026-09-28,publisher,Ufficio Infortunistica,,Ufficio Infortunistica,5,660.0,650,650,675,Excellent
+2026-09-28,publisher,Comune Lecce,,Comune Lecce,8,659.38,650,650,675,Excellent
+2026-09-28,publisher,Servizio Transizione Digitale e Privacy,,Servizio Transizione Digitale e Privacy,11,659.09,650,650,700,Excellent
+2026-09-28,publisher,Asset,,Asset,19,657.89,650,650,700,Excellent
+2026-09-28,publisher,ARET Ufficio Innovazione,,ARET Ufficio Innovazione,14,657.14,650,650,700,Excellent
+2026-09-28,publisher,Redazione OD,,Redazione OD,343,654.23,650,325,700,Excellent
+2026-09-28,publisher,re,,re,8,653.12,650,550,700,Excellent
+2026-09-28,publisher,Comune di Lecce,,Comune di Lecce,39,650.64,650,550,725,Excellent
+2026-09-28,publisher,Città di Trani,,Città di Trani,5,650.0,650,650,650,Excellent
+2026-09-28,publisher,Comune di Carpignano Salentino,,Comune di Carpignano Salentino,4,650.0,650,650,650,Excellent
+2026-09-28,publisher,Dott.ssa Rocca Anna Ettorre,,Dott.ssa Rocca Anna Ettorre,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,SEZIONE INCLUSIONE SOCIALE ATTIVA,,SEZIONE INCLUSIONE SOCIALE ATTIVA,5,650.0,650,650,650,Excellent
+2026-09-28,publisher,SEZIONE INCLUSIONE SOCIALE ATTIVA e SEZIONE ISTRUZIONE E UNIVERSITA',,SEZIONE INCLUSIONE SOCIALE ATTIVA e SEZIONE ISTRUZIONE E UNIVERSITA',1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Sezione Trasformazione Digitale,,Sezione Trasformazione Digitale,2,650.0,650,650,650,Excellent
+2026-09-28,publisher,Area Valutazione e Ricerca – Servizio Valutazione e Governo dell'Innovazione,,Area Valutazione e Ricerca – Servizio Valutazione e Governo dell'Innovazione,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Affari Generali,,Affari Generali,2,650.0,650,650,650,Excellent
+2026-09-28,publisher,Redazione,,Redazione,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Area Direzione Amministrativa - Servizio Risorse Umane,,Area Direzione Amministrativa - Servizio Risorse Umane,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Ufficio Sistemi Informativi e Flussi Informativi,,Ufficio Sistemi Informativi e Flussi Informativi,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Programmazione Unitaria,,Programmazione Unitaria,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Comune di Palo del Colle – Ufficio Anagrafe,,Comune di Palo del Colle – Ufficio Anagrafe,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,ASL Brindisi,,ASL Brindisi,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Comune di Sternatia,,Comune di Sternatia,3,650.0,650,650,650,Excellent
+2026-09-28,publisher,M. Capozzi,,M. Capozzi,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Segretariato generale della Giunta regionale segretariatogenerale.giunta@regione.puglia.it,,Segretariato generale della Giunta regionale segretariatogenerale.giunta@regione.puglia.it,2,650.0,650,650,650,Excellent
+2026-09-28,publisher,Area di Direzione Amministrativa,,Area di Direzione Amministrativa,6,650.0,650,650,650,Excellent
+2026-09-28,publisher,Marica Girardi - laboratoriurbani@regione.puglia.it,,Marica Girardi - laboratoriurbani@regione.puglia.it,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,"SEZIONE BENESSERE SOCIALE, INNOVAIONE E SUSSIDIARIETA'",,"SEZIONE BENESSERE SOCIALE, INNOVAIONE E SUSSIDIARIETA'",1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Comune di San Pietro in Lama,,Comune di San Pietro in Lama,3,650.0,650,650,650,Excellent
+2026-09-28,publisher,Sezione Competitività delle Filiere Agroalimentari,,Sezione Competitività delle Filiere Agroalimentari,3,650.0,650,650,650,Excellent
+2026-09-28,publisher,Sezione Ricerca e Relazioni Internazionali,,Sezione Ricerca e Relazioni Internazionali,2,650.0,650,650,650,Excellent
+2026-09-28,publisher,Agenzia Regionale Strategica per la Salute ed il Sociale,,Agenzia Regionale Strategica per la Salute ed il Sociale,4,650.0,650,650,650,Excellent
+2026-09-28,publisher,ced,,ced,2,650.0,650,650,650,Excellent
+2026-09-28,publisher,Comune di Neviano,,Comune di Neviano,3,650.0,650,650,650,Excellent
+2026-09-28,publisher,Servizio Programmazione Acquisti,,Servizio Programmazione Acquisti,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Dipartimento Personale e Organizzazione - Sezione Personale,,Dipartimento Personale e Organizzazione - Sezione Personale,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Protezione Civile,,Protezione Civile,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,SEZIONE POLITICHE E MERCATO DEL LAVORO,,SEZIONE POLITICHE E MERCATO DEL LAVORO,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Sezione Controlli,,Sezione Controlli,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Interreg Management Structure,,Interreg Management Structure,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Sezione Tutela e valorizzazione del paesaggio,,Sezione Tutela e valorizzazione del paesaggio,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Servizio Risorse Finanziarie,,Servizio Risorse Finanziarie,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Sezione Coordinamento dei servizi territoriali,,Sezione Coordinamento dei servizi territoriali,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Sezione Difesa del suolo e rischio sismico,,Sezione Difesa del suolo e rischio sismico,2,650.0,650,650,650,Excellent
+2026-09-28,publisher,Sezione Trattamento Economico,,Sezione Trattamento Economico,2,650.0,650,650,650,Excellent
+2026-09-28,publisher,Comune di Oria,,Comune di Oria,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Ragioneria Crispiano,,Ragioneria Crispiano,2,650.0,700,600,700,Excellent
+2026-09-28,publisher,Sezione Attuzione dei programmi comunitari per l'agricolturai,,Sezione Attuzione dei programmi comunitari per l'agricolturai,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Dipartimento Sviluppo Economico,,Dipartimento Sviluppo Economico,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Sezione politiche di benessere sociale e pari opportunità Sezione programmazione Sociale ed integrazione socio-sanitaria,,Sezione politiche di benessere sociale e pari opportunità Sezione programmazione Sociale ed integrazione socio-sanitaria,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Sezione Coordinamento dei Servizi Territoriali,,Sezione Coordinamento dei Servizi Territoriali,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Sezione Gestione Sostenibile e tutela delle Risorse Forestali e Naturali - Servizio risorse forestali,,Sezione Gestione Sostenibile e tutela delle Risorse Forestali e Naturali - Servizio risorse forestali,2,650.0,650,650,650,Excellent
+2026-09-28,publisher,"Dipartimento Turismo, Economia della Cultura e Valorizzazione del Territorio - Sezione Economia della Cultura",,"Dipartimento Turismo, Economia della Cultura e Valorizzazione del Territorio - Sezione Economia della Cultura",1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Sezione politiche di benessere sociale e pari opportunità - Sezione programmazione Sociale ed integrazione socio-sanitaria - InnovaPuglia S.p.a.,,Sezione politiche di benessere sociale e pari opportunità - Sezione programmazione Sociale ed integrazione socio-sanitaria - InnovaPuglia S.p.a.,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,"Sezione Sicurezza del Cittadino, politiche per le migrazioni ed Antimafia sociale",,"Sezione Sicurezza del Cittadino, politiche per le migrazioni ed Antimafia sociale",1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Ufficio  Coordinamento PNRR,,Ufficio  Coordinamento PNRR,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Sezione Programmazione Acquisti servizio.affarigenerali@regione.puglia.it,,Sezione Programmazione Acquisti servizio.affarigenerali@regione.puglia.it,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,comune di martina franca,,comune di martina franca,3,650.0,650,650,650,Excellent
+2026-09-28,publisher,Sezione Promozione della salute e del benessere,,Sezione Promozione della salute e del benessere,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Sezione Personale e Organizzazione servizio.personale@regione.puglia.it,,Sezione Personale e Organizzazione servizio.personale@regione.puglia.it,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Comune di Galatone,,Comune di Galatone,5,650.0,650,625,675,Excellent
+2026-09-28,publisher,Struttura Speciale Monitoraggio dell'Attuazione Regionale del PNRR,,Struttura Speciale Monitoraggio dell'Attuazione Regionale del PNRR,2,650.0,650,650,650,Excellent
+2026-09-28,publisher,Servizio Protezione Civile servizio.protezionecivile@regione.puglia.it,,Servizio Protezione Civile servizio.protezionecivile@regione.puglia.it,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Segreteria generale della Presidenza - Struttura Speciale Audit FSE+,,Segreteria generale della Presidenza - Struttura Speciale Audit FSE+,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Sezione APG,,Sezione APG,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,"Dipartimento Sviluppo Economico - Sezione Crescita Digitale delle persone, del territorio e delle imprese",,"Dipartimento Sviluppo Economico - Sezione Crescita Digitale delle persone, del territorio e delle imprese",1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Area E-Health,,Area E-Health,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Servizio politiche di benessere sociale e pari opportunità - Servizio programmazione Sociale ed integrazione socio-sanitaria,,Servizio politiche di benessere sociale e pari opportunità - Servizio programmazione Sociale ed integrazione socio-sanitaria,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,ufficio lavori pubblii,,ufficio lavori pubblii,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Comune di Nociglia,,Comune di Nociglia,3,650.0,650,650,650,Excellent
+2026-09-28,publisher,"Sezione Farmaci, Dispositivi Medici e Assistenza Integrativa",,"Sezione Farmaci, Dispositivi Medici e Assistenza Integrativa",1,650.0,650,650,650,Excellent
+2026-09-28,publisher,"Sezione Cloud, Cybersecurity e Infrastrutture tecnologiche",,"Sezione Cloud, Cybersecurity e Infrastrutture tecnologiche",1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Luisa Maraschiello,,Luisa Maraschiello,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Sezione Organizzazione e Formazione del Personale,,Sezione Organizzazione e Formazione del Personale,2,650.0,650,650,650,Excellent
+2026-09-28,publisher,Area Direzione Amministrativa - Servizio Formazione e Innovazione dei Saperi,,Area Direzione Amministrativa - Servizio Formazione e Innovazione dei Saperi,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Arti Puglia,,Arti Puglia,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Area Direzione Amministrativa - Servizio PMO e Internazionalizzazione,,Area Direzione Amministrativa - Servizio PMO e Internazionalizzazione,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Centro Regionale HTA - Area Valutazione e Ricerca,,Centro Regionale HTA - Area Valutazione e Ricerca,2,650.0,650,650,650,Excellent
+2026-09-28,publisher,Servizio Parchi e Tutela della Biodiversità,,Servizio Parchi e Tutela della Biodiversità,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Sezione Risorse Idriche - Servizio Sistema Idrico Integrato e Tutela delle Acque,,Sezione Risorse Idriche - Servizio Sistema Idrico Integrato e Tutela delle Acque,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Segreteria generale della Presidenza - Struttura Speciale Autorità di Audit,,Segreteria generale della Presidenza - Struttura Speciale Autorità di Audit,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Ufficio lavori pubblici – Comune di Palo del Colle,,Ufficio lavori pubblici – Comune di Palo del Colle,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,"Dipartimento Turismo, Economia della Cultura e Valorizzazione del Territorio - Sezione Turismo e Internazionalizzazione",,"Dipartimento Turismo, Economia della Cultura e Valorizzazione del Territorio - Sezione Turismo e Internazionalizzazione",1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Dipartimento sviluppo territoriale,,Dipartimento sviluppo territoriale,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,PROTEZIONE CIVILE,,PROTEZIONE CIVILE,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,RegionePuglia,,RegionePuglia,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Sezione Raccordo al Sistema Regionale - Servizio Contratti e Programmazione Acquisti,,Sezione Raccordo al Sistema Regionale - Servizio Contratti e Programmazione Acquisti,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Labalestra Mary Jo,,Labalestra Mary Jo,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Sezione Affari e Studi Giuridici e Legislativi,,Sezione Affari e Studi Giuridici e Legislativi,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,"Sezione Personale e Organizzazione - P.O. Statistica,  servizio.personale@regione.puglia.it",,"Sezione Personale e Organizzazione - P.O. Statistica,  servizio.personale@regione.puglia.it",1,650.0,650,650,650,Excellent
+2026-09-28,publisher,DIREZIONE AMMINISTRATIVA DEL GABINETTO - RTD,,DIREZIONE AMMINISTRATIVA DEL GABINETTO - RTD,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,"Dipartimento Welfare, Sezione Inclusione Sociale Attiva",,"Dipartimento Welfare, Sezione Inclusione Sociale Attiva",1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Sezione Ricerca Industriale e Innovazione,,Sezione Ricerca Industriale e Innovazione,2,650.0,650,650,650,Excellent
+2026-09-28,publisher,"Sezione Promozione del Commercio, Artigianato e Internazionalizzazione delle Imprese",,"Sezione Promozione del Commercio, Artigianato e Internazionalizzazione delle Imprese",1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Sezione Istruzione e Università - Servizio Sistema dell'Istruzione e del Diritto allo Studio,,Sezione Istruzione e Università - Servizio Sistema dell'Istruzione e del Diritto allo Studio,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,redazione O.D.,,redazione O.D.,1,650.0,650,650,650,Excellent
+2026-09-28,publisher,Comune di Martina Franca,,Comune di Martina Franca,38,647.63,650,385,700,Excellent
+2026-09-28,publisher,Ufficio Transizione Digitale,,Ufficio Transizione Digitale,14,646.43,650,600,700,Excellent
+2026-09-28,publisher,Autorità idrica Pugliese (AIP),,Autorità idrica Pugliese (AIP),13,646.15,650,600,700,Excellent
+2026-09-28,publisher,Area Innovazione di Sistema e Qualità,,Area Innovazione di Sistema e Qualità,5,640.0,650,600,650,Excellent
+2026-09-28,publisher,Comune di Manduria,,Comune di Manduria,5,640.0,650,600,650,Excellent
+2026-09-28,publisher,Sezione Opere Pubbliche e Infrastrutture,,Sezione Opere Pubbliche e Infrastrutture,5,640.0,650,600,700,Excellent
+2026-09-28,publisher,Aress Puglia,,Aress Puglia,4,637.5,650,550,700,Excellent
+2026-09-28,publisher,Sezione Ricerca Industriale e Innovazione servizio.ricercainnovazione@regione.puglia.it,,Sezione Ricerca Industriale e Innovazione servizio.ricercainnovazione@regione.puglia.it,8,637.5,650,500,700,Excellent
+2026-09-28,publisher,Servizi Sociali,,Servizi Sociali,4,637.5,650,600,650,Excellent
+2026-09-28,publisher,Sonia Cappello,,Sonia Cappello,2,637.5,650,625,650,Excellent
+2026-09-28,publisher,Regione Puglia,,Regione Puglia,60,633.75,650,475,700,Excellent
+2026-09-28,publisher,camera-di-commercio-di-lecce,,camera-di-commercio-di-lecce,75,625.87,675,325,700,Excellent
+2026-09-28,publisher,ARTI Puglia,,ARTI Puglia,12,625.0,650,500,650,Excellent
+2026-09-28,publisher,Sezione Trasporto Pubblico Locale e Intermodalità,,Sezione Trasporto Pubblico Locale e Intermodalità,2,625.0,650,600,650,Excellent
+2026-09-28,publisher,Interreg Managment Structure,,Interreg Managment Structure,1,625.0,625,625,625,Excellent
+2026-09-28,publisher,Redazione O.D,,Redazione O.D,1,625.0,625,625,625,Excellent
+2026-09-28,publisher,InnovaPuglia Spa - Servizio Territorio e Ambiente info@sit.puglia.it,,InnovaPuglia Spa - Servizio Territorio e Ambiente info@sit.puglia.it,6,620.83,625,600,650,Excellent
+2026-09-28,publisher,Comune di Crispiano,,Comune di Crispiano,14,616.07,600,575,700,Excellent
+2026-09-28,publisher,Area Valutazione e Ricerca,,Area Valutazione e Ricerca,9,605.56,600,550,650,Excellent
+2026-09-28,publisher,Area Valutazione e Ricerca – Servizio Ricerca Sanitaria e Sperimentazioni Gestionali,,Area Valutazione e Ricerca – Servizio Ricerca Sanitaria e Sperimentazioni Gestionali,2,600.0,650,550,650,Excellent
+2026-09-28,publisher,"Dipartimento Agricoltura, sviluppo rurale e Ambientale - Sezione Attuazione dei Programmi Comunitari per l'agricoltura",,"Dipartimento Agricoltura, sviluppo rurale e Ambientale - Sezione Attuazione dei Programmi Comunitari per l'agricoltura",1,600.0,600,600,600,Excellent
+2026-09-28,publisher,Sezione Contenzioso Amministrativo,,Sezione Contenzioso Amministrativo,1,600.0,600,600,600,Excellent
+2026-09-28,publisher,Sezione Promozione della salute e del benessere (servizio.sportpertutti@regione.puglia.it),,Sezione Promozione della salute e del benessere (servizio.sportpertutti@regione.puglia.it),3,600.0,650,500,650,Excellent
+2026-09-28,publisher,"Dipartimento Turismo, Economia della Cultura e Valorizzazione del Territorio - Struttura di progetto Cooperazione territoriale europea e Poli BiblioMuseali",,"Dipartimento Turismo, Economia della Cultura e Valorizzazione del Territorio - Struttura di progetto Cooperazione territoriale europea e Poli BiblioMuseali",1,600.0,600,600,600,Excellent
+2026-09-28,publisher,Comune di Binetto,,Comune di Binetto,3,591.67,650,475,650,Excellent
+2026-09-28,publisher,"Dipartimento Turismo, Economia della Cultura e Valorizzazione del Territorio - Sezione Sviluppo Innovazione Reti",,"Dipartimento Turismo, Economia della Cultura e Valorizzazione del Territorio - Sezione Sviluppo Innovazione Reti",2,587.5,700,475,700,Excellent
+2026-09-28,publisher,Ufficio Commercio,,Ufficio Commercio,10,581.5,650,405,700,Excellent
+2026-09-28,publisher,InnovaPuglia spa infolivinglabs@innova.puglia.it,,InnovaPuglia spa infolivinglabs@innova.puglia.it,2,575.0,650,500,650,Excellent
+2026-09-28,publisher,Camera di Commercio,,Camera di Commercio,18,571.67,650,325,700,Excellent
+2026-09-28,publisher,Andrea De Salve,,Andrea De Salve,2,527.5,650,405,650,Excellent
+2026-09-28,publisher,Sezione Ricerca industriale e Innovazione,,Sezione Ricerca industriale e Innovazione,2,500.0,500,500,500,Excellent
+2026-09-28,publisher,Sezione Bilancio e Ragioneria servizio.bilancio.ragioneria@pec.rupar.puglia.it,,Sezione Bilancio e Ragioneria servizio.bilancio.ragioneria@pec.rupar.puglia.it,1,500.0,500,500,500,Excellent
+2026-09-28,publisher,PO CED,,PO CED,2,405.0,405,405,405,Excellent
