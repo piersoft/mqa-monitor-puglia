@@ -1,7 +1,7 @@
 {
- "aggiornato": "2026-10-25",
+ "aggiornato": "2026-10-26",
  "fonte": "https://dati.puglia.it/ckan/api/3/action/package_search",
- "dataset_catalogo": 2051,
+ "dataset_catalogo": 2052,
  "n_titolari": 57,
  "n_comuni": 38,
  "titolari": [
@@ -60,13 +60,13 @@
    "comune": true
   },
   {
-   "id": "c_d863",
-   "n_ckan": 38,
+   "id": "c_f027",
+   "n_ckan": 39,
    "grezzo": [],
    "comune": true
   },
   {
-   "id": "c_f027",
+   "id": "c_d863",
    "n_ckan": 38,
    "grezzo": [],
    "comune": true
