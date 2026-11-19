@@ -1,7 +1,7 @@
 {
  "aggiornato": "2026-11-19",
  "fonte": "https://dati.puglia.it/ckan/api/3/action/package_search",
- "dataset_catalogo": 2077,
+ "dataset_catalogo": 2083,
  "n_titolari": 58,
  "n_comuni": 39,
  "titolari": [
@@ -19,7 +19,7 @@
   },
   {
    "id": "r_puglia",
-   "n_ckan": 265,
+   "n_ckan": 266,
    "grezzo": [],
    "comune": false
   },
@@ -54,6 +54,12 @@
    "comune": true
   },
   {
+   "id": "asset",
+   "n_ckan": 39,
+   "grezzo": [],
+   "comune": false
+  },
+  {
    "id": "c_e986",
    "n_ckan": 39,
    "grezzo": [],
@@ -76,12 +82,6 @@
    "n_ckan": 36,
    "grezzo": [],
    "comune": true
-  },
-  {
-   "id": "asset",
-   "n_ckan": 34,
-   "grezzo": [],
-   "comune": false
   },
   {
    "id": "artpp",
